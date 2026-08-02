@@ -1,0 +1,50 @@
+title: "@elrensmin"
+email: keenignition@gmail.com
+description: >-
+  Work and research logs
+baseurl: ""
+url: "https://elrensmin.github.io"
+github_username: elrensmin
+twitter_username: elrensmin
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+collections:
+  logs:
+    output: true
+    permalink: /logs/:title/
+  reports:
+    output: true
+    permalink: /reports/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "logs"
+    values:
+      layout: log
+  - scope:
+      path: ""
+      type: "reports"
+    values:
+      layout: page
+  - scope:
+      path: ""
+    values:
+      layout: page
+
+include:
+  - .well-known
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - .github/
