@@ -6,6 +6,8 @@ baseurl: ""
 url: "https://elrensmin.github.io"
 github_username: elrensmin
 twitter_username: elrensmin
+goodreads_username: elren
+goodreads_link: https://www.goodreads.com/user/show/202848938
 
 markdown: kramdown
 plugins:

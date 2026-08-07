@@ -8,7 +8,7 @@
 ## Setup
 
 ```bash
-bundle install
+bundle install --path vendor/bundle
 ```
 
 ## Build

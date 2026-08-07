@@ -1,5 +1,5 @@
 ---
-title: BERT example worklog
+title: oss pr#1 - luminal/example-bert example worklog
 date: 2026-08-07
 description: documentation for my first oss pr
 tags: [oss, bert, luminal]
@@ -207,3 +207,5 @@ it works. paris is number one. the model is correct.
 ## link
 
 [pr](https://github.com/luminal-ai/luminal/pull/392)
+
+Let's hope it gets merged. 
