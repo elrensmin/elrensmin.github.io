@@ -1,6 +1,6 @@
 ---
 title: BERT example worklog
-date: 2026-07-07
+date: 2026-08-07
 description: documentation for my first oss pr
 tags: [oss, bert, luminal]
 ---
