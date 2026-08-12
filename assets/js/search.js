@@ -6,8 +6,11 @@
   if (!input) return;
 
   var resultsEl = document.getElementById(data.collection + "-search-results");
-  var listEl = document.getElementById(data.collection + "-list");
+  var pagerEl = document.getElementById(data.collection + "-pagination");
   var docs = data.documents || [];
+
+  var perPage = 5;
+  var page = 1;
   var filter = "all";
 
   var filterBtns = document.querySelectorAll("#search-filters .filter-btn");
@@ -17,7 +20,8 @@
         filterBtns.forEach(function(b) { b.classList.remove("active"); });
         btn.classList.add("active");
         filter = btn.getAttribute("data-filter");
-        update();
+        page = 1;
+        render();
       });
     });
   }
@@ -28,16 +32,18 @@
     return tags.indexOf(filter) !== -1;
   }
 
-  function search(term) {
-    term = term.trim().toLowerCase();
+  function getFiltered() {
+    var term = input.value.trim().toLowerCase();
     var out = [];
     for (var i = 0; i < docs.length; i++) {
       var d = docs[i];
       if (!filterMatches(d)) continue;
-      if (!term) { out.push(d); continue; }
-      var hay = [d.title, (d.tags || []).join(" "), d.date, d.content]
-        .join(" ").toLowerCase();
-      if (hay.indexOf(term) !== -1) out.push(d);
+      if (term) {
+        var hay = [d.title, (d.tags || []).join(" "), d.date, d.content]
+          .join(" ").toLowerCase();
+        if (hay.indexOf(term) === -1) continue;
+      }
+      out.push(d);
     }
     out.sort(function(a, b) {
       return (b.dateSort || b.date || "").localeCompare(a.dateSort || a.date || "");
@@ -45,16 +51,25 @@
     return out;
   }
 
-  function render(matches) {
-    if (!matches.length) {
+  function render() {
+    var all = getFiltered();
+    var totalPages = Math.max(1, Math.ceil(all.length / perPage));
+    if (page > totalPages) page = totalPages;
+
+    if (!all.length) {
       resultsEl.innerHTML = '<p class="search-none">no matches</p>';
       resultsEl.hidden = false;
-      listEl.hidden = true;
+      pagerEl.hidden = true;
+      pagerEl.innerHTML = "";
       return;
     }
+
+    var start = (page - 1) * perPage;
+    var slice = all.slice(start, start + perPage);
+
     var html = '<ul class="log-list">';
-    for (var i = 0; i < matches.length; i++) {
-      var m = matches[i];
+    for (var i = 0; i < slice.length; i++) {
+      var m = slice[i];
       html += '<li><a class="log-link" href="' + m.url + '">' + escapeHtml(m.title) + '</a>' +
         '<div class="log-date">' + escapeHtml(m.date) + '</div>';
       if (m.excerpt) {
@@ -65,13 +80,32 @@
     html += '</ul>';
     resultsEl.innerHTML = html;
     resultsEl.hidden = false;
-    listEl.hidden = true;
+
+    renderPager(totalPages);
   }
 
-  function update() {
-    var matches = search(input.value);
-    render(matches);
+  function renderPager(totalPages) {
+    if (totalPages <= 1) {
+      pagerEl.hidden = true;
+      pagerEl.innerHTML = "";
+      return;
+    }
+    var prev = page > 1 ? '<a class="page-link" href="#" data-page="' + (page - 1) + '">&larr; newer</a>'
+                        : '<span class="page-link disabled">&larr; newer</span>';
+    var next = page < totalPages ? '<a class="page-link" href="#" data-page="' + (page + 1) + '">older &rarr;</a>'
+                        : '<span class="page-link disabled">older &rarr;</span>';
+    pagerEl.innerHTML = prev + '<span class="page-info">page ' + page + ' of ' + totalPages + '</span>' + next;
+    pagerEl.hidden = false;
   }
+
+  pagerEl.addEventListener("click", function(e) {
+    var link = e.target.closest("a.page-link");
+    if (!link) return;
+    e.preventDefault();
+    page = parseInt(link.getAttribute("data-page"), 10);
+    render();
+    window.scrollTo(0, 0);
+  });
 
   function escapeHtml(s) {
     return String(s == null ? "" : s)
@@ -82,12 +116,9 @@
   }
 
   input.addEventListener("input", function() {
-    if (input.value.trim() || filter !== "all") {
-      update();
-    } else {
-      resultsEl.hidden = true;
-      resultsEl.innerHTML = "";
-      listEl.hidden = false;
-    }
+    page = 1;
+    render();
   });
+
+  render();
 })();

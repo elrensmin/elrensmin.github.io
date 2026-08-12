@@ -2,12 +2,6 @@
 layout: page
 title: Writing
 permalink: /writing/
-pagination:
-  enabled: true
-  collection: writing
-  per_page: 5
-  sort_field: 'date'
-  sort_reverse: true
 ---
 
 <div class="search-bar">
@@ -19,34 +13,7 @@ pagination:
   </div>
 </div>
 <div id="writing-search-results" class="search-results" hidden></div>
-
-<ul class="log-list" id="writing-list">
-  {% for post in paginator.posts %}
-  <li>
-    <a class="log-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    <div class="log-date">{{ post.date | date: "%b %d, %Y" }}</div>
-    {% if post.excerpt %}
-    <div class="log-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</div>
-    {% endif %}
-  </li>
-  {% endfor %}
-</ul>
-
-{% if paginator.total_pages > 1 %}
-<nav class="pagination">
-  {% if paginator.previous_page %}
-  <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">&larr; newer</a>
-  {% else %}
-  <span class="page-link disabled">&larr; newer</span>
-  {% endif %}
-  <span class="page-info">page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  {% if paginator.next_page %}
-  <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">older &rarr;</a>
-  {% else %}
-  <span class="page-link disabled">older &rarr;</span>
-  {% endif %}
-</nav>
-{% endif %}
+<nav id="writing-pagination" class="pagination" hidden></nav>
 
 <script>
 window.searchData = {
