@@ -2,7 +2,7 @@
 title: Scaling Laws
 date: 2026-07-23
 description: Building a ~10M Parameter Transformer and Deriving Chinchilla Laws for Dense vs MoE Architectures
-tags: [scaling-laws, moe, jax, pallas]
+tags: [scaling-laws, moe, jax, pallas, logs]
 ---
 
 The task was simple enough: [Vlad's blog](https://vladfeinberg.com/2026/05/10/how-to-land-a-job-at-a-frontier-lab.html) gave a task of building a ~10M parameter transformer from scratch using **JAX + Flax + Optax**, train it on a simple arithmetic task (addition of up-to-3-digit numbers), and derive **Chinchilla scaling laws** (Hoffmann et al. 2022) comparing **dense** vs **Mixture-of-Experts (MoE)** architectures.

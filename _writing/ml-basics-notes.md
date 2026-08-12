@@ -2,7 +2,7 @@
 title: ML basics notes
 date: 2026-08-07
 description: ml basics notes for later recall
-tags: [ML]
+tags: [ML, notes]
 ---
 
 [silvia's blog](https://silviasapora.github.io/blog/ml-interviews) suggests a bunch of basics that I don't know, or if I know them, I'm a little patchy, so I figured I'll make some notes here while I'm revising things so I have somehting to reference back later.

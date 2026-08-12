@@ -1,0 +1,69 @@
+---
+layout: page
+title: Writing
+permalink: /writing/
+pagination:
+  enabled: true
+  collection: writing
+  per_page: 5
+  sort_field: 'date'
+  sort_reverse: true
+---
+
+<div class="search-bar">
+  <input type="search" id="writing-search" class="search-box" placeholder="search writing..." aria-label="Search writing">
+  <div class="search-filters" id="search-filters">
+    <button class="filter-btn active" data-filter="all" type="button">all</button>
+    <button class="filter-btn" data-filter="logs" type="button">logs</button>
+    <button class="filter-btn" data-filter="notes" type="button">notes</button>
+  </div>
+</div>
+<div id="writing-search-results" class="search-results" hidden></div>
+
+<ul class="log-list" id="writing-list">
+  {% for post in paginator.posts %}
+  <li>
+    <a class="log-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <div class="log-date">{{ post.date | date: "%b %d, %Y" }}</div>
+    {% if post.excerpt %}
+    <div class="log-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</div>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+{% if paginator.total_pages > 1 %}
+<nav class="pagination">
+  {% if paginator.previous_page %}
+  <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">&larr; newer</a>
+  {% else %}
+  <span class="page-link disabled">&larr; newer</span>
+  {% endif %}
+  <span class="page-info">page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+  <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">older &rarr;</a>
+  {% else %}
+  <span class="page-link disabled">older &rarr;</span>
+  {% endif %}
+</nav>
+{% endif %}
+
+<script>
+window.searchData = {
+  collection: "writing",
+  documents: [
+    {% for post in site.writing %}
+    {
+      title: {{ post.title | jsonify }},
+      url: {{ post.url | relative_url | jsonify }},
+      date: {{ post.date | date: "%b %d, %Y" | jsonify }},
+      dateSort: {{ post.date | date_to_xmlschema | jsonify }},
+      excerpt: {{ post.excerpt | strip_html | strip_newlines | jsonify }},
+      tags: {{ post.tags | jsonify | default: "[]" }},
+      content: {{ post.content | strip_html | strip_newlines | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+};
+</script>
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>

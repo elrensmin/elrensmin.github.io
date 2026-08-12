@@ -13,26 +13,22 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-paginate-v2
+
+pagination:
+  enabled: true
 
 collections:
-  logs:
+  writing:
     output: true
-    permalink: /logs/:title/
-  reports:
-    output: true
-    permalink: /reports/:title/
+    permalink: /writing/:title/
 
 defaults:
   - scope:
       path: ""
-      type: "logs"
+      type: "writing"
     values:
       layout: log
-  - scope:
-      path: ""
-      type: "reports"
-    values:
-      layout: page
   - scope:
       path: ""
     values:

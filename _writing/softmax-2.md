@@ -2,7 +2,7 @@
 title: softmax with CUDA worklog - pt II (Block Reduction to Tiled Online Softmax)
 date: 2026-03-26
 description: profiling and optimizing softmax using CUDA to reduce latency and blow past triton online fused softmax
-tags: [cuda, softmax, kernel-optimization]
+tags: [cuda, softmax, kernel-optimization, logs]
 ---
 
 I spent the last couple days trying to make sense of the [online softmax](https://arxiv.org/pdf/1805.02867) implementation by the [original authors](https://github.com/NVIDIA/online-softmax/blob/master/online_softmax_benchmark.cu).
