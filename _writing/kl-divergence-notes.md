@@ -9,7 +9,9 @@ i kept running into KL divergence and cross-entropy in like four different place
 
 a warning before you read on: this is me thinking out loud, not a textbook. Also the example spoken of here is essentialy from [a primer on information theory](https://michael-franke.github.io/logic-materials/01-handouts/07-handout-info-theory.pdf)
 
-# surprisal, or: where the log comes from
+# surprisal
+
+> numerical measure of amount of information gained
 
 everything builds off one idea. an event with probability p has information content `-log(p)`. that's the seed. Primer writes it `I_P(x) = -log2 P(x)`. it's saying the surprise is measured *against a specific agent's beliefs*. not floating free. Jones thinks sunny is likely, Smith doesn't, so the same sunny day surprises them differently. the P is whose eyes you're looking through.
 
@@ -99,12 +101,6 @@ that's why cross-entropy is the default classification loss and not some arbitra
 
 quick numbers. P = (0.5, 0.3, 0.2), Q = (0.4, 0.4, 0.2). H(P) = 1.0297 nats, H(P,Q) = 1.0549. and 1.0297 + 0.0253 = 1.0550. the tiny gap is rounding. cross-entropy is always ≥ entropy because KL never goes negative. bottomed out when Q = P.
 
-# the asymmetry thing, which i keep messing up
-
-ok this is the part that actually got me. D_KL(P\|\|Q) and D_KL(Q\|\|P) are different numbers. the Jones/Smith example: one direction is ≈ 1.19, the reverse is ≈ 1.01. not even that close, and those distributions aren't wildly different. push them further apart and the two directions diverge hard, and not in a predictable way.
-
-and this matters in practice. if you're using KL as a loss or a regularizer or in variational stuff, *which direction you write it changes what you're optimizing*. forward KL (P\|\|Q) is mode-seeking, reverse KL (Q\|\|P) is mode-covering, or maybe i have those backwards, i had to look it up twice while writing this and i'll probably have to look it up again next month. point is: the direction is a design decision. treat it like one.
-
 # mutual information
 
 > measure of the change in uncertainity about P between a sttae before learning about Q and after learning about Q
@@ -138,5 +134,3 @@ here's what i finally got. every measure here is one of two templates:
 - **expected *difference* in information content**: `Σ P(x) (I_Q(x) - I_P(x))`. KL divergence and mutual information live here. you're averaging the *gap* between two surprisals.
 
 that's the spine. surprisal is the atom. everything else is either an average of surprisals or an average of differences between surprisals. once you see it that way the menagerie stops being six separate formulas and becomes two patterns with variations.
-
-i still get the asymmetry direction wrong. working on it.
