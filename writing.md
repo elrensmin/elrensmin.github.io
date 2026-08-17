@@ -10,6 +10,7 @@ permalink: /writing/
     <button class="filter-btn active" data-filter="all" type="button">all</button>
     <button class="filter-btn" data-filter="logs" type="button">logs</button>
     <button class="filter-btn" data-filter="notes" type="button">notes</button>
+    <button class="filter-btn" data-filter="annotations" type="button">annotations</button>
   </div>
 </div>
 <div id="writing-search-results" class="search-results" hidden></div>
