@@ -7,6 +7,28 @@
 html {
   font-size: 18px;
   line-height: 1.7;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--text-rgb), 0.18) transparent;
+}
+
+::selection {
+  background: rgba(255, 235, 150, 0.35);
+  color: var(--text);
+}
+
+::-moz-selection {
+  background: rgba(255, 235, 150, 0.35);
+  color: var(--text);
+}
+
+body.dark ::selection {
+  background: rgba(147, 173, 122, 0.35);
+  color: var(--bg);
+}
+
+body.dark ::-moz-selection {
+  background: rgba(147, 173, 122, 0.35);
+  color: var(--bg);
 }
 
 body {
@@ -51,6 +73,36 @@ pre {
   border-radius: 6px;
   overflow-x: auto;
   margin-bottom: 1em;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--text-rgb), 0.25) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--text-rgb), 0.18);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--text-rgb), 0.35);
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: rgba(var(--text-rgb), 0.25);
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--text-rgb), 0.45);
 }
 
 code {

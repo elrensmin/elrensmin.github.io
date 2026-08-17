@@ -1,0 +1,108 @@
+.highlight {
+  color: var(--text);
+}
+
+/* Comments */
+.highlight .c,
+.highlight .c1,
+.highlight .cm,
+.highlight .cp,
+.highlight .cs {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Keywords */
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Functions / names */
+.highlight .nf,
+.highlight .na,
+.highlight .fm {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+/* Strings */
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .sr {
+  color: #2e7d8a;
+}
+
+body.dark .highlight .s,
+body.dark .highlight .s1,
+body.dark .highlight .s2,
+body.dark .highlight .sb,
+body.dark .highlight .sc,
+body.dark .highlight .sd,
+body.dark .highlight .se,
+body.dark .highlight .sh,
+body.dark .highlight .si,
+body.dark .highlight .sx,
+body.dark .highlight .sr {
+  color: #7fb4c2;
+}
+
+/* Numbers / literals */
+.highlight .m,
+.highlight .mi,
+.highlight .mf,
+.highlight .mh,
+.highlight .mo,
+.highlight .il {
+  color: #b87333;
+}
+
+body.dark .highlight .m,
+body.dark .highlight .mi,
+body.dark .highlight .mf,
+body.dark .highlight .mh,
+body.dark .highlight .mo,
+body.dark .highlight .il {
+  color: #d4a56a;
+}
+
+/* Operators / punctuation */
+.highlight .o,
+.highlight .p {
+  color: var(--text);
+}
+
+/* Built-ins / types */
+.highlight .nb,
+.highlight .bp,
+.highlight .nc,
+.highlight .ne,
+.highlight .ni,
+.highlight .nn,
+.highlight .nt {
+  color: var(--heading);
+}
+
+/* Errors / warnings */
+.highlight .err,
+.highlight .gr {
+  color: #c0392b;
+}
+
+body.dark .highlight .err,
+body.dark .highlight .gr {
+  color: #e74c3c;
+}
