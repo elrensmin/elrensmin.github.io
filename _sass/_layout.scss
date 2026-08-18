@@ -78,7 +78,7 @@ body.light .icon-dark { display: inline; }
   padding: 2rem 0;
   border-top: 1px solid var(--border);
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--muted);
 }
 
@@ -157,6 +157,12 @@ body.light .icon-dark { display: inline; }
   line-height: 1.8;
 }
 
+.log-content p,
+.log-content li {
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 300;
+}
+
 /* Log list */
 .log-list {
   list-style: none;
@@ -171,16 +177,16 @@ body.light .icon-dark { display: inline; }
   border-bottom: none;
 }
 .log-list .log-link {
-  font-family: inherit;
-  font-size: 1.15rem;
-  font-weight: 500;
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
   color: var(--accent);
 }
 .log-list .log-link:hover {
   color: var(--accent-hover);
 }
 .log-list .log-excerpt {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--muted);
   margin-top: 0.3rem;
 }
@@ -194,7 +200,7 @@ body.light .icon-dark { display: inline; }
   width: 100%;
   max-width: 320px;
   padding: 0.5rem 0.75rem;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-family: inherit;
   color: var(--text);
   background: var(--code-bg);
@@ -265,7 +271,7 @@ body.light .icon-dark { display: inline; }
   gap: 1rem;
   margin-top: 2rem;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 .page-link.disabled {
   color: var(--muted);
@@ -311,7 +317,7 @@ body.light .icon-dark { display: inline; }
 .reading-list li {
   margin: 0;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 .reading-list a {
   font-weight: 500;
@@ -391,7 +397,8 @@ body.light .icon-dark { display: inline; }
   color: var(--muted);
 }
 .home-list a {
-  font-weight: 500;
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 300;
   font-size: 1rem;
 }
 .home-list .home-desc {
