@@ -6,9 +6,6 @@ baseurl: ""
 url: "https://elrensmin.github.io"
 github_username: elrensmin
 twitter_username: elrensmin
-goodreads_username: elren
-goodreads_link: https://www.goodreads.com/user/show/202848938
-
 markdown: kramdown
 plugins:
   - jekyll-feed
@@ -18,11 +15,19 @@ collections:
   writing:
     output: true
     permalink: /writing/:title/
+  papers:
+    output: true
+    permalink: /papers/:title/
 
 defaults:
   - scope:
       path: ""
       type: "writing"
+    values:
+      layout: log
+  - scope:
+      path: ""
+      type: "papers"
     values:
       layout: log
   - scope:

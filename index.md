@@ -3,6 +3,25 @@ layout: home
 title: welcome
 ---
 
-<img src="/images/sunrise.png" alt="sunrise" style="max-width:100%; height:auto; border-radius:8px; margin-bottom:1.5rem;">
+<img class="home-image" src="/images/sunrise.png" alt="sunrise">
 
-Hi!  This is where I blog everything I'm learning or working on. worklogs, notes, whatever's on my mind. [head over to writing](/writing/)
+<section class="home-section">
+  <h3>Notes</h3>
+  <ul class="home-list">
+    {% assign recent = site.writing | sort: "date" | reverse | slice: 0, 3 %}
+    {% for post in recent %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+    <li><a href="{{ '/writing/' | relative_url }}">...more</a></li>
+  </ul>
+</section>
+
+<section class="home-section">
+  <h3>Reading</h3>
+  <ul class="home-list">
+    <li><a href="{{ '/reading/' | relative_url }}">Books</a></li>
+    <li><a href="{{ '/papers/' | relative_url }}">Papers</a></li>
+  </ul>
+</section>

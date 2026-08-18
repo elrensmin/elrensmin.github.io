@@ -46,18 +46,18 @@
   color: #2e7d8a;
 }
 
-body.dark .highlight .s,
-body.dark .highlight .s1,
-body.dark .highlight .s2,
-body.dark .highlight .sb,
-body.dark .highlight .sc,
-body.dark .highlight .sd,
-body.dark .highlight .se,
-body.dark .highlight .sh,
-body.dark .highlight .si,
-body.dark .highlight .sx,
-body.dark .highlight .sr {
-  color: #7fb4c2;
+body.light .highlight .s,
+body.light .highlight .s1,
+body.light .highlight .s2,
+body.light .highlight .sb,
+body.light .highlight .sc,
+body.light .highlight .sd,
+body.light .highlight .se,
+body.light .highlight .sh,
+body.light .highlight .si,
+body.light .highlight .sx,
+body.light .highlight .sr {
+  color: #2e7d8a;
 }
 
 /* Numbers / literals */
@@ -70,13 +70,13 @@ body.dark .highlight .sr {
   color: #b87333;
 }
 
-body.dark .highlight .m,
-body.dark .highlight .mi,
-body.dark .highlight .mf,
-body.dark .highlight .mh,
-body.dark .highlight .mo,
-body.dark .highlight .il {
-  color: #d4a56a;
+body.light .highlight .m,
+body.light .highlight .mi,
+body.light .highlight .mf,
+body.light .highlight .mh,
+body.light .highlight .mo,
+body.light .highlight .il {
+  color: #b87333;
 }
 
 /* Operators / punctuation */
@@ -102,7 +102,7 @@ body.dark .highlight .il {
   color: #c0392b;
 }
 
-body.dark .highlight .err,
-body.dark .highlight .gr {
-  color: #e74c3c;
+body.light .highlight .err,
+body.light .highlight .gr {
+  color: #c0392b;
 }

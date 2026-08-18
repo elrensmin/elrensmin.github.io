@@ -3,13 +3,13 @@
   if (!toggle) return;
 
   const stored = localStorage.getItem('theme');
-  if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.body.classList.add('dark');
+  if (stored === 'light') {
+    document.body.classList.add('light');
   }
 
   toggle.addEventListener('click', function() {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    document.body.classList.toggle('light');
+    const isLight = document.body.classList.contains('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
   });
 })();

@@ -1,27 +1,22 @@
 ---
 layout: page
-title: Writing
-permalink: /writing/
+title: Papers
+permalink: /papers/
 ---
 
 [← home](/)
 
 <div class="search-bar">
-  <input type="search" id="writing-search" class="search-box" placeholder="search writing..." aria-label="Search writing">
-  <div class="search-filters" id="search-filters">
-    <button class="filter-btn active" data-filter="all" type="button">all</button>
-    <button class="filter-btn" data-filter="logs" type="button">logs</button>
-    <button class="filter-btn" data-filter="notes" type="button">notes</button>
-  </div>
+  <input type="search" id="papers-search" class="search-box" placeholder="search papers..." aria-label="Search papers">
 </div>
-<div id="writing-search-results" class="search-results" hidden></div>
-<nav id="writing-pagination" class="pagination" hidden></nav>
+<div id="papers-search-results" class="search-results" hidden></div>
+<nav id="papers-pagination" class="pagination" hidden></nav>
 
 <script>
 window.searchData = {
-  collection: "writing",
+  collection: "papers",
   documents: [
-    {% for post in site.writing %}
+    {% for post in site.papers %}
     {
       title: {{ post.title | jsonify }},
       url: {{ post.url | relative_url | jsonify }},
