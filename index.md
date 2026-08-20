@@ -19,9 +19,8 @@ title: welcome
 </section>
 
 <section class="home-section">
-  <h3>Reading</h3>
+  <h3>Others</h3>
   <ul class="home-list">
     <li><a href="{{ '/reading/' | relative_url }}">Books</a></li>
-    <li><a href="{{ '/papers/' | relative_url }}">Papers</a></li>
   </ul>
 </section>

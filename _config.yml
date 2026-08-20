@@ -15,19 +15,11 @@ collections:
   writing:
     output: true
     permalink: /writing/:title/
-  papers:
-    output: true
-    permalink: /papers/:title/
 
 defaults:
   - scope:
       path: ""
       type: "writing"
-    values:
-      layout: log
-  - scope:
-      path: ""
-      type: "papers"
     values:
       layout: log
   - scope:

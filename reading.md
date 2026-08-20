@@ -42,11 +42,13 @@ permalink: /reading/
 <li><em>Kite Runner</em> by Khaled Hosseini</li>
 <li><em>Letters from a Stoic</em> by Seneca</li>
 <li><em>Life of Pi</em> by Yann Martel</li>
+<li><em>Lolita</em> by Vladimir Nabokov</li>
 <li><em>Masters of Doom</em> by David Kushner</li>
 <li><em>Meditations</em> by Marcus Aurelius</li>
 <li><em>Midnight's Children</em> by Salman Rushdie</li>
 <li><em>My Life And Work</em> by Henry Ford</li>
 <li><em>Neuromancer</em> by William Gibson</li>
+<li><em>Never Let Me Go</em> by Kazuo Ishiguro</li>
 <li><em>Norwegian Wood</em> by Haruki Murakami</li>
 <li><em>Nuts!</em> by Kevin Freiberg</li>
 <li><em>Old Man and the Sea</em> by Ernest Hemingway</li>
@@ -67,6 +69,7 @@ permalink: /reading/
 <li><em>The Hitchhiker's Guide to the Galaxy</em> by Douglas Adams</li>
 <li><em>The Intelligent Investor</em> by Benjamin Graham</li>
 <li><em>The Lean Startup</em> by Eric Ries</li>
+<li><em>The Left Hand Of Darkness</em> by Ursula K. Le Guin</li>
 <li><em>The Rational Optimist</em> by Matt Ridley</li>
 <li><em>The Sun Also Rises</em> by Ernest Hemingway</li>
 <li><em>The Wind-Up Bird Chronicle</em> by Haruki Murakami</li>
