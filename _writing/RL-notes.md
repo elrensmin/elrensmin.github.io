@@ -212,3 +212,11 @@ it's one chain, each rung shaving variance or adding stability. and the "five ap
 ---
 
 I'll keep adding the other RL algos here as I go along...
+
+---
+
+resources: 
+ - http://joschu.net/blog/kl-approx.html
+ - https://github.com/verl-project/verl/pull/2953#issuecomment-3162113848
+ - https://fengyao.notion.site/off-policy-rl
+ - https://rlhfbook.com/c/06-policy-gradients
