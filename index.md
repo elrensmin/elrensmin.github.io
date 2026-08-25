@@ -20,5 +20,6 @@ title: welcome
   <h3>Others</h3>
   <ul class="home-list">
     <li><a href="{{ '/reading/' | relative_url }}">Books</a></li>
+    <li><a href="{{ '/blogs/' | relative_url }}">Blogs</a></li>
   </ul>
 </section>

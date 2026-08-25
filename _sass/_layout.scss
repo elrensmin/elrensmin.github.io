@@ -301,11 +301,22 @@ body.light .icon-dark { display: inline; }
   padding-top: 1.5rem;
   margin: 1.5rem 0 0.5rem;
 }
+.blogs-section h2 {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+}
 .reading-section:first-of-type h2,
 .reading-section:first-of-type h3 {
   border-top: none;
   padding-top: 0;
   margin-top: 0;
+}
+.blogs-section ul li {
+  font-size: 0.85rem;
+}
+.blogs-section ul li a {
+  font-size: 0.85rem;
 }
 .reading-list {
   list-style: none;
@@ -398,8 +409,8 @@ body.light .icon-dark { display: inline; }
   color: var(--muted);
 }
 .home-list a {
-  font-family: "Kumbh Sans", sans-serif;
-  font-weight: 300;
+  font-family: "Jacques Francois", Georgia, serif;
+  font-weight: 400;
   font-size: 1rem;
 }
 .home-list .home-desc {
