@@ -71,10 +71,11 @@ body.light .icon-dark { display: inline; }
 
 .page-content {
   padding: 2rem 0;
-  min-height: calc(100vh - 200px);
+  flex: 1 0 auto;
 }
 
 .site-footer {
+  flex-shrink: 0;
   padding: 2rem 0;
   border-top: 1px solid var(--border);
   text-align: center;

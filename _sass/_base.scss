@@ -32,6 +32,8 @@ body.light ::-moz-selection {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   font-family: "Jacques Francois", Georgia, serif;
   color: var(--text);
   background: var(--bg);

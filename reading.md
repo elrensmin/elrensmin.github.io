@@ -2,6 +2,7 @@
 layout: page
 title: Reading
 permalink: /reading/
+hide_title: true
 ---
 
 [← home](/)
