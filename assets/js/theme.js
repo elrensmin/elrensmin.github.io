@@ -12,4 +12,14 @@
     const isLight = document.body.classList.contains('light');
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
   });
+
+  const scrollTop = document.getElementById('scroll-top');
+  if (scrollTop) {
+    window.addEventListener('scroll', function() {
+      scrollTop.hidden = window.scrollY < window.innerHeight * 2;
+    });
+    scrollTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 })();
