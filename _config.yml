@@ -15,11 +15,19 @@ collections:
   writing:
     output: true
     permalink: /writing/:title/
+  experiments:
+    output: true
+    permalink: /experiments/:title/
 
 defaults:
   - scope:
       path: ""
       type: "writing"
+    values:
+      layout: log
+  - scope:
+      path: ""
+      type: "experiments"
     values:
       layout: log
   - scope:
