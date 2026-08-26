@@ -73,7 +73,7 @@ title: welcome
   </ul>
 </section>
 
-<section class="home-section">
+<section class="home-section home-others">
   <h3>Others</h3>
   <ul class="home-list">
     <li><a href="{{ '/reading/' | relative_url }}">Books</a></li>

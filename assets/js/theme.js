@@ -22,4 +22,36 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  const toc = document.getElementById('toc');
+  const content = document.querySelector('.log-content');
+  if (toc && content) {
+    const headings = content.querySelectorAll('h2');
+    if (headings.length > 1) {
+      const root = document.createElement('ul');
+      const items = [];
+      headings.forEach(function(h) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent;
+        li.appendChild(a);
+        root.appendChild(li);
+        items.push(li);
+      });
+      toc.appendChild(root);
+
+      const spy = function() {
+        let active = null;
+        headings.forEach(function(h) {
+          if (h.getBoundingClientRect().top <= 80) active = h;
+        });
+        items.forEach(function(li) {
+          li.classList.toggle('active', li.querySelector('a').getAttribute('href') === '#' + (active ? active.id : ''));
+        });
+      };
+      window.addEventListener('scroll', spy, { passive: true });
+      spy();
+    }
+  }
 })();
