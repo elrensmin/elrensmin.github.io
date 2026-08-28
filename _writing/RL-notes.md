@@ -5,7 +5,7 @@ description: rl basics notes for later recall
 tags: [RL, notes]
 ---
 
-I've mostly just pasted ny notes here so I didn't bother to change the eq number from my notes.. 
+I've mostly just pasted ny notes from reading [policy-gradients](https://rlhfbook.com/c/06-policy-gradients) here so I didn't bother to change the eq number from my notes.. 
 
 ## Markov Decision Process and Trajectories
 
@@ -126,9 +126,61 @@ So $\mathbb{E}[G_t] = \mathbb{E}[G_t - b_t]$: the gradient estimate is **unbiase
 
 LLM rewards are almost always positive, so every action has $G_t > 0$, and all of them look good. the gradient pushes everything up regardless of quality. noise. subtract a baseline (for ex, the average reward) and now the scale centers on 0, only actions better than average get pushed. $\mathrm{Var}[G_t - b_t] < \mathrm{Var}[G_t]$ when $b_t$ is a decent estimate of $\mathbb{E}[G_t]$.
 
-For RLOO the baseline is dead simple, per prompt, no learned critic. generate $K$ completions, baseline = mean of the other $K-1$:
+For RLOO the baseline is dead simple, per prompt, no learned critic - derived in its own section below.
 
-$$b(s, a_k) = \frac{1}{K-1}\sum_{i\ne k} R(s_i, a_i), \qquad A(s,a_k) = R(s,a_k) - b(s,a_k)$$
+## RLOO (Reinforce Leave-One-Out): the per-prompt baseline
+
+RLOO is the rung between REINFORCE and PPO on the ladder. no learned critic, no value network - just sample $K$ completions per prompt and build the baseline from the other $K-1$. this lays the groundwork for later dr. GRPO improvememtsn.
+
+### The intuition: why "leave one out"?
+
+In policy gradient we update on the advantage - how much better this action was than what we normally expect:
+
+$$\text{Advantage} = \text{Reward} - \text{Baseline}$$
+
+Ideally the baseline is the expected value of the state, $V(s)$. with $K$ sampled trajectories the obvious baseline is just the average reward of all $K$ samples.
+
+But there's a constraint in policy gradients: the baseline must **not** depend on the specific action $a_k$ you're evaluating. if the baseline includes $R(s, a_k)$, it introduces bias - the action is being compared partially against itself, and the gradient trick's unbiased-baseline proof (above) no longer holds because $b$ is no longer independent of $a$.
+
+The fix: leave $a_k$ out of the baseline. estimate the expected reward using only the *other* trajectories.
+
+### The reason for the $K-1$ denominator
+
+$K$ total samples, leave one out (the current $a_k$), you have exactly $K-1$ left. to get the true average of those remaining, sum their rewards and divide by the number of items in the sum:
+
+$$b(s,a_k) = \frac{1}{K-1} \sum_{i \neq k} R(s,a_i)$$
+
+### Deriving the final formula
+
+Let $\bar{R}$ be the average of all $K$ rewards:
+
+$$\bar{R} = \frac{1}{K} \sum_{i=1}^{K} R(s,a_i)$$
+
+so the total sum is $K\bar{R}$. the leave-one-out sum is the total minus the one we dropped:
+
+$$\sum_{i \neq k} R(s,a_i) = K \bar{R} - R(s,a_k)$$
+
+Plug into the advantage:
+
+$$A(s,a_k) = R(s,a_k) - \frac{1}{K-1} \left( K \bar{R} - R(s,a_k) \right)$$
+
+Distribute:
+
+$$A(s,a_k) = R(s,a_k) - \frac{K}{K-1}\bar{R} + \frac{1}{K-1}R(s,a_k)$$
+
+Factor $R(s,a_k)$ from the first and third terms:
+
+$$A(s,a_k) = R(s,a_k) \left( 1 + \frac{1}{K-1} \right) - \frac{K}{K-1}\bar{R}$$
+
+And $1 + \frac{1}{K-1} = \frac{K}{K-1}$, so:
+
+$$A(s,a_k) = \frac{K}{K-1} R(s,a_k) - \frac{K}{K-1} \bar{R}$$
+
+Factor out $\frac{K}{K-1}$:
+
+$$A(s,a_k) = \frac{K}{K-1} \left( R(s,a_k) - \frac{1}{K}\sum_{i=1}^{K} R(s,a_i) \right)$$
+
+That's the final form. the inner term is just $R(s,a_k) - \bar{R}$, the standard mean-baseline advantage, and $\frac{K}{K-1}$ is a constant scaler. so RLOO = REINFORCE-with-mean-baseline, rescaled. no critic, no extra network, one prompt's worth of samples is enough. the only cost is you need $K \ge 2$ completions per prompt, and variance drops as $K$ grows.
 
 ## Discounting $\gamma$ and Return
 
