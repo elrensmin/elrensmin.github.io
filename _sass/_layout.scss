@@ -20,7 +20,7 @@
 }
 
 .site-title {
-  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -99,7 +99,11 @@ body.light .icon-dark { display: inline; }
 }
 .footer-links a {
   color: var(--accent);
-  font-weight: 500;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.75rem;
 }
 .footer-links a:hover {
   color: var(--accent-hover);
@@ -159,7 +163,7 @@ body.light .icon-dark { display: inline; }
   padding: 0.1em 0.5em;
   border-radius: 3px;
   font-size: 0.8rem;
-  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 .log-content, .page-content {
@@ -168,7 +172,7 @@ body.light .icon-dark { display: inline; }
 
 .log-content p,
 .log-content li {
-  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   font-weight: 300;
 }
 
@@ -186,7 +190,7 @@ body.light .icon-dark { display: inline; }
   border-bottom: none;
 }
 .log-list .log-link {
-  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
   font-weight: 300;
   color: var(--accent);
@@ -445,7 +449,7 @@ body.light .icon-dark { display: inline; }
   font-size: 0.8rem;
 }
 .home-list a {
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: "Montserrat", Georgia, serif;
   font-weight: 400;
   font-size: 0.8rem;
   display: inline-block;
@@ -468,7 +472,7 @@ body.light .icon-dark { display: inline; }
   max-height: calc(100vh - 8rem);
   overflow-y: auto;
   padding-right: 0.75rem;
-  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   font-size: 0.68rem;
   line-height: 1.5;
 }
