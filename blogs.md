@@ -23,5 +23,12 @@ hide_title: true
 - [Atoms Are Cheap, Process Is Pricey](https://futureblind.com/p/atoms-are-cheap-process-is-pricey){:target="_blank"}
 - [You Are Probably Not Dumb](https://lelouch.dev/blog/you-are-probably-not-dumb/){:target="_blank"}
 - [When Tailwinds Vanish](https://open.substack.com/pub/luttig/p/when-tailwinds-vanish){:target="_blank"}
+- [A Personal Map of ML Hardware Trade-offs](https://vbml.substack.com/p/a-personal-map-of-ml-hardware-trade){:target="_blank"}
+- [The China Tech Canon](https://afraw.substack.com/p/the-china-tech-canon){:target="_blank"}
+- [writes.html](https://paulgraham.com/writes.html){:target="_blank"}
+- [Vertical Integrators](https://www.notboring.co/p/vertical-integrators){:target="_blank"}
+- [YC Interview Questions](https://johnsillings.com/2021/11/26/yc-interview-questions.html){:target="_blank"}
+- [An Opinionated Guide to ML Research](http://joschu.net/blog/opinionated-guide-ml-research.html){:target="_blank"}
+- [Intro to Linear Algebra](https://pabloinsente.github.io/intro-linear-algebra){:target="_blank"}
 
 </div>

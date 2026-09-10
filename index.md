@@ -40,19 +40,10 @@ title: welcome
 </section>
 
 <section class="home-section">
-  <h3>Reports</h3>
+  <h3>Others</h3>
   <ul class="home-list">
-    {% assign recent = site.reports | sort: "date" | reverse | slice: 0, 5 %}
-    {% for post in recent %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-    {% if site.reports.size == 0 %}
-    <li>coming soon</li>
-    {% elsif site.reports.size > 5 %}
-    <li><a href="{{ '/reports/' | relative_url }}">...more</a></li>
-    {% endif %}
+    <li><a href="{{ '/reading/' | relative_url }}">Books</a></li>
+    <li><a href="{{ '/blogs/' | relative_url }}">Blogs</a></li>
   </ul>
 </section>
 
@@ -70,14 +61,6 @@ title: welcome
     {% elsif site.artifacts.size > 5 %}
     <li><a href="{{ '/artifacts/' | relative_url }}">...more</a></li>
     {% endif %}
-  </ul>
-</section>
-
-<section class="home-section home-others">
-  <h3>Others</h3>
-  <ul class="home-list">
-    <li><a href="{{ '/reading/' | relative_url }}">Books</a></li>
-    <li><a href="{{ '/blogs/' | relative_url }}">Blogs</a></li>
   </ul>
 </section>
 

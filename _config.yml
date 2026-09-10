@@ -18,9 +18,6 @@ collections:
   experiments:
     output: true
     permalink: /experiments/:title/
-  reports:
-    output: true
-    permalink: /reports/:title/
   artifacts:
     output: true
     permalink: /artifacts/:title/
@@ -34,11 +31,6 @@ defaults:
   - scope:
       path: ""
       type: "experiments"
-    values:
-      layout: log
-  - scope:
-      path: ""
-      type: "reports"
     values:
       layout: log
   - scope:

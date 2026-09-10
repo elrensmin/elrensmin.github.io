@@ -420,10 +420,6 @@ body.light .icon-dark { display: inline; }
 .home-section:nth-child(even) h3 {
   text-align: right;
 }
-.home-section.home-others {
-  grid-column: 1 / -1;
-  justify-self: center;
-}
 .home-section h3 {
   font-size: 0.75rem;
   font-weight: 600;
