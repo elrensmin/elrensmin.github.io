@@ -26,10 +26,11 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-strong);
+  text-decoration: none;
 }
 .site-title:hover {
-  text-decoration: none;
   opacity: 0.8;
+  text-decoration: none;
 }
 
 .header-right {
@@ -82,6 +83,13 @@ body.light .icon-dark { display: inline; }
   flex: 1 0 auto;
 }
 
+.page-content > a:first-child {
+  text-decoration: none;
+}
+.page-content > a:first-child:hover {
+  text-decoration: none;
+}
+
 .site-footer {
   flex-shrink: 0;
   padding: 2rem 0;
@@ -126,9 +134,11 @@ body.light .icon-dark { display: inline; }
 }
 .breadcrumbs a {
   color: var(--muted);
+  text-decoration: none;
 }
 .breadcrumbs a:hover {
   color: var(--accent);
+  text-decoration: none;
 }
 
 /* Log */
@@ -194,9 +204,11 @@ body.light .icon-dark { display: inline; }
   font-size: 1rem;
   font-weight: 300;
   color: var(--accent);
+  text-decoration: none;
 }
 .log-list .log-link:hover {
   color: var(--accent-hover);
+  text-decoration: none;
 }
 .log-list .log-excerpt {
   font-size: 0.85rem;
@@ -454,6 +466,10 @@ body.light .icon-dark { display: inline; }
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: bottom;
+  text-decoration: none;
+}
+.home-list a:hover {
+  text-decoration: none;
 }
 .home-list .home-desc {
   color: var(--muted);
@@ -469,7 +485,7 @@ body.light .icon-dark { display: inline; }
   overflow-y: auto;
   padding-right: 0.75rem;
   font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.8rem;
   line-height: 1.5;
 }
 .toc ul {
@@ -486,9 +502,11 @@ body.light .icon-dark { display: inline; }
 .toc a {
   color: var(--muted);
   display: block;
+  text-decoration: none;
 }
 .toc a:hover {
   color: var(--accent);
+  text-decoration: none;
 }
 .toc li.active {
   border-left-color: var(--accent);
@@ -508,4 +526,34 @@ body.light .icon-dark { display: inline; }
 }
 @media (max-width: 1200px) {
   .toc { display: none; }
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  animation: lightbox-in 0.2s ease;
+}
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 4px;
+  animation: lightbox-zoom 0.25s ease;
+}
+@keyframes lightbox-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes lightbox-zoom {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.log-content img {
+  cursor: zoom-in;
 }

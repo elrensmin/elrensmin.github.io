@@ -25,6 +25,25 @@
 
   const toc = document.getElementById('toc');
   const content = document.querySelector('.log-content');
+  if (content) {
+    content.querySelectorAll('a').forEach(function(a) {
+      if (a.hostname && a.hostname !== location.hostname) {
+        a.target = '_blank';
+        a.rel = 'noopener';
+      }
+    });
+    content.addEventListener('click', function(e) {
+      if (e.target.tagName !== 'IMG') return;
+      const box = document.createElement('div');
+      box.className = 'lightbox';
+      const img = document.createElement('img');
+      img.src = e.target.src;
+      img.alt = e.target.alt;
+      box.appendChild(img);
+      box.addEventListener('click', function() { box.remove(); });
+      document.body.appendChild(box);
+    });
+  }
   if (toc && content) {
     const headings = content.querySelectorAll('h2');
     if (headings.length > 1) {
