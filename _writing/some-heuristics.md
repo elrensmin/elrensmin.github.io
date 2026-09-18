@@ -38,3 +38,12 @@ Also check out [this](https://wandb.ai/marin-community/marin/reports/ZLoss-vs-No
 wsd-s phase
 
 By periodically doing rapid cooldowns they got an accurate read on the model's converged performance and evaluation metrics without wasting computational resources (FLOPs) committing to a final, permanent cooldown.
+
+# [marin-32b-retro](https://marin.readthedocs.io/en/latest/reports/marin-32b-retro/)
+
+Shuffling: Linear vs. Feistel
+> In Mantis, we switched to a Feistel‑network permutation, another pseudo‑random permutation (PRP) over the index domain. Conceptually, Feistel splits the bit representation into halves and applies several mixing rounds with per‑round keys, yielding a bijection with much better mixing properties than an affine map. Empirically, this resolved the phase shift effect we had seen earlier.
+
+evidently Feistel gives a better data mix and more stable training. 🤷
+
+
