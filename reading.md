@@ -13,7 +13,7 @@ hide_title: true
 
 <ul class="reading-list">
 <li><em>The First Three Minutes</em> by Steven Weinberg</li>
-<li><em>Hyperion (Hyperion Cantos, #1)</em> by Dan Simmons</li>
+<li><em>Endurance: Shackleton's Incredible Voyage</em> by Alfred Lansing</li>
 </ul>
 </div>
 
@@ -40,6 +40,7 @@ hide_title: true
 <li><em>Grinding It Out</em> by Ray Croc</li>
 <li><em>Harry Potter series</em> by J.K. Rowling</li>
 <li><em>How to Win Friends & Influence People</em> by Dale Carnegie</li>
+<li><em>Hyperion (Hyperion Cantos, #1)</em> by Dan Simmons</li>
 <li><em>Kite Runner</em> by Khaled Hosseini</li>
 <li><em>Letters from a Stoic</em> by Seneca</li>
 <li><em>Life of Pi</em> by Yann Martel</li>

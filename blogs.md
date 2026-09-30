@@ -30,5 +30,17 @@ hide_title: true
 - [YC Interview Questions](https://johnsillings.com/2021/11/26/yc-interview-questions.html){:target="_blank"}
 - [An Opinionated Guide to ML Research](http://joschu.net/blog/opinionated-guide-ml-research.html){:target="_blank"}
 - [Intro to Linear Algebra](https://pabloinsente.github.io/intro-linear-algebra){:target="_blank"}
+- [Checkpointing](https://medium.com/tensorflow/fitting-larger-networks-into-memory-583e3c758ff9){:target="_blank"}
+- [Transformer Inference Arithmetic](https://kipp.ly/p/transformer-inference-arithmetic){:target="_blank"}
+- [Data Movement Is All You Need: A Case Study on Optimizing Transformers](https://arxiv.org/abs/2007.00072){:target="_blank"}
+- [Transformer FLOPs](https://www.adamcasson.com/posts/transformer-flops){:target="_blank"}
+- [FLOPs in LLM Training: The Ultimate Guide](https://medium.com/@dpratishraj7991/flops-in-llm-training-the-ultimate-guide-fce22071ad48){:target="_blank"}
+- [Understanding FLOPs, MFU, and Computational Efficiency in LLM Training: From Dense Transformers to MoE Architectures](https://debjitpaul.github.io/blog/2025/compute/){:target="_blank"}
+- [Cognitive Hygiene: Why You Need to Make Thinking Hard Again](https://youtube.com/watch?v=rHPOyS6mjwI){:target="_blank"}
+- [RLing Qwen to Paint with Code](https://surya.website/rling-qwen-to-paint-with-code){:target="_blank"}
+- [A (Long) Peek into Reinforcement Learning](https://lilianweng.github.io/posts/2018-02-19-rl-overview/){:target="_blank"}
+- [The 37 Implementation Details of Proximal Policy Optimization](https://iclr-blog-track.github.io/2022/03/25/ppo-implementation-details/){:target="_blank"}
+- [RL is Everything, Everywhere, All at Once](https://skypilot.ai/blog/rl-everything){:target="_blank"}
+- [How the Backpropagation Algorithm Works](http://neuralnetworksanddeeplearning.com/chap2.html){:target="_blank"}
 
 </div>
