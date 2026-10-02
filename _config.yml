@@ -1,4 +1,4 @@
-title: "@elrensmin"
+title: dhruvm
 email: keenignition@gmail.com
 description: >-
   Work and research logs
@@ -6,6 +6,7 @@ baseurl: ""
 url: "https://elrensmin.github.io"
 github_username: elrensmin
 twitter_username: elrensmin
+kaggle_username: elrensmin
 markdown: kramdown
 plugins:
   - jekyll-feed
@@ -15,9 +16,6 @@ collections:
   writing:
     output: true
     permalink: /writing/:title/
-  experiments:
-    output: true
-    permalink: /experiments/:title/
   artifacts:
     output: true
     permalink: /artifacts/:title/
@@ -26,11 +24,6 @@ defaults:
   - scope:
       path: ""
       type: "writing"
-    values:
-      layout: log
-  - scope:
-      path: ""
-      type: "experiments"
     values:
       layout: log
   - scope:

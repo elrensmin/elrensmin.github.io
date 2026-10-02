@@ -5,8 +5,6 @@ permalink: /blogs/
 hide_title: true
 ---
 
-[← home](/)
-
 <div class="reading-section blogs-section" markdown="1">
 
 ## some links I liked

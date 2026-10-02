@@ -5,15 +5,19 @@ permalink: /reading/
 hide_title: true
 ---
 
-[← home](/)
+<p class="readings-aside">Blogs I like can be found <a href="{{ '/blogs/' | relative_url }}">here</a></p>
+
+# Books
 
 <div class="reading-section" markdown="1">
 
 ## In Progress
 
 <ul class="reading-list">
-<li><em>The First Three Minutes</em> by Steven Weinberg</li>
-<li><em>Endurance: Shackleton's Incredible Voyage</em> by Alfred Lansing</li>
+<li class="book">
+  <span class="book-title">Endurance: Shackleton's Incredible Voyage</span>
+  <span class="book-author">Alfred Lansing</span>
+</li>
 </ul>
 </div>
 
@@ -21,66 +25,249 @@ hide_title: true
 
 ## Read
 
+<!-- optional, add when you have them:
+     <span class="book-meta"><span class="reading-star">★★★★★</span> · 2024-10</span>
+     <span class="book-note">one-line take</span> -->
 <ul class="reading-list">
-<li><em>1984</em> by George Orwell</li>
-<li><em>A Thousand Splendid Suns</em> by Khaled Hosseini</li>
-<li><em>Adventures of Huckleberry Finn</em> by Mark Twain</li>
-<li><em>Animal Farm</em> by George Orwell</li>
-<li><em>Brave New World</em> by Aldous Huxley</li>
-<li><em>Catch-22</em> by Joseph Heller</li>
-<li><em>Chip War</em> by Chris Miller</li>
-<li><em>Creative Selection </em> by Ken Kocienda</li>
-<li><em>Dune (Dune, #1)</em> by Frank Herbert</li>
-<li><em>Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</em> by Ashlee Vance</li>
-<li><em>Farewell to Arms</em> by Ernest Hemingway</li>
-<li><em>Fooled by Randomness</em> by Nassim Nicholas Taleb</li>
-<li><em>Forge Your Future with Open Source</em> by V.M. (Vicky) Brasseur</li>
-<li><em>Foundation (Foundation, #1)</em> by Isaac Asimov</li>
-<li><em>Frankenstein</em> by Mary Shelley</li>
-<li><em>Grinding It Out</em> by Ray Croc</li>
-<li><em>Harry Potter series</em> by J.K. Rowling</li>
-<li><em>How to Win Friends & Influence People</em> by Dale Carnegie</li>
-<li><em>Hyperion (Hyperion Cantos, #1)</em> by Dan Simmons</li>
-<li><em>Kite Runner</em> by Khaled Hosseini</li>
-<li><em>Letters from a Stoic</em> by Seneca</li>
-<li><em>Life of Pi</em> by Yann Martel</li>
-<li><em>Lolita</em> by Vladimir Nabokov</li>
-<li><em>Masters of Doom</em> by David Kushner</li>
-<li><em>Meditations</em> by Marcus Aurelius</li>
-<li><em>Midnight's Children</em> by Salman Rushdie</li>
-<li><em>My Life And Work</em> by Henry Ford</li>
-<li><em>Neuromancer</em> by William Gibson</li>
-<li><em>Never Let Me Go</em> by Kazuo Ishiguro</li>
-<li><em>Norwegian Wood</em> by Haruki Murakami</li>
-<li><em>Nuts!</em> by Kevin Freiberg</li>
-<li><em>Old Man and the Sea</em> by Ernest Hemingway</li>
-<li><em>One Hundred Years of Solitude</em> by Gabriel García Márquez</li>
-<li><em>Poor Charlie's Almanack</em> by Charles T. Munger</li>
-<li><em>Principles: Life and Wor</em> by Ray Dalio</li>
-<li><em>Sapiens</em> by Yuval Noah Harari</li>
-<li><em>Shoe Dog</em> by Phil Knight</li>
-<li><em>Striking Thoughts</em> by Bruce Lee</li>
-<li><em>The 48 Laws of Power</em> by Robert Greene</li>
-<li><em>The Alchemist</em> by Paulo Coelho</li>
-<li><em>The Black Swan</em> by Nassim Nicholas Taleb</li>
-<li><em>The Catcher in the Rye</em> by J.D. Salinger</li>
-<li><em>The Everything Store</em> by Brad Stone</li>
-<li><em>The God of Small Things</em> by Arundhati Roy</li>
-<li><em>The Great Gatsby</em> by F. Scott Fitzgerald</li>
-<li><em>The Hard Thing About Hard Things</em> by Ben Horowitz</li>
-<li><em>The Hitchhiker's Guide to the Galaxy</em> by Douglas Adams</li>
-<li><em>The Intelligent Investor</em> by Benjamin Graham</li>
-<li><em>The Lean Startup</em> by Eric Ries</li>
-<li><em>The Left Hand Of Darkness</em> by Ursula K. Le Guin</li>
-<li><em>The Rational Optimist</em> by Matt Ridley</li>
-<li><em>The Sun Also Rises</em> by Ernest Hemingway</li>
-<li><em>The Wind-Up Bird Chronicle</em> by Haruki Murakami</li>
-<li><em>This Is How They Tell Me The World Ends</em> by Nicole Perlroth</li>
-<li><em>Thinking, Fast and Slow</em> by Daniel Kahneman</li>
-<li><em>To Kill a Mockingbird</em> by Harper Lee</li>
-<li><em>What We Talk About When We Talk About Love</em> by Raymond Carver</li>
-<li><em>What We Owe the Future</em> by William MacAskill</li>
-<li><em>Will You Please Be Quiet, Please?</em> by Raymond Carver</li>
-<li><em>Zero to One</em> by Peter Thiel</li>
+<li class="book">
+  <span class="book-title">1984</span>
+  <span class="book-author">George Orwell</span>
+</li>
+<li class="book">
+  <span class="book-title">A Thousand Splendid Suns</span>
+  <span class="book-author">Khaled Hosseini</span>
+</li>
+<li class="book">
+  <span class="book-title">Adventures of Huckleberry Finn</span>
+  <span class="book-author">Mark Twain</span>
+</li>
+<li class="book">
+  <span class="book-title">Animal Farm</span>
+  <span class="book-author">George Orwell</span>
+</li>
+<li class="book">
+  <span class="book-title">Brave New World</span>
+  <span class="book-author">Aldous Huxley</span>
+</li>
+<li class="book">
+  <span class="book-title">Catch-22</span>
+  <span class="book-author">Joseph Heller</span>
+</li>
+<li class="book">
+  <span class="book-title">Chip War</span>
+  <span class="book-author">Chris Miller</span>
+</li>
+<li class="book">
+  <span class="book-title">Creative Selection </span>
+  <span class="book-author">Ken Kocienda</span>
+</li>
+<li class="book">
+  <span class="book-title">Dune (Dune, #1)</span>
+  <span class="book-author">Frank Herbert</span>
+</li>
+<li class="book">
+  <span class="book-title">Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</span>
+  <span class="book-author">Ashlee Vance</span>
+</li>
+<li class="book">
+  <span class="book-title">Farewell to Arms</span>
+  <span class="book-author">Ernest Hemingway</span>
+</li>
+<li class="book">
+  <span class="book-title">Fooled by Randomness</span>
+  <span class="book-author">Nassim Nicholas Taleb</span>
+</li>
+<li class="book">
+  <span class="book-title">Forge Your Future with Open Source</span>
+  <span class="book-author">V.M. (Vicky) Brasseur</span>
+</li>
+<li class="book">
+  <span class="book-title">Foundation (Foundation, #1)</span>
+  <span class="book-author">Isaac Asimov</span>
+</li>
+<li class="book">
+  <span class="book-title">Frankenstein</span>
+  <span class="book-author">Mary Shelley</span>
+</li>
+<li class="book">
+  <span class="book-title">Grinding It Out</span>
+  <span class="book-author">Ray Croc</span>
+</li>
+<li class="book">
+  <span class="book-title">Harry Potter series</span>
+  <span class="book-author">J.K. Rowling</span>
+</li>
+<li class="book">
+  <span class="book-title">How to Win Friends & Influence People</span>
+  <span class="book-author">Dale Carnegie</span>
+</li>
+<li class="book">
+  <span class="book-title">Hyperion (Hyperion Cantos, #1)</span>
+  <span class="book-author">Dan Simmons</span>
+</li>
+<li class="book">
+  <span class="book-title">Kite Runner</span>
+  <span class="book-author">Khaled Hosseini</span>
+</li>
+<li class="book">
+  <span class="book-title">Letters from a Stoic</span>
+  <span class="book-author">Seneca</span>
+</li>
+<li class="book">
+  <span class="book-title">Life of Pi</span>
+  <span class="book-author">Yann Martel</span>
+</li>
+<li class="book">
+  <span class="book-title">Lolita</span>
+  <span class="book-author">Vladimir Nabokov</span>
+</li>
+<li class="book">
+  <span class="book-title">Masters of Doom</span>
+  <span class="book-author">David Kushner</span>
+</li>
+<li class="book">
+  <span class="book-title">Meditations</span>
+  <span class="book-author">Marcus Aurelius</span>
+</li>
+<li class="book">
+  <span class="book-title">Midnight's Children</span>
+  <span class="book-author">Salman Rushdie</span>
+</li>
+<li class="book">
+  <span class="book-title">My Life And Work</span>
+  <span class="book-author">Henry Ford</span>
+</li>
+<li class="book">
+  <span class="book-title">Neuromancer</span>
+  <span class="book-author">William Gibson</span>
+</li>
+<li class="book">
+  <span class="book-title">Never Let Me Go</span>
+  <span class="book-author">Kazuo Ishiguro</span>
+</li>
+<li class="book">
+  <span class="book-title">Norwegian Wood</span>
+  <span class="book-author">Haruki Murakami</span>
+</li>
+<li class="book">
+  <span class="book-title">Nuts!</span>
+  <span class="book-author">Kevin Freiberg</span>
+</li>
+<li class="book">
+  <span class="book-title">Old Man and the Sea</span>
+  <span class="book-author">Ernest Hemingway</span>
+</li>
+<li class="book">
+  <span class="book-title">One Hundred Years of Solitude</span>
+  <span class="book-author">Gabriel García Márquez</span>
+</li>
+<li class="book">
+  <span class="book-title">Poor Charlie's Almanack</span>
+  <span class="book-author">Charles T. Munger</span>
+</li>
+<li class="book">
+  <span class="book-title">Principles: Life and Wor</span>
+  <span class="book-author">Ray Dalio</span>
+</li>
+<li class="book">
+  <span class="book-title">Sapiens</span>
+  <span class="book-author">Yuval Noah Harari</span>
+</li>
+<li class="book">
+  <span class="book-title">Shoe Dog</span>
+  <span class="book-author">Phil Knight</span>
+</li>
+<li class="book">
+  <span class="book-title">Striking Thoughts</span>
+  <span class="book-author">Bruce Lee</span>
+</li>
+<li class="book">
+  <span class="book-title">The 48 Laws of Power</span>
+  <span class="book-author">Robert Greene</span>
+</li>
+<li class="book">
+  <span class="book-title">The Alchemist</span>
+  <span class="book-author">Paulo Coelho</span>
+</li>
+<li class="book">
+  <span class="book-title">The Black Swan</span>
+  <span class="book-author">Nassim Nicholas Taleb</span>
+</li>
+<li class="book">
+  <span class="book-title">The Catcher in the Rye</span>
+  <span class="book-author">J.D. Salinger</span>
+</li>
+<li class="book">
+  <span class="book-title">The Everything Store</span>
+  <span class="book-author">Brad Stone</span>
+</li>
+<li class="book">
+  <span class="book-title">The God of Small Things</span>
+  <span class="book-author">Arundhati Roy</span>
+</li>
+<li class="book">
+  <span class="book-title">The Great Gatsby</span>
+  <span class="book-author">F. Scott Fitzgerald</span>
+</li>
+<li class="book">
+  <span class="book-title">The Hard Thing About Hard Things</span>
+  <span class="book-author">Ben Horowitz</span>
+</li>
+<li class="book">
+  <span class="book-title">The Hitchhiker's Guide to the Galaxy</span>
+  <span class="book-author">Douglas Adams</span>
+</li>
+<li class="book">
+  <span class="book-title">The Intelligent Investor</span>
+  <span class="book-author">Benjamin Graham</span>
+</li>
+<li class="book">
+  <span class="book-title">The Lean Startup</span>
+  <span class="book-author">Eric Ries</span>
+</li>
+<li class="book">
+  <span class="book-title">The Left Hand Of Darkness</span>
+  <span class="book-author">Ursula K. Le Guin</span>
+</li>
+<li class="book">
+  <span class="book-title">The Rational Optimist</span>
+  <span class="book-author">Matt Ridley</span>
+</li>
+<li class="book">
+  <span class="book-title">The Sun Also Rises</span>
+  <span class="book-author">Ernest Hemingway</span>
+</li>
+<li class="book">
+  <span class="book-title">The Wind-Up Bird Chronicle</span>
+  <span class="book-author">Haruki Murakami</span>
+</li>
+<li class="book">
+  <span class="book-title">This Is How They Tell Me The World Ends</span>
+  <span class="book-author">Nicole Perlroth</span>
+</li>
+<li class="book">
+  <span class="book-title">Thinking, Fast and Slow</span>
+  <span class="book-author">Daniel Kahneman</span>
+</li>
+<li class="book">
+  <span class="book-title">To Kill a Mockingbird</span>
+  <span class="book-author">Harper Lee</span>
+</li>
+<li class="book">
+  <span class="book-title">What We Talk About When We Talk About Love</span>
+  <span class="book-author">Raymond Carver</span>
+</li>
+<li class="book">
+  <span class="book-title">What We Owe the Future</span>
+  <span class="book-author">William MacAskill</span>
+</li>
+<li class="book">
+  <span class="book-title">Will You Please Be Quiet, Please?</span>
+  <span class="book-author">Raymond Carver</span>
+</li>
+<li class="book">
+  <span class="book-title">Zero to One</span>
+  <span class="book-author">Peter Thiel</span>
+</li>
 </ul>
 </div>

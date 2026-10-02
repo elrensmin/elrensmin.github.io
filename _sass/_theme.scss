@@ -1,33 +1,20 @@
 :root {
-  --bg: #282828;
-  --surface: #32302f;
-  --surface-hover: #3c3a39;
-  --text: #d5c4a1;
-  --text-strong: #ebdbb2;
-  --muted: #a89984;
-  --subtle: #928374;
+  /* system UI fonts, same stacks amansanger.com uses - no webfonts to download */
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* page background matches the sigil artwork's own background (#070808) */
+  --bg: #070808;
+  --surface: #121413;
+  --surface-hover: #1b1e1d;
+  --text: #b3b3b3;
+  --text-strong: #dcdcdc;
+  --heading: #dcdcdc;
+  --muted: #b3b3b3;
+  --subtle: #8a8a8a;
   --accent: #d7ba7d;
-  --accent-hover: #e8d7a6;
-  --border: #504945;
-  --border-subtle: #665c54;
-  --code-bg: #32302f;
+  --border: #2b2a28;
+  --border-subtle: #3b3936;
+  --code-bg: #121413;
   --tag-bg: rgba(215, 186, 125, 0.12);
-  --text-rgb: 213, 196, 161;
-}
-
-body.light {
-  --bg: #ffffff;
-  --surface: #ffffff;
-  --surface-hover: #f3f3f2;
-  --text: #3c3836;
-  --text-strong: #282828;
-  --muted: #676767;
-  --subtle: #969696;
-  --accent: #AD2111;
-  --accent-hover: #8f1a0d;
-  --border: #e0ddda;
-  --border-subtle: #d0cdca;
-  --code-bg: #f3f3f2;
-  --tag-bg: rgba(173, 33, 17, 0.08);
-  --text-rgb: 60, 56, 54;
+  --text-rgb: 255, 255, 255;
 }

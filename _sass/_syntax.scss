@@ -46,20 +46,6 @@
   color: #2e7d8a;
 }
 
-body.light .highlight .s,
-body.light .highlight .s1,
-body.light .highlight .s2,
-body.light .highlight .sb,
-body.light .highlight .sc,
-body.light .highlight .sd,
-body.light .highlight .se,
-body.light .highlight .sh,
-body.light .highlight .si,
-body.light .highlight .sx,
-body.light .highlight .sr {
-  color: #2e7d8a;
-}
-
 /* Numbers / literals */
 .highlight .m,
 .highlight .mi,
@@ -67,15 +53,6 @@ body.light .highlight .sr {
 .highlight .mh,
 .highlight .mo,
 .highlight .il {
-  color: #b87333;
-}
-
-body.light .highlight .m,
-body.light .highlight .mi,
-body.light .highlight .mf,
-body.light .highlight .mh,
-body.light .highlight .mo,
-body.light .highlight .il {
   color: #b87333;
 }
 
@@ -102,7 +79,3 @@ body.light .highlight .il {
   color: #c0392b;
 }
 
-body.light .highlight .err,
-body.light .highlight .gr {
-  color: #c0392b;
-}

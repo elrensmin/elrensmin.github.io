@@ -5,14 +5,13 @@ permalink: /writing/
 hide_title: true
 ---
 
-[← home](/)
-
 <div class="search-bar">
   <input type="search" id="writing-search" class="search-box" placeholder="search writing..." aria-label="Search writing">
   <div class="search-filters" id="search-filters">
     <button class="filter-btn active" data-filter="all" type="button">all</button>
     <button class="filter-btn" data-filter="logs" type="button">logs</button>
     <button class="filter-btn" data-filter="notes" type="button">notes</button>
+    <button class="filter-btn" data-filter="experiments" type="button">experiments</button>
   </div>
 </div>
 <div id="writing-search-results" class="search-results" hidden></div>

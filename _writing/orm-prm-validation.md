@@ -2,7 +2,7 @@
 title: ORM & PRM Validation-Split Runs
 date: 2026-08-13
 description: Experiment log for validating the ORM and PRM training scripts 
-tags: [experiment, rlhf]
+tags: [experiments, rlhf]
 ---
 
 

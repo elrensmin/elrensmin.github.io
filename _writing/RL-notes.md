@@ -1,22 +1,13 @@
 ---
 title: Reinforcement Learning Notes
 date: 2026-08-20
-description: rl basics notes for later recall
+description: policy gradient notes - the gradient trick, baselines, RLOO, PPO, GRPO
 tags: [RL, notes]
 ---
 
-I've mostly just pasted my notes from reading [policy-gradients](https://rlhfbook.com/c/06-policy-gradients) here, plus some stitched-in intuition to tie the pieces together.
+I've mostly just pasted my notes from reading [policy-gradients](https://rlhfbook.com/c/06-policy-gradients) here, plus some stitched-in intuition to tie the pieces together. the fundamentals half - MDP tuple, markov property, return $G_t$, $V$ and $Q$, advantage, Bellman - now lives in [RL fundamentals](/writing/rl-fundamentals/), so this note picks up from the objective and runs the policy-gradient ladder.
 
-## Markov Decision Process and Trajectories
-
-- **State transitions:** $s_1 \rightarrow s_2 \rightarrow s_3$ with actions $a_1, a_2$
-- $P(s_3 \mid s_2, s_1) = P(s_3 \mid s_2)$ - **Markov property:** the future depends on the world only through the present state.
-- Rewards live on a probability distribution over the trajectory.
-  $$P(\tau) = P(s_1) \prod_{t=1}^T \pi(a_t | s_t)\, p(s_{t+1} | s_t, a_t)$$
-  where $\pi$ is the policy (our decision rule, the only thing we control) and $p$ is the
-  environment's randomness (dynamics), which we do **not** control.
-
-For an LLM this is almost embarrassingly simple. State = the token sequence so far. Action = next token. Transition = deterministic append, $s_{t+1} = [s_t, a_t]$, so all the randomness is in the policy, none in the environment. One prompt → one completion → one episode, dead at the EOS token. I mean there's complexity of batched stuff and the mult-turn convos but let's stay focused on the basics for now.
+For an LLM the setup is almost embarrassingly simple. State = the token sequence so far. Action = next token. Transition = deterministic append, $s_{t+1} = [s_t, a_t]$, so all the randomness is in the policy, none in the environment. One prompt → one completion → one episode, dead at the EOS token. I mean there's complexity of batched stuff and the mult-turn convos but let's stay focused on the basics for now.
 
 ## The Core RL Objective
 
@@ -25,7 +16,7 @@ So this is the thing everything builds on. just one expectation.
 $$J(\theta) = \mathbb{E}_{\tau \sim p_\theta}[R(\tau)] \quad \text{- (1)}$$
 
 - $\tau = (s_0, a_0, s_1, a_1, \dots)$ trajectory
-- $R(\tau) = \sum_{t=0}^\infty r_t$ total reward (for now: all rewards weighted equally; discounting arrives later)
+- $R(\tau) = \sum_{t=0}^\infty r_t$ total reward (weighted equally here; discounting is in the fundamentals note)
 - $p_\theta$ means the policy $\pi_\theta$ is baked into the trajectory distribution.
 
 We want the max over $\theta$. This average is never what you literally compute. You estimate it with a Monte-Carlo mean over a batch of B completions:
@@ -186,37 +177,11 @@ $$A(s,a_k) = \frac{K}{K-1} \left( R(s,a_k) - \frac{1}{K}\sum_{i=1}^{K} R(s,a_i) 
 
 That's the final form. the inner term is just $R(s,a_k) - \bar{R}$, the standard mean-baseline advantage, and $\frac{K}{K-1}$ is a constant scaler. so RLOO = REINFORCE-with-mean-baseline, rescaled. no critic, no extra network, one prompt's worth of samples is enough. the only cost is you need $K \ge 2$ completions per prompt, and variance drops as $K$ grows.
 
-## Discounting $\gamma$ and Return
+## Advantage and GAE (the derivation moved)
 
-$$G_t = r_t + \gamma G_{t+1} = \sum_{k=0}^\infty \gamma^k r_{t+k}$$
+the full derivation lives in [RL fundamentals](/writing/rl-fundamentals/) now: the flat-credit-assignment problem (every token inherits the same terminal scalar), $A^\pi(s_t, a_t) = Q^\pi(s_t, a_t) - V^\pi(s_t)$, the Bellman squeeze down to the TD residual $A(s_t, a_t) = r_t + \gamma V(s_{t+1}) - V(s_t)$, and why $G_t \equiv R(\tau)$ with $\gamma = 1$ for completions.
 
-$G_t$ is the return, what we maximize. $\gamma \in [0,1]$ - convergent, and near-term reward weighs more. For LLMs, $\gamma = 1.0$, no discount. an episode is one finite completion, so there's no infinite horizon to worry about, and discounting would just miscredit the later tokens. $G_t \equiv R(\tau)$.
-
-The value function is the expected return from $s$:
-
-$$V^\pi(s) = \mathbb{E}[G_t \mid S_t = s]$$
-
-## Advantage and the Bellman Link (why TD is a shortcut)
-
-The awkward fact under all of this: ideally every token would get its own reward. that "th" was a good token, that wrong digit was a bad one. we don't get that. the reward model scores the whole completion and hands back one scalar at the end, so every token in the sequence inherits the *same* number. the credit assignment is completely flat. push on the raw reward and you're telling all $T$ tokens they were equally responsible for an outcome most of them had nothing to do with.
-
-So don't push on the raw reward. push on how much better than expected this trajectory turned out - reward measured against a baseline. that's the advantage: what actually happened minus what we expected to get here. in shorthand $A = R(\tau) - V(s_t)$, but the proper object is the state-action gap:
-
-$$A^\pi(s_t, a_t) = Q^\pi(s_t, a_t) - V^\pi(s_t)$$
-
-How much better action $a_t$ is than the policy's average. and "average" means the average over the kinds of tasks this model sees, not just this one prompt - $V(s_t)$ is a general prior about how well the model does from here, and the advantage is this particular action beating that prior. but fitting a full $Q$ is expensive, so instead we lean on the Bellman equation - $Q$ at $(s_t,a_t)$ is the immediate reward plus the discounted value of the next state:
-
-$$Q^\pi(s_t, a_t) = \mathbb{E}\big[r_t + \gamma V^\pi(s_{t+1})\big]$$
-
-and the advantage collapses to the Temporal-Difference residual, which only needs a value estimate, one network:
-
-$$A(s_t, a_t) = r_t + \gamma V(s_{t+1}) - V(s_t)$$
-
-The reading: $r_t + \gamma V(s_{t+1})$ is a sample of how good it turned out *having taken $a$*. $V(s_t)$ is the value before choosing. the gap is exactly how much this action deviated from average. train $V$ to minimize TD error and you have your critic.
-
-### GAE (Generalized Advantage Estimation) - the one PPO actually uses
-
-Single-step TD is noisy and biased. GAE exponentially weights TD residuals to trade the two:
+what PPO actually estimates $\hat{A}_t$ with is GAE - exponentially weighted TD residuals, trading bias against variance:
 
 $$A_t^{\text{GAE}(\gamma,\lambda)} = \sum_{k=0}^{T-t} (\gamma\lambda)^k\, \delta_{t+k}, \qquad \delta_{t+k} = r_{t+k} + \gamma V(s_{t+k+1}) - V(s_{t+k})$$
 
@@ -293,7 +258,7 @@ the actual loss, then:
 
 $$L^{\text{IS}}(\theta) = \mathbb{E}\!\left[\frac{\pi_\theta(a_t | s_t)}{\pi_{\theta_{\text{old}}}(a_t | s_t)}\, A_t\right] = \mathbb{E}[\rho_t\, A_t] \quad \text{- (12)}$$
 
-with the trajectory structure now hidden inside how $A_t$ was estimated - that's the GAE job from the previous section.
+with the trajectory structure now hidden inside how $A_t$ was estimated - that's the GAE formula above.
 
 One aside worth keeping: the ratio's *granularity* is a design choice, not a law. GSPO (Zheng et al. 2025) uses one length-normalized ratio per *sequence*; CISPO clips the weight itself instead of the objective, so no token's gradient is ever zeroed out. per-token is just what PPO settled on.
 

@@ -1,11 +1,13 @@
 <header class="site-header">
   <div class="wrapper">
     <div class="site-header-inner">
-      <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-        <span class="icon-light">&#9788;</span>
-        <span class="icon-dark">&#9790;</span>
-      </button>
+      <nav class="site-nav" aria-label="Main">
+        <a href="{{ '/writing/' | relative_url }}"{% if page.url contains '/writing/' %} aria-current="page"{% endif %}>notes</a>
+        <a class="site-mark-link" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
+          <img class="site-mark" src="{{ '/images/Latent_Space_Astral_Sigil.png' | relative_url }}" alt="">
+        </a>
+        <a href="{{ '/reading/' | relative_url }}"{% if page.url contains '/reading/' %} aria-current="page"{% endif %}>readings</a>
+      </nav>
     </div>
   </div>
 </header>

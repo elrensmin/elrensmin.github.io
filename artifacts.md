@@ -5,8 +5,6 @@ permalink: /artifacts/
 hide_title: true
 ---
 
-[← home](/)
-
 <div class="reading-section" markdown="1">
 
 ## artifacts
