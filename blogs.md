@@ -40,5 +40,34 @@ hide_title: true
 - [The 37 Implementation Details of Proximal Policy Optimization](https://iclr-blog-track.github.io/2022/03/25/ppo-implementation-details/){:target="_blank"}
 - [RL is Everything, Everywhere, All at Once](https://skypilot.ai/blog/rl-everything){:target="_blank"}
 - [How the Backpropagation Algorithm Works](http://neuralnetworksanddeeplearning.com/chap2.html){:target="_blank"}
+- [Employee Equity](https://blog.samaltman.com/employee-equity){:target="_blank"}
+- [Neural Networks](https://www.3blue1brown.com/topics/neural-networks){:target="_blank"}
+- [How Neural Networks Work](https://e2eml.school/how_neural_networks_work.html){:target="_blank"}
+- [Pmarchive](https://pmarchive.com/){:target="_blank"}
+- [Andrej Karpathy: Tesla AI, Self-Driving, Optimus, Aliens, and AGI — Lex Fridman Podcast #333](https://www.youtube.com/watch?v=cdiD-9MMpb0){:target="_blank"}
+- [Elon Musk: SpaceX, Mars, Tesla Autopilot, Self-Driving, Robotics, and AI — Lex Fridman Podcast #252](https://www.youtube.com/watch?v=DxREm3s1scA){:target="_blank"}
+- [Yes, You Should Understand Backprop](https://karpathy.medium.com/yes-you-should-understand-backprop-e2f06eab496b){:target="_blank"}
+- [How Deep Neural Networks Work](https://www.youtube.com/watch?v=ILsA4nyG7I0){:target="_blank"}
+- [AI Language Models & Transformers](https://www.youtube.com/watch?v=rURRYI66E54){:target="_blank"}
+- [How Convolutional Neural Networks Work](https://www.youtube.com/watch?v=FmpDIaiMIeA){:target="_blank"}
+- [Why You Shouldn't Join Y Combinator](https://newsletter.smallbets.co/p/why-you-shouldnt-join-y-combinator){:target="_blank"}
+- [How to Do Great Work](https://www.paulgraham.com/greatwork.html){:target="_blank"}
+- [The Architecture Behind a One-Person Tech Startup](https://anthonynsimon.com/blog/one-man-saas-architecture/){:target="_blank"}
+- [Vertical Integrators, Part III](https://www.notboring.co/p/vertical-integrators-part-iii){:target="_blank"}
+- [How to Achieve More While Studying Less — Obsidian & Conceptual Notes](https://www.youtube.com/watch?v=MYJsGksojms){:target="_blank"}
+- [The Boring Technology Behind a One-Person Business](https://www.listennotes.com/blog/the-boring-technology-behind-a-one-person-23/){:target="_blank"}
+- [An Intuitive Guide to Convolution](https://betterexplained.com/articles/intuitive-convolution/){:target="_blank"}
+- [Default Alive or Default Dead?](https://paulgraham.com/aord.html){:target="_blank"}
+- [How to Write Complex Software](https://grantslatton.com/how-to-software){:target="_blank"}
+- [Hitting a 7-Figure ARR Within Two Years by Focusing on Quality](https://www.indiehackers.com/post/tech/hitting-a-7-figure-arr-within-two-years-by-focusing-on-quality-and-letting-the-product-speak-for-itself-bHvRpjj7xxXs71R3TR4I){:target="_blank"}
+- [Strategy Letter V](https://www.joelonsoftware.com/2002/06/12/strategy-letter-v/){:target="_blank"}
+- [Lessons from Peter Thiel](https://www.8vc.com/resources/lessons-from-peter-thiel){:target="_blank"}
+- [Amp It Up!](https://www.linkedin.com/pulse/amp-up-frank-slootman/){:target="_blank"}
+- [How to Hire the Best People You've Ever Worked With](https://pmarchive.com/how_to_hire_the_best_people.html){:target="_blank"}
+- [The Goldilocks Zone](https://www.notboring.co/p/the-goldilocks-zone){:target="_blank"}
+- [In Defense of Strategy](https://www.notboring.co/p/in-defense-of-strategy){:target="_blank"}
+- [Field Notes from Shipping Real Code with Claude](https://diwank.space/field-notes-from-shipping-real-code-with-claude){:target="_blank"}
+- [Lehman's Laws of Software Evolution](https://en.wikipedia.org/wiki/Lehman%27s_laws_of_software_evolution){:target="_blank"}
+- [I Will Fucking Piledrive You If You Mention AI Again](https://ludic.mataroa.blog/blog/i-will-fucking-piledrive-you-if-you-mention-ai-again/){:target="_blank"}
 
 </div>

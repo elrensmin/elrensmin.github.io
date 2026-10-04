@@ -34,12 +34,20 @@ hide_title: true
   <span class="book-author">George Orwell</span>
 </li>
 <li class="book">
+  <span class="book-title">A Business and Its Beliefs: The Ideas That Helped Build IBM</span>
+  <span class="book-author">Thomas J. Watson, Jr.</span>
+</li>
+<li class="book">
   <span class="book-title">A Thousand Splendid Suns</span>
   <span class="book-author">Khaled Hosseini</span>
 </li>
 <li class="book">
   <span class="book-title">Adventures of Huckleberry Finn</span>
   <span class="book-author">Mark Twain</span>
+</li>
+<li class="book">
+  <span class="book-title">All In</span>
+  <span class="book-author">Adrian Gostick</span>
 </li>
 <li class="book">
   <span class="book-title">Animal Farm</span>
@@ -70,6 +78,10 @@ hide_title: true
   <span class="book-author">Ashlee Vance</span>
 </li>
 <li class="book">
+  <span class="book-title">Extreme Ownership</span>
+  <span class="book-author">Jocko Willink &amp; Leif Babin</span>
+</li>
+<li class="book">
   <span class="book-title">Farewell to Arms</span>
   <span class="book-author">Ernest Hemingway</span>
 </li>
@@ -91,11 +103,15 @@ hide_title: true
 </li>
 <li class="book">
   <span class="book-title">Grinding It Out</span>
-  <span class="book-author">Ray Croc</span>
+  <span class="book-author">Ray Kroc</span>
 </li>
 <li class="book">
   <span class="book-title">Harry Potter series</span>
   <span class="book-author">J.K. Rowling</span>
+</li>
+<li class="book">
+  <span class="book-title">How to Get Rich</span>
+  <span class="book-author">Felix Dennis</span>
 </li>
 <li class="book">
   <span class="book-title">How to Win Friends & Influence People</span>
@@ -132,6 +148,10 @@ hide_title: true
 <li class="book">
   <span class="book-title">Midnight's Children</span>
   <span class="book-author">Salman Rushdie</span>
+</li>
+<li class="book">
+  <span class="book-title">Mom Test</span>
+  <span class="book-author">Rob Fitzpatrick</span>
 </li>
 <li class="book">
   <span class="book-title">My Life And Work</span>

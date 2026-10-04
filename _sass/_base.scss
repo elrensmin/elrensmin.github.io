@@ -4,8 +4,15 @@
   padding: 0;
 }
 
+:root {
+  /* html is scaled down by this factor. Viewport units inside the zoomed
+     subtree are NOT scaled with it, so any vh/dvh length that has to fill the
+     screen must be divided by it - otherwise the page ends up at 80% height. */
+  --zoom: 0.8;
+}
+
 html {
-  zoom: 0.8;
+  zoom: var(--zoom);
   font-size: 16.5px;
   line-height: 1.7;
   scroll-behavior: smooth;
@@ -35,7 +42,8 @@ body {
   letter-spacing: 0.01em;
   color: var(--text);
   background: var(--bg);
-  min-height: calc(100vh / 0.8);
+  min-height: calc(100vh / var(--zoom));
+  min-height: calc(100dvh / var(--zoom));
   transition: background 0.3s, color 0.3s;
 }
 
@@ -74,6 +82,17 @@ pre {
   border-radius: 6px;
   overflow-x: auto;
   margin-bottom: 1em;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--text-rgb), 0.25) transparent;
+}
+
+/* display equations scroll sideways on narrow screens instead of being
+   clipped by the global overflow-x: hidden */
+mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding-bottom: 0.25rem;
   scrollbar-width: thin;
   scrollbar-color: rgba(var(--text-rgb), 0.25) transparent;
 }
