@@ -83,9 +83,9 @@ To avoid spill, we need `floats per thread < ~180` (leaving headroom):
 | 4096   | **128** ← edge    | 4 ✓                  |
 | 8192   | 256 ✗ spills      | 8 ✓                  |
 | 65536  | 2048 ✗            | 64 ✓                 |
-| 262144 | —                 | 256 ✗ spills         |
+| 262144 | -                 | 256 ✗ spills         |
 
-The block kernel doesn't remove the register constraint — it just divides `N` by `1024` instead of `32`, pushing the spill boundary 32× higher. That's the entire trick
+The block kernel doesn't remove the register constraint - it just divides `N` by `1024` instead of `32`, pushing the spill boundary 32× higher. That's the entire trick
 
 ---
 
@@ -370,7 +370,7 @@ __global__ __launch_bounds__(BS) void softmax_online_2pass_kernel(
   const float4 *row_in  = reinterpret_cast<const float4 *>(in  + row * N);
   float4       *row_out = reinterpret_cast<float4       *>(out + row * N);
 
-  // Pass 1: accumulate (max, sum) — no buf[], O(1) register footprint
+  // Pass 1: accumulate (max, sum) - no buf[], O(1) register footprint
   float local_max = -INFINITY, local_sum = 0.0f;
 #pragma unroll
   for (int i = 0; i < NP; i++) {

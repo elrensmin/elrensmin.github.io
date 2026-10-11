@@ -11,12 +11,17 @@ hide_title: true
 
 <div class="reading-section" markdown="1">
 
+<!-- NOTE: keep this "In Progress" (currently reading) section even when it is empty. Do not delete it. -->
 ## In Progress
 
 <ul class="reading-list">
 <li class="book">
-  <span class="book-title">Endurance: Shackleton's Incredible Voyage</span>
-  <span class="book-author">Alfred Lansing</span>
+  <span class="book-title">American Gods</span>
+  <span class="book-author">Neil Gaiman</span>
+</li>
+<li class="book">
+  <span class="book-title">Kafka on the Shore</span>
+  <span class="book-author">Haruki Murakami</span>
 </li>
 </ul>
 </div>
@@ -40,6 +45,10 @@ hide_title: true
 <li class="book">
   <span class="book-title">A Thousand Splendid Suns</span>
   <span class="book-author">Khaled Hosseini</span>
+</li>
+<li class="book">
+  <span class="book-title">Advancing Conversations: Aubrey De Grey - Advocate For An Indefinite Human Lifespan</span>
+  <span class="book-author">Douglas Lain &amp; Aubrey de Grey</span>
 </li>
 <li class="book">
   <span class="book-title">Adventures of Huckleberry Finn</span>
@@ -76,6 +85,10 @@ hide_title: true
 <li class="book">
   <span class="book-title">Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</span>
   <span class="book-author">Ashlee Vance</span>
+</li>
+<li class="book">
+  <span class="book-title">Endurance: Shackleton's Incredible Voyage</span>
+  <span class="book-author">Alfred Lansing</span>
 </li>
 <li class="book">
   <span class="book-title">Extreme Ownership</span>
@@ -216,6 +229,10 @@ hide_title: true
 <li class="book">
   <span class="book-title">The Catcher in the Rye</span>
   <span class="book-author">J.D. Salinger</span>
+</li>
+<li class="book">
+  <span class="book-title">The Changing World Order</span>
+  <span class="book-author">Ray Dalio</span>
 </li>
 <li class="book">
   <span class="book-title">The Everything Store</span>

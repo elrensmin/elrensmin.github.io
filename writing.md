@@ -12,6 +12,7 @@ hide_title: true
     <button class="filter-btn" data-filter="logs" type="button">logs</button>
     <button class="filter-btn" data-filter="notes" type="button">notes</button>
     <button class="filter-btn" data-filter="experiments" type="button">experiments</button>
+    <button class="filter-btn" data-filter="papers" type="button">papers</button>
   </div>
 </div>
 <div id="writing-search-results" class="search-results" hidden></div>

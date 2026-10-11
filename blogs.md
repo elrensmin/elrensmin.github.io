@@ -44,8 +44,8 @@ hide_title: true
 - [Neural Networks](https://www.3blue1brown.com/topics/neural-networks){:target="_blank"}
 - [How Neural Networks Work](https://e2eml.school/how_neural_networks_work.html){:target="_blank"}
 - [Pmarchive](https://pmarchive.com/){:target="_blank"}
-- [Andrej Karpathy: Tesla AI, Self-Driving, Optimus, Aliens, and AGI — Lex Fridman Podcast #333](https://www.youtube.com/watch?v=cdiD-9MMpb0){:target="_blank"}
-- [Elon Musk: SpaceX, Mars, Tesla Autopilot, Self-Driving, Robotics, and AI — Lex Fridman Podcast #252](https://www.youtube.com/watch?v=DxREm3s1scA){:target="_blank"}
+- [Andrej Karpathy: Tesla AI, Self-Driving, Optimus, Aliens, and AGI - Lex Fridman Podcast #333](https://www.youtube.com/watch?v=cdiD-9MMpb0){:target="_blank"}
+- [Elon Musk: SpaceX, Mars, Tesla Autopilot, Self-Driving, Robotics, and AI - Lex Fridman Podcast #252](https://www.youtube.com/watch?v=DxREm3s1scA){:target="_blank"}
 - [Yes, You Should Understand Backprop](https://karpathy.medium.com/yes-you-should-understand-backprop-e2f06eab496b){:target="_blank"}
 - [How Deep Neural Networks Work](https://www.youtube.com/watch?v=ILsA4nyG7I0){:target="_blank"}
 - [AI Language Models & Transformers](https://www.youtube.com/watch?v=rURRYI66E54){:target="_blank"}
@@ -54,7 +54,7 @@ hide_title: true
 - [How to Do Great Work](https://www.paulgraham.com/greatwork.html){:target="_blank"}
 - [The Architecture Behind a One-Person Tech Startup](https://anthonynsimon.com/blog/one-man-saas-architecture/){:target="_blank"}
 - [Vertical Integrators, Part III](https://www.notboring.co/p/vertical-integrators-part-iii){:target="_blank"}
-- [How to Achieve More While Studying Less — Obsidian & Conceptual Notes](https://www.youtube.com/watch?v=MYJsGksojms){:target="_blank"}
+- [How to Achieve More While Studying Less - Obsidian & Conceptual Notes](https://www.youtube.com/watch?v=MYJsGksojms){:target="_blank"}
 - [The Boring Technology Behind a One-Person Business](https://www.listennotes.com/blog/the-boring-technology-behind-a-one-person-23/){:target="_blank"}
 - [An Intuitive Guide to Convolution](https://betterexplained.com/articles/intuitive-convolution/){:target="_blank"}
 - [Default Alive or Default Dead?](https://paulgraham.com/aord.html){:target="_blank"}
@@ -69,5 +69,6 @@ hide_title: true
 - [Field Notes from Shipping Real Code with Claude](https://diwank.space/field-notes-from-shipping-real-code-with-claude){:target="_blank"}
 - [Lehman's Laws of Software Evolution](https://en.wikipedia.org/wiki/Lehman%27s_laws_of_software_evolution){:target="_blank"}
 - [I Will Fucking Piledrive You If You Mention AI Again](https://ludic.mataroa.blog/blog/i-will-fucking-piledrive-you-if-you-mention-ai-again/){:target="_blank"}
+- [How AI Solves the Impossible Search Problem](https://www.youtube.com/watch?v=laaBLUxJUMY){:target="_blank"}
 
 </div>

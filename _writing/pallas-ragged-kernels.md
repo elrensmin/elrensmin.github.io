@@ -93,7 +93,7 @@ Chinchilla found `a ≈ 0.45`, `b ≈ 0.55`, meaning you should grow **both** mo
 - N sizes: 3.5K to 2.1M (much wider range, including very small models)
 
 **MoE v1 targets**: Same as dense v1 but with MoE layers
-- **Critical problem**: Many MoE runs "collapsed" — val_loss dropped below 0.5, indicating the model memorized the training data (overfitting to extreme degree)
+- **Critical problem**: Many MoE runs "collapsed" - val_loss dropped below 0.5, indicating the model memorized the training data (overfitting to extreme degree)
 - Collapse happened because MoE has more total parameters but same active params, leading to severe overfitting at low data regimes
 
 **MoE v2 targets**: Reduced set, only 11 runs at C=5e10 (still collapsed)

@@ -34,7 +34,7 @@ Clipping alone fixed the exp1 collapse: entropy stays ~0.68 and the score doesn'
 
 - **What it teaches:** Small epsilon → conservative steps, slower but stable. Large epsilon → closer to VPG, can still collapse. Also KL(old \|\| new) should stay bounded by roughly epsilon on healthy runs.
 
-The recurring signal across this whole phase: **KL bounded by eps learns, KL past eps collapses.** Every plot below is the same shape — train your eye here.
+The recurring signal across this whole phase: **KL bounded by eps learns, KL past eps collapses.** Every plot below is the same shape - train your eye here.
 
 What we actually see:
 
