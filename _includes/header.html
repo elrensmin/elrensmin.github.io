@@ -4,7 +4,10 @@
       <nav class="site-nav" aria-label="Main">
         <a href="{{ '/writing/' | relative_url }}"{% if page.url contains '/writing/' %} aria-current="page"{% endif %}>notes</a>
         <a class="site-mark-link" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
-          <img class="site-mark" src="{{ '/images/Latent_Space_Astral_Sigil.png' | relative_url }}" alt="">
+          <picture>
+            <source srcset="{{ '/images/site-mark.webp' | relative_url }}" type="image/webp">
+            <img class="site-mark" src="{{ '/images/site-mark.jpg' | relative_url }}" alt="" width="100" height="100" decoding="async" fetchpriority="high">
+          </picture>
         </a>
         <a href="{{ '/reading/' | relative_url }}"{% if page.url contains '/reading/' %} aria-current="page"{% endif %}>readings</a>
       </nav>

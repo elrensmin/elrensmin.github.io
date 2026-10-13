@@ -9,9 +9,7 @@ hide_title: true
   <input type="search" id="writing-search" class="search-box" placeholder="search writing..." aria-label="Search writing">
   <div class="search-filters" id="search-filters">
     <button class="filter-btn active" data-filter="all" type="button">all</button>
-    <button class="filter-btn" data-filter="logs" type="button">logs</button>
     <button class="filter-btn" data-filter="notes" type="button">notes</button>
-    <button class="filter-btn" data-filter="experiments" type="button">experiments</button>
     <button class="filter-btn" data-filter="papers" type="button">papers</button>
   </div>
 </div>

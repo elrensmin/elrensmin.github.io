@@ -2,7 +2,7 @@
 title: some heuristics
 date: 2026-08-31
 description: some experimental heuristics for LM training
-tags: [logs]
+tags: [notes]
 ---
 
 ## [Main-8b-retro](https://marin.readthedocs.io/en/latest/reports/marin-8b-retro/)

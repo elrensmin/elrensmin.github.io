@@ -4,6 +4,11 @@
   padding: 0 1.5rem;
 }
 
+/* Post content column: wider than the topbar, which stays at 42rem. */
+.log-wrapper {
+  max-width: 52rem;
+}
+
 .site-header .wrapper {
   max-width: 42rem;
 }
@@ -170,6 +175,12 @@
 
 .log-content, .page-content {
   line-height: 1.8;
+}
+
+/* Post body reads a touch larger; scoped so the topbar/listing width is
+   unaffected (rem-based widths elsewhere still key off the root font size). */
+.log-content {
+  font-size: 1.08rem;
 }
 
 .log-content p,
@@ -469,8 +480,9 @@
 .toc li.active > a {
   color: var(--accent);
 }
-/* no gutter to float in: falls back to nothing rather than overlapping the text */
-@media (max-width: 1200px) {
+/* no gutter to float in: falls back to nothing rather than overlapping the text.
+   Threshold follows the 52rem content column (26rem half-width + 15rem of TOC). */
+@media (max-width: 1380px) {
   .toc { display: none; }
 }
 

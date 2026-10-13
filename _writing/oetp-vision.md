@@ -1,7 +1,7 @@
 ---
 title: "OETP vision"
 date: 2026-07-27
-tags: [cryptography, logs]
+tags: [cryptography, notes]
 ---
 
 # Open Exam Transparency Protocol (OETP): Vision Document
