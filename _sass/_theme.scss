@@ -1,6 +1,10 @@
 :root {
-  /* system UI fonts, same stacks amansanger.com uses - no webfonts to download */
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* Inter is shipped as a webfont and goes first on purpose: some browsers
+     (Firefox on Linux in particular) can fail to resolve system sans fonts and
+     fall back to a serif. A downloaded webfont does not depend on system font
+     resolution, so it guarantees a sans everywhere. The system stack stays as
+     fallback for when the font fails to load. */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   /* page background matches the sigil artwork's own background (#070808) */
   --bg: #070808;
