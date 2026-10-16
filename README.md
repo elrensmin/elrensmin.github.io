@@ -22,5 +22,3 @@ bundle exec jekyll build
 ```bash
 bundle exec jekyll serve
 ```
-
-Visit `http://localhost:4000`.
