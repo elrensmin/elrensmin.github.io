@@ -515,3 +515,179 @@
 .log-content img {
   cursor: zoom-in;
 }
+
+/* --- Popup notes -------------------------------------------------------
+   Inline addenda: a small marker at the end of a sentence opens an overlay
+   with longer material, so the main thread stays linear and the depth is on
+   demand. The overlay uses inset:0 rather than vh units, because html is
+   scaled by --zoom and viewport units are not part of the zoomed subtree
+   (so any height that must fill the screen is divided by --zoom).          */
+
+.popup-trigger {
+  margin-left: 0.3em;
+  padding: 0;
+  font: inherit;
+  font-size: 0.8em;
+  color: var(--accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.popup-trigger:hover,
+.popup-trigger:focus-visible {
+  opacity: 1;
+  color: var(--text-strong);
+  outline: none;
+}
+
+/* Hidden source of truth: MathJax renders it in place at load, and the
+   script moves those same nodes into the panel, so nothing is re-typeset. */
+.popup {
+  display: none;
+}
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  animation: popup-in 0.18s ease;
+}
+
+.popup-panel {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  max-width: 46rem;
+  max-height: calc(88vh / var(--zoom));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 2.2rem 2.4rem 2rem;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.65);
+  animation: popup-rise 0.2s ease;
+}
+
+/* --- keeping popup content inside the screen ----------------------------
+   A flex item's automatic minimum size is its min-content size, and that
+   propagates up from the widest descendant: the coefficient tables and the
+   wide display equations are both wider than a phone. Without the resets
+   below the panel grows past the viewport and the whole page overflows
+   sideways, since the overlay is fixed. Setting min-width: 0 on the chain
+   lets the panel stay screen-width and pushes scrolling inside it instead. */
+
+.popup-body {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* a table's min-content width is set by its longest unbreakable cell, so let
+   the cells break rather than pushing the panel wider than the screen */
+.popup-body th,
+.popup-body td {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* the one piece that genuinely cannot compress: display equations and the
+   coefficient table. Those scroll inside the popup (base.scss already gives
+   display math this treatment) rather than widening the page. */
+.popup-body mjx-container[display="true"] {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+
+@media (max-width: 640px) {
+  .popup-body table {
+    display: block;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .popup-body th,
+  .popup-body td {
+    padding: 0.4em 0.55em;
+  }
+  .popup-body mjx-container {
+    font-size: 0.9em;
+  }
+}
+
+.popup-label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.popup-close {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.8rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.popup-close:hover,
+.popup-close:focus-visible {
+  color: var(--text-strong);
+  background: var(--border);
+  outline: none;
+}
+
+.popup-panel table {
+  width: 100%;
+}
+
+.popup-panel > *:first-child {
+  margin-top: 0;
+}
+
+@keyframes popup-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popup-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .popup-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+  .popup-panel {
+    max-width: none;
+    max-height: calc(92vh / var(--zoom));
+    padding: 1.7rem 1.2rem 1.4rem;
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+  }
+  .popup-close {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
