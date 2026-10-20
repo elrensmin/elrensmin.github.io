@@ -134,7 +134,7 @@
   height: 20px;
 }
 /* the badge is a dark disc; invert it on dark so it stays visible */
-[data-theme="dark"] .icon-link.icon-disc img {
+[data-theme="dark"] .icon-link.icon-invert img {
   filter: invert(1);
 }
 

@@ -20,38 +20,26 @@
         </button>
 
         {% if site.github_username %}
-        <a class="icon-link icon-disc" href="https://github.com/{{ site.github_username }}" aria-label="GitHub" target="_blank" rel="noopener">
-          <picture>
-            <source srcset="{{ '/images/icons/github.webp' | relative_url }}" type="image/webp">
-            <img src="{{ '/images/icons/github.png' | relative_url }}" alt="" width="20" height="20" loading="lazy" decoding="async">
-          </picture>
+        <a class="icon-link icon-invert" href="https://github.com/{{ site.github_username }}" aria-label="GitHub" target="_blank" rel="noopener">
+          <img src="{{ '/images/icons/github.webp' | relative_url }}" alt="" width="20" height="20" loading="lazy" decoding="async">
         </a>
         {% endif %}
 
         {% if site.twitter_username %}
-        <a class="icon-link icon-disc" href="https://x.com/{{ site.twitter_username }}" aria-label="X" target="_blank" rel="noopener">
-          <picture>
-            <source srcset="{{ '/images/icons/twitter.webp' | relative_url }}" type="image/webp">
-            <img src="{{ '/images/icons/twitter.png' | relative_url }}" alt="" width="20" height="20" loading="lazy" decoding="async">
-          </picture>
+        <a class="icon-link icon-invert" href="https://x.com/{{ site.twitter_username }}" aria-label="X" target="_blank" rel="noopener">
+          <img src="{{ '/images/icons/twitter.webp' | relative_url }}" alt="" width="20" height="20" loading="lazy" decoding="async">
         </a>
         {% endif %}
 
         {% if site.kaggle_username %}
-        <a class="icon-link" href="https://www.kaggle.com/{{ site.kaggle_username }}" aria-label="Kaggle" target="_blank" rel="noopener">
-          <picture>
-            <source srcset="{{ '/images/icons/kaggle.webp' | relative_url }}" type="image/webp">
-            <img src="{{ '/images/icons/kaggle.png' | relative_url }}" alt="" width="20" height="20" loading="lazy" decoding="async">
-          </picture>
+        <a class="icon-link icon-invert" href="https://www.kaggle.com/{{ site.kaggle_username }}" aria-label="Kaggle" target="_blank" rel="noopener">
+          <img src="{{ '/images/icons/kaggle.webp' | relative_url }}" alt="" width="20" height="20" loading="lazy" decoding="async">
         </a>
         {% endif %}
 
         {% if site.email %}
-        <a class="icon-link icon-disc" href="mailto:{{ site.email }}" aria-label="Email">
-          <picture>
-            <source srcset="{{ '/images/icons/email.webp' | relative_url }}" type="image/webp">
-            <img src="{{ '/images/icons/email.png' | relative_url }}" alt="" width="20" height="20" loading="lazy" decoding="async">
-          </picture>
+        <a class="icon-link icon-invert" href="mailto:{{ site.email }}" aria-label="Email">
+          <img src="{{ '/images/icons/email.webp' | relative_url }}" alt="" width="20" height="20" loading="lazy" decoding="async">
         </a>
         {% endif %}
       </div>
