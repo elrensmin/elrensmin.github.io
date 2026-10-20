@@ -16,19 +16,11 @@ collections:
   writing:
     output: true
     permalink: /writing/:title/
-  artifacts:
-    output: true
-    permalink: /artifacts/:title/
 
 defaults:
   - scope:
       path: ""
       type: "writing"
-    values:
-      layout: log
-  - scope:
-      path: ""
-      type: "artifacts"
     values:
       layout: log
   - scope:

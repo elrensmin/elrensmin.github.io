@@ -177,3 +177,10 @@ th {
   background: var(--code-bg);
   font-family: var(--font-sans);
 }
+
+/* A touch smaller on phones, where the same rem scale feels oversized. */
+@media (max-width: 640px) {
+  html {
+    font-size: 18px;
+  }
+}

@@ -163,6 +163,31 @@
     }
   })();
 
+  /* --- Mobile menu ---------------------------------------------------- */
+  (function() {
+    var btn = document.getElementById('menu-toggle');
+    var menu = document.getElementById('site-menu');
+    if (!btn || !menu) return;
+
+    function setOpen(open) {
+      menu.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    btn.addEventListener('click', function() {
+      setOpen(!menu.classList.contains('open'));
+    });
+
+    // picking a destination closes the panel
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() { setOpen(false); });
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+  })();
+
   /* --- Theme toggle (light is the default; only "dark" is stored) ------ */
   (function() {
     var btn = document.getElementById('theme-toggle');
