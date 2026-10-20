@@ -1,8 +1,8 @@
 ---
 title: KL divergence notes
 date: 2026-08-12
-description: notes on entropy, cross-entropy, conditional entropy, KL divergence and mutual information
-tags: [ML, info-theory, notes]
+description: entropy, KL divergence, and mutual information
+tags: [ML, info-theory, study-notes]
 ---
 
 i kept running into KL divergence and cross-entropy in like four different places at once and i could never give a straight answer when someone asked what KL actually *was*. embarrassing honestly. so i saved a pile of pages, sat with it for an evening, and these are the notes i want to come back to.

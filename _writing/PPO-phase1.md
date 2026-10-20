@@ -1,8 +1,8 @@
 ---
 title: PPO - phase 1
 date: 2026-09-10
-description: Experiment log for trying different things out with PPO and CartPole
-tags: [notes, rlhf]
+description: "PPO on CartPole: what I tried and what broke"
+tags: [study-notes, rlhf]
 ---
 
 ## exp1: VPG / no-clip baseline on CartPole

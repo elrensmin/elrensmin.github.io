@@ -1,8 +1,8 @@
 ---
 title: RoPE notes
 date: 2026-08-28
-description: rotary position embeddings notes for later recall
-tags: [RoPE, notes]
+description: how rotary position embeddings work
+tags: [RoPE, study-notes]
 ---
 
 I owe a debt of gratitude to this dude for making [RoPE click for me](https://www.youtube.com/watch?v=hCzJo4ui1P8)

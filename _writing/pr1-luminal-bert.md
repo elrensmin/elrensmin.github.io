@@ -1,8 +1,8 @@
 ---
 title: oss pr#1 - luminal/example-bert example worklog
 date: 2026-08-07
-description: documentation for my first oss pr
-tags: [oss, bert, luminal, notes]
+description: my first open-source PR, written up as documentation
+tags: [oss, bert, luminal, study-notes]
 ---
 
 # BERT example worklog

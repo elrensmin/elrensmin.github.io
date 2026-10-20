@@ -1,16 +1,60 @@
 <header class="site-header">
   <div class="wrapper">
     <div class="site-header-inner">
+      <a class="site-brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
+        <picture>
+          <source srcset="{{ '/images/site-mark.webp' | relative_url }}" type="image/webp">
+          <img class="site-mark" src="{{ '/images/site-mark.jpg' | relative_url }}" alt="" width="36" height="36" decoding="async" fetchpriority="high">
+        </picture>
+        <span class="site-name">{{ site.title }}</span>
+      </a>
+
       <nav class="site-nav" aria-label="Main">
-        <a href="{{ '/writing/' | relative_url }}"{% if page.url contains '/writing/' %} aria-current="page"{% endif %}>notes</a>
-        <a class="site-mark-link" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
+        <a href="{{ '/writing/' | relative_url }}"{% if page.url contains '/writing/' %} aria-current="page"{% endif %}>writes</a>
+        <a href="{{ '/reading/' | relative_url }}"{% if page.url contains '/reading/' %} aria-current="page"{% endif %}>reads</a>
+      </nav>
+
+      <div class="site-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch theme">
+          <span class="theme-icon" aria-hidden="true">&#9790;</span>
+        </button>
+
+        {% if site.github_username %}
+        <a class="icon-link icon-disc" href="https://github.com/{{ site.github_username }}" aria-label="GitHub" target="_blank" rel="noopener">
           <picture>
-            <source srcset="{{ '/images/site-mark.webp' | relative_url }}" type="image/webp">
-            <img class="site-mark" src="{{ '/images/site-mark.jpg' | relative_url }}" alt="" width="100" height="100" decoding="async" fetchpriority="high">
+            <source srcset="{{ '/images/icons/github.webp' | relative_url }}" type="image/webp">
+            <img src="{{ '/images/icons/github.png' | relative_url }}" alt="" width="20" height="20" loading="lazy" decoding="async">
           </picture>
         </a>
-        <a href="{{ '/reading/' | relative_url }}"{% if page.url contains '/reading/' %} aria-current="page"{% endif %}>readings</a>
-      </nav>
+        {% endif %}
+
+        {% if site.twitter_username %}
+        <a class="icon-link icon-disc" href="https://x.com/{{ site.twitter_username }}" aria-label="X" target="_blank" rel="noopener">
+          <picture>
+            <source srcset="{{ '/images/icons/twitter.webp' | relative_url }}" type="image/webp">
+            <img src="{{ '/images/icons/twitter.png' | relative_url }}" alt="" width="20" height="20" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        {% endif %}
+
+        {% if site.kaggle_username %}
+        <a class="icon-link" href="https://www.kaggle.com/{{ site.kaggle_username }}" aria-label="Kaggle" target="_blank" rel="noopener">
+          <picture>
+            <source srcset="{{ '/images/icons/kaggle.webp' | relative_url }}" type="image/webp">
+            <img src="{{ '/images/icons/kaggle.png' | relative_url }}" alt="" width="20" height="20" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        {% endif %}
+
+        {% if site.email %}
+        <a class="icon-link icon-disc" href="mailto:{{ site.email }}" aria-label="Email">
+          <picture>
+            <source srcset="{{ '/images/icons/email.webp' | relative_url }}" type="image/webp">
+            <img src="{{ '/images/icons/email.png' | relative_url }}" alt="" width="20" height="20" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </header>

@@ -2,7 +2,7 @@
 title: Personal note - 1
 date: 2026-08-22
 description: a minor realization
-tags: [notes]
+tags: [blog]
 ---
 
 This is the second time this is happening so I'll make a personal note today.

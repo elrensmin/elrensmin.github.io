@@ -1,8 +1,8 @@
 ---
 title: Reward Models
 date: 2026-08-16
-description: notes in RLHF
-tags: [rl, notes]
+description: reward models for RLHF
+tags: [rl, study-notes]
 ---
 
 These are my notes for ch. 5 of the [RLHF book](https://rlhfbook.com/c/05-reward-models). This is the part I actually need to keep in my head: the intuition, the datasets, and where it lives in the `open-instruct` repo and TRL.

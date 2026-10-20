@@ -1,8 +1,8 @@
 ---
 title: Reinforcement Learning Notes
 date: 2026-08-20
-description: policy gradient notes - the gradient trick, baselines, RLOO, PPO, GRPO
-tags: [RL, notes]
+description: policy gradients, baselines, RLOO, PPO, GRPO
+tags: [RL, study-notes]
 ---
 
 I've mostly just pasted my notes from reading [policy-gradients](https://rlhfbook.com/c/06-policy-gradients) here, plus some stitched-in intuition to tie the pieces together. the fundamentals half - MDP tuple, markov property, return $G_t$, $V$ and $Q$, advantage, Bellman - now lives in [RL fundamentals](/writing/rl-fundamentals/), so this note picks up from the objective and runs the policy-gradient ladder.

@@ -1,8 +1,8 @@
 ---
 title: softmax with CUDA worklog - pt 1 (Naive to Kernel Fusion)
 date: 2026-03-19
-description: profiling and optimizing softmax using CUDA to reduce latency
-tags: [cuda, softmax, kernel-optimization, notes]
+description: profiling and optimizing softmax in CUDA
+tags: [cuda, softmax, kernel-optimization, blog]
 ---
 
 It's becoming pretty evident to me that none of these algos are intuitive. You know that von Neumann quote

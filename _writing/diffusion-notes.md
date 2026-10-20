@@ -1,8 +1,8 @@
 ---
 title: Diffusion notes
 date: 2026-10-13
-description: the intuition across my diffusion papers
-tags: [diffusion, notes]
+description: the map across my diffusion papers
+tags: [diffusion, study-notes]
 ---
 
 I wanted a single place to conoslidate all the papers im reading about diffusion, so here it is.

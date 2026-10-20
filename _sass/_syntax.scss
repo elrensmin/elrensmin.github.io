@@ -43,7 +43,7 @@
 .highlight .si,
 .highlight .sx,
 .highlight .sr {
-  color: #2e7d8a;
+  color: var(--syntax-string);
 }
 
 /* Numbers / literals */
@@ -53,7 +53,7 @@
 .highlight .mh,
 .highlight .mo,
 .highlight .il {
-  color: #b87333;
+  color: var(--syntax-number);
 }
 
 /* Operators / punctuation */
@@ -76,6 +76,6 @@
 /* Errors / warnings */
 .highlight .err,
 .highlight .gr {
-  color: #c0392b;
+  color: var(--syntax-error);
 }
 

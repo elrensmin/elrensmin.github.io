@@ -1,8 +1,8 @@
 ---
 title: RL fundamentals
 date: 2026-09-30
-description: mdp, returns, value functions, bellman equations, dp/mc/td, q-learning, data regimes and reward design
-tags: [RL, notes]
+description: MDPs, Bellman equations, DP/MC/TD, Q-learning, reward design
+tags: [RL, study-notes]
 ---
 
 i split the fundamentals half out of my [RL notes](/writing/RL-notes/) and folded my mdp writeups into it too. everything here is the modeling language - the MDP tuple, $G_t$, $V$, $Q$, the Bellman equations - plus how you actually learn those quantities when the environment is a black box (TD error, DP/MC/TD, Q-learning), where the training data comes from, and what makes a reward function good or catastrophic. the policy-gradient machinery (gradient trick, RLOO, PPO, GRPO) stays in the other note.

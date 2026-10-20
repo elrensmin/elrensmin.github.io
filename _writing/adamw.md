@@ -1,8 +1,8 @@
 ---
 title: Autopsy of llm.c adamw optimizer
 date: 2026-02-26
-description: digging into the llm.c adamw optimizer and profiling the shit out of it
-tags: [cuda, kernel-optimization, llm.c, notes]
+description: profiling and optimizing the llm.c AdamW
+tags: [cuda, kernel-optimization, llm.c, blog]
 ---
 
 we're gona be looking at llm.c commit hash: f1e2ace651495b74ae22d45d1723443fd00ecd3a

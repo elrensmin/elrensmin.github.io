@@ -1,6 +1,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    /* Apply the saved theme before first paint so there is no flash.
+       Light is the default: only an explicit "dark" sets the attribute.
+       The key is versioned so an older stored value can't override it. */
+    (function () {
+      try {
+        if (localStorage.getItem('theme.v2') === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">

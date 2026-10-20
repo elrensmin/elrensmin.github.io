@@ -162,4 +162,31 @@
       }
     }
   })();
+
+  /* --- Theme toggle (light is the default; only "dark" is stored) ------ */
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var icon = btn.querySelector('.theme-icon');
+    var root = document.documentElement;
+
+    function paint(theme) {
+      if (theme === 'dark') root.setAttribute('data-theme', 'dark');
+      else root.removeAttribute('data-theme');
+      if (icon) icon.textContent = theme === 'dark' ? '\u2600' : '\u263E';
+      btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+
+    var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    paint(current);
+
+    btn.addEventListener('click', function() {
+      current = current === 'dark' ? 'light' : 'dark';
+      paint(current);
+      try {
+        if (current === 'dark') localStorage.setItem('theme.v2', 'dark');
+        else localStorage.removeItem('theme.v2');
+      } catch (e) {}
+    });
+  })();
 })();
