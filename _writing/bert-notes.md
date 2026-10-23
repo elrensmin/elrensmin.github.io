@@ -86,5 +86,5 @@ dividing by the product of the parts' own frequencies prioritizes merges whose p
 
 ## todos
 
-- the pretraining loss itself (masked cross-entropy) and Q/K/V self-attention mechanics aren't in my vault BERT notes at all - fill from the paper §3.1 when i redo the transformer notes.
+- the pretraining loss itself (masked cross-entropy) and Q/K/V self-attention mechanics: the attention mechanics now live in [transformers notes](/o/transformers-notes/); the BERT-specific §3.1 fill is what's still pending here.
 - sentence-transformer pooling strategies (the UKPLab repo link was sitting in Sources unused) - what exactly does mean-pooling do to `[CLS]`-trained representations?
