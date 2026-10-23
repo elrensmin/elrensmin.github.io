@@ -85,7 +85,7 @@ fine print that confused me the first time (the [annotated S4](https://srush.git
 
 - papers drop $\bar{D}$ from the exposition because it "[can be viewed as a skip connection that does not interact with the state](https://stacks.stanford.edu/file/druid:mb976vf9362/gu_dissertation-augmented.pdf)" - but the real [S4](https://github.com/state-spaces/s4/blob/main/models/s4/s4.py#L1676) and [Mamba](https://github.com/state-spaces/mamba/blob/main/mamba_ssm/modules/mamba_simple.py#L114) implementations both still parameterize it. i agree with [annotated S4](https://srush.github.io/annotated-s4/): keep it in the math, it costs one term.
 - $C$ isn't really discretized at all: in [Mamba](https://arxiv.org/abs/2312.00752) there's no $\bar{C}$, and in S4 the "discretization" of $C$ is just the identity. don't let this bother you.
-- three methods exist, euler is the weakest of them, but the real choice is nuanced between ZOH and bilinear. **the S4 paper uses bilinear, Mamba highlights ZOH.** (my own vault note originally said "ZOH gives a better approximation hence that's used in the paper" - no. that's wrong, check what paper you're standing in before repeating it.)
+- three methods exist, euler is the weakest of them, but the real choice is nuanced between ZOH and bilinear. **the S4 paper uses bilinear, Mamba highlights ZOH.** (my earlier notes said "ZOH gives a better approximation hence that's used in the paper" - no. that's wrong; check which paper you're standing in before repeating it.)
 - one musing: the discretization *functions* are fixed and only the step size is learned. that goes against my own DL instinct of "let the model learn everything" - how far could learned discretization functions go instead? unexplored as far as i can tell.
 
 if you've ever looked at an RNN this should feel extremely familiar:
@@ -160,8 +160,8 @@ useful videos: [state space coordinates](https://www.youtube.com/watch?v=-yDxwII
 
 ## todos
 
-- connect this linear-Gaussian SSM to my [Kalman filter notes](/o/kalman-notes/) properly: predict = Chapman-Kolmogorov, update = Bayes, and neither note closes the loop yet - this whole lineage literally descends from the filter (my vault tags here even say #bayesian-filter).
+- connect this linear-Gaussian SSM to my [Kalman filter notes](/o/kalman-notes/) properly: predict = Chapman-Kolmogorov, update = Bayes, and neither note closes the loop yet - this whole lineage literally descends from the filter.
 - study ODEs + Laplace transform (the control playlist above) before re-deriving the HiPPO ODE - right now i'm trusting the result instead of the derivation.
 - the "plug-in state cartridges" idea from The Gradient: train a *state* once (pure compression, no gradients) and load it at inference for zero-compute in-context learning. worth chasing: has anyone actually built this?
 - learned discretization *functions* (not just learned $\Delta$) - does anyone have a paper on this?
-- revisit the LSSL "convolutions forward" gap my vault note never filled - covered by the kernel math above now, but walk it again inside the [S4 note](/o/s4-notes/).
+- revisit the LSSL "convolutions forward" gap the early draft never filled - covered by the kernel math above now, but walk it again inside the [S4 note](/o/s4-notes/).

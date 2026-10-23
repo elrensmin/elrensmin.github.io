@@ -33,7 +33,7 @@ now connect it to my [SSM notes](/o/ssm-notes/): assume the states form a first-
 this kind of model is a **linear-Gaussian state space model** - the states live in gaussian space. and be precise about *why* gaussian here: not to shrink the normalizer ($p(m)$ is a constant either way), but because the gaussian is its own **conjugate prior** - the posterior after a linear-Gaussian update stays Gaussian, so the whole filter remains closed-form instead of turning into integration over an arbitrary distribution.
 
 - linear **transition** function: $s_k = A_{k-1} s_{k-1} + q_{k-1}$ - $A$ transition matrix, $q$ process noise
-- linear **emission** function: $m_k = H_k s_k + r_k$ - $H$ emission matrix, $r$ measurement noise (my vault note wrote $H_{k-1}$ acting on $s_k$ - index slip; $A$ is the one that trails with $k-1$ conventions)
+- linear **emission** function: $m_k = H_k s_k + r_k$ - $H$ emission matrix, $r$ measurement noise (index-slip trap: $H$ acts on the current state $s_k$; $A$ is the one that trails with $k-1$ conventions)
 
 the ssm dictionary maps straight across:
 

@@ -49,7 +49,7 @@ three passes over the same volume from three sides, each with a different "front
 
 ![feature level uncertainty estimation](/images/segmamba-notes/pasted-image-20241226101741.png)
 
-FUE sits on the skip connections: it estimates feature-level uncertainty and filters the multiscale encoder features before they reach the decoder, improving feature reuse. fair warning: in my vault this section is *only* the screenshot above - zero text explaining the mechanism. see todos.
+FUE sits on the skip connections: it estimates feature-level uncertainty and filters the multiscale encoder features before they reach the decoder, improving feature reuse. fair warning: this section is currently *only* the screenshot above - zero text explaining the mechanism. see todos.
 
 ## training
 
@@ -80,7 +80,7 @@ efficiency ablation: UX-Net (large-kernel convs) and SwinUNETR (windowed attenti
 
 ## todos
 
-- FUE mechanism: extract §2.2 of the paper properly (my vault only kept the figure). it's the module I most want to steal for my own stacks.
+- FUE mechanism: extract §2.2 of the paper properly (my notes only kept the figure). it's the module I most want to steal for my own stacks.
 - confirm CRC-500 is actually public and where (the paper promises it; verify release).
 - pull the main comparison table (vs nnUNet/UNETR/SwinUNETR across the three datasets) into the note instead of leaning on the ablations only.
 - try the tri-orientation idea against my own 2D stacks - axial/coronal/sagittal flattening is a cheap trick to test.

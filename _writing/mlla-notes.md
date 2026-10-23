@@ -55,7 +55,7 @@ the forget gate has two properties that do a lot of work:
 
 ![forget gate properties](/images/mlla-notes/pasted-image-20241221123007.png)
 
-the authors' tension point: to use $A$ on images you first flatten the image into a 1D sequence and run a recurrence per token - the receptive field shrinks to *preceding* tokens only (a typo in my vault note said "proceeding"), and you pay extra latency. and images are not causal data. their speculation, which is the paper's best idea: **a positional encoding that provides local bias + order information can substitute for the forget gate.** LePE and RoPE both qualify.
+the authors' tension point: to use $A$ on images you first flatten the image into a 1D sequence and run a recurrence per token - the receptive field shrinks to *preceding* tokens only, and you pay extra latency. and images are not causal data. their speculation, which is the paper's best idea: **a positional encoding that provides local bias + order information can substitute for the forget gate.** LePE and RoPE both qualify.
 
 ![forget gate substitution experiments](/images/mlla-notes/pasted-image-20241221123508.png)
 
@@ -90,5 +90,5 @@ plus one extra: **MESA** - an overfitting-prevention strategy the authors apply 
 ## todos
 
 - MESA: pull the mechanism out of the paper's reference [11] (overfitting prevention via ??? - my notes never say; i got it wrong twice while guessing arXiv IDs, so look it up properly).
-- transcribe the paper's unified-equation derivation (the Eq. 9-10 step-by-step inside the screenshot above is the load-bearing math) into text under "one formulation, six distinctions".
+- write out the paper's unified-equation derivation under "one formulation, six distinctions" (the Eq. 9-10 step-by-step inside the screenshot above is the load-bearing math).
 - put actual ImageNet/UPerNet score tables next to the screenshots with my own takeaways - right now the numbers live only in images.

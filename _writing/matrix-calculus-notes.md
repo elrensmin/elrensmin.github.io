@@ -48,7 +48,7 @@ $$\frac{\partial F}{\partial x} = \begin{bmatrix}
 0 & 0 & \cdots & 1
 \end{bmatrix} = I$$
 
-the Jacobian of the identity function is the identity matrix. (my vault note had a stray `$\frac{\partial x_1)}{\partial x_2}$` in here - typo, gone.)
+the Jacobian of the identity function is the identity matrix.
 
 ## elementwise operations → diagonal jacobians
 
@@ -65,7 +65,7 @@ $$\frac{\partial F}{\partial v} = \begin{bmatrix}
 0 & 0 & \cdots & \frac{\partial f_n(\vec{v}) \bigcirc g_n(\vec{w})}{\partial v_n}
 \end{bmatrix} = \text{diag}\!\left(\frac{\partial f_1}{\partial v_1}, \frac{\partial f_2}{\partial v_2}, \dots, \frac{\partial f_n}{\partial v_n}\right)$$
 
-**the Jacobian of every elementwise function is diagonal** - "diagonal *matrix*", not "diagonal vector" as my vault wrote (a matrix with a diagonal, not a diagonal-shaped vector; the paper is clear on this). and the general element is $\frac{\partial f_i(v_i) \bigcirc g_i(w_i)}{\partial v_i}$ (my vault's `succinct` version reused $g_2$ in the $n$-th slot and lost a closing paren).
+**the Jacobian of every elementwise function is diagonal** - "diagonal *matrix*", not "diagonal vector" (a matrix with a diagonal, not a diagonal-shaped vector; the paper is clear on this). and the general element is $\frac{\partial f_i(v_i) \bigcirc g_i(w_i)}{\partial v_i}$.
 
 worked example with numbers, since the paper's own examples are symbolic: let $F = v \odot w$ with $v = \begin{bmatrix}2\\3\end{bmatrix}$, $w = \begin{bmatrix}5\\7\end{bmatrix}$. then $F = [10, 21]^\top$ and
 
@@ -91,7 +91,7 @@ where the middle variable $g$ has dimension $k$ ($m = \lvert f \rvert$, $n = \lv
 
 the Jacobian contains *all* combinations of $f_i$ w.r.t. $g_j$ and $g_i$ w.r.t. $x_j$; matrix multiplication then sums over the shared $k$ - which is exactly the total-derivative sum, but done for every output at once.
 
-and the payoff direction: with "gradients are rows" + "elementwise ⇒ diagonal" + "chain rule ⇒ Jacobians multiply", section 6 of the [paper](https://arxiv.org/abs/1802.01528) derives the differential of the neural-net cost w.r.t. weights and biases - the actual thing backprop computes. i deliberately didn't copypaste that derivation into the vault, and i'll keep the discipline here: read [section 6](https://arxiv.org/abs/1802.01528) again and re-derive it on paper before writing it up.
+and the payoff direction: with "gradients are rows" + "elementwise ⇒ diagonal" + "chain rule ⇒ Jacobians multiply", section 6 of the [paper](https://arxiv.org/abs/1802.01528) derives the differential of the neural-net cost w.r.t. weights and biases - the actual thing backprop computes. i deliberately never copied that derivation wholesale: read [section 6](https://arxiv.org/abs/1802.01528) again and re-derive it on paper before writing it up.
 
 ## papers
 

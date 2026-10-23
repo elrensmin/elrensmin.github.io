@@ -33,7 +33,7 @@ the part i keep forgetting: **WebRTC does not define any of this transport.** th
 with SDPs exchanged, the agents try to actually reach each other. **ICE** (Interactive Connectivity Establishment) predates WebRTC and solves "peer A and peer B can't directly connect" - firewalls block ports, most devices have no public IP, and some routers refuse direct connections. ICE enumerates *every possible way* to reach you by combining **STUN** and **TURN** servers, and hands the results over as *ICE candidates*.
 
 - **NAT**: your router holds the public IP; devices behind it share it via private IPs and unique port mappings on translation. discovery works - until a router's symmetry rules say otherwise.
-- **STUN** (Session Traversal Utilities for NAT): a server that tells you *your own public address* - the request goes out, the server replies with the source ip:port it saw, and whether your NAT looks permissive or restrictive. that's all STUN does. (my vault's line "STUN servers establish a UDP connection between two users" was wrong - STUN never connects users to each other; it just lets *you* learn your reflexive address so you can advertise it.) the public STUN endpoint everyone uses: `stun.l.google.com:19302`.
+- **STUN** (Session Traversal Utilities for NAT): a server that tells you *your own public address* - the request goes out, the server replies with the source ip:port it saw, and whether your NAT looks permissive or restrictive. that's all STUN does. (it never "establishes a UDP connection between two users", as short definitions sometimes claim - STUN connects nothing to anyone; it just lets *you* learn your reflexive address so you can advertise it.) the public STUN endpoint everyone uses: `stun.l.google.com:19302`.
 
 ![stun discovers your public address](/images/webrtc-notes/pasted-image-20250309011249.png)
 
@@ -82,7 +82,7 @@ the full offer/answer dance, step by step:
 
 ![offer answer flow](/images/webrtc-notes/pasted-image-20250307234507.png)
 
-a minimal, self-consistent caller setup (my vault's snippet created `peerConnection` and then set the local description on a nonexistent `pc1`, which i've fixed, with the real public STUN host):
+a minimal, self-consistent caller setup, with the real public STUN host:
 
 ```js
 const rtcConfig = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] };
@@ -118,7 +118,7 @@ dataChannel.onopen = () => console.log(dataChannel.readyState); // 'open'
 dataChannel.onclose = () => console.log('closed');
 ```
 
-on the signaling server side, because it's not part of the API, one small node/socket.io relay does the whole job - rooms plus three forwarded messages. (my vault's version declared `express` twice and broadcast offers to *every* connected socket; forwarding scoped to the room is the obvious fix):
+on the signaling server side, because it's not part of the API, one small node/socket.io relay does the whole job - rooms plus three forwarded messages. (the common tutorial version declares `express` twice and broadcasts offers to *every* connected socket; forwarding scoped to the room is the obvious fix):
 
 ```js
 io.on('connection', socket => {
@@ -182,4 +182,4 @@ DTLS handles the channels and key exchange; SRTP covers message authentication, 
 
 - TURN server setup + pricing reality (coturn is the reference implementation; i've never deployed one).
 - SDP munging and why it breaks - when you *can't* just edit the offer.
-- simulcast / svc layers for multi-party calls - the piece my vault never touched.
+- simulcast / svc layers for multi-party calls - the piece none of these notes touch yet.

@@ -34,7 +34,7 @@ how do we actually compute $P(w_{t+j} \mid w_t)$? every word gets **two** vector
 
 $$P(o \mid c) = \frac{\exp(u_o^\top v_c)}{\sum_{w \in V} \exp(u_w^\top v_c)}$$
 
-(the numerator is the *observed* context word's vector dotted with the center - my vault had a sloppy `U^T V_c` with the observed word missing.)
+(the numerator is the *observed* context word's vector dotted with the center - some write-ups leave it as `U^T V_c` with the observed word missing.)
 
 - the dot product measures similarity: larger → more similar → higher probability of $o$ being near $c$.
 - "soft"+"max": see [softmax notes](/o/softmax-1/).
@@ -71,7 +71,7 @@ the softmax denominator normalizes over the *entire vocabulary* - hundreds of th
 
 ### hierarchical softmax
 
-represent the vocabulary as a binary tree with words as leaves; the probability of a word is the probability of a random walk from root to its leaf ("define this probability as the probability of a random walk starting from the root ending at the leaf in question"). cost drops from $O(V)$ to $O(\log V)$ per sample. (my vault kept the concept and skipped the path-probability math - todo below.)
+represent the vocabulary as a binary tree with words as leaves; the probability of a word is the probability of a random walk from root to its leaf ("define this probability as the probability of a random walk starting from the root ending at the leaf in question"). cost drops from $O(V)$ to $O(\log V)$ per sample.
 
 ### negative sampling (the one everyone uses)
 
@@ -79,7 +79,7 @@ reformulate: forget predicting the whole distribution. for each true (center, co
 
 $$\log \sigma(u_o^\top v_c) + \sum_{j=1}^{k} \mathbb{E}_{w_j \sim P_n(w)} \big[\log \sigma(-u_{w_j}^\top v_c)\big]$$
 
-(silently fixing my vault's mangled version: $\rho$ stood where the sigmoid $\sigma$ belongs, the expectation re-used the positive word's index, and one symbol was undefined. the intended form is exactly this.)
+(this is the paper's form; transcription variants floating around tend to lose the indices.)
 
 terms: the first pushes the real context word's similarity up; the $k$ expectation terms push randomly-drawn words' similarity down. update cost per sample: the positive output unit + $k$ negative units. with $k = 5$: 6 output neurons out of 10,000 → ~1,800 of 3M weights touched → **0.06%** of the output layer per sample.
 
@@ -97,7 +97,7 @@ frequent words are more likely negatives ("the", "of" need pushing away from eve
 
 $$P(\text{discard } w_i) = 1 - \sqrt{\frac{t}{f(w_i)}}$$
 
-with $t$ a threshold, typically $\sim 10^{-5}$. (my vault wrote the formula with the $t$ *missing* - $1 - \sqrt{1/f(w)}$ - while defining $t$ right below it, which would make the discard probability unbounded by any cap. the $t$ is load-bearing.) frequent words get randomly dropped, keeping the training set balanced and implicitly widening the effective context windows.
+with $t$ a threshold, typically $\sim 10^{-5}$. (watch the $t$: without it - $1 - \sqrt{1/f(w)}$ - the discard probability is unbounded by any cap, and $t$ is exactly the cap it wants. load-bearing.) frequent words get randomly dropped, keeping the training set balanced and implicitly widening the effective context windows.
 
 ## analogies: the result everyone knows
 
@@ -105,7 +105,7 @@ the paper this note is really about is the vector-arithmetic one: **king − man
 
 ## applied word2vec (worth skimming once)
 
-- music recommendations (Anghami, via a TDS write-up - link rotted off my vault) - playlists as sentences.
+- music recommendations (Anghami, via a TDS write-up - link rotted by now) - playlists as sentences.
 - [Airbnb listing embeddings](https://arxiv.org/abs/1802.05331) - bookings as context; embeddings for search ranking.
 - [Yahoo Mail ads](https://arxiv.org/abs/1607.01869) - user purchase/interaction sequences as sentences; then the trick: don't recommend from the same cluster the purchased item sits in - find which clusters users *move to next*, recommend the top-$k$ items from those clusters instead (20 products/day).
 

@@ -9,7 +9,7 @@ Mamba is the point in the [SSM lineage](/o/ssm-notes/) where the model stops tre
 
 ## from time-invariant to time-variant
 
-the SSM update from my basics note, using the *discretized* parameters (the vault shorthand drops the bars - below, $A(t), B(t)$ mean the discretized operators for step $t$):
+the SSM update from my [SSM notes](/o/ssm-notes/), using the *discretized* parameters (that note's shorthand drops the bars - below, $A(t), B(t)$ mean the discretized operators for step $t$):
 
 $$h_t = A h_{t-1} + B x_t \qquad y_t = C h_t + D x_t \qquad \text{(time-invariant: same } A,B,C,D \text{ every step)}$$
 
@@ -254,4 +254,4 @@ the selective SSM = recurrent SSM via discretization + HiPPO init on $A$ for lon
 
 - write the selective-scan math out properly: first-order recurrence pairs, the composition operator, and the proof sketch of associativity. the images above carry it; the text still doesn't.
 - Mamba-2: the SSD formulation collapses the scan into a structured matrix multiply and ditches the SSM/attention dichotomy (state duality). the blog link is queued; read the series.
-- collect the actual benchmark tables (LRA / language / audio) into this note - my vault copy leaned on the abstract's claims instead of numbers.
+- collect the actual benchmark tables (LRA / language / audio) into this note - my earlier copy leaned on the abstract's claims instead of numbers.

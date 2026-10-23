@@ -5,7 +5,7 @@ description: structured state spaces - diagonalize the HiPPO matrix, keep the me
 tags: [ssm, study-notes, paper]
 ---
 
-S4 in one line from my vault: **SSM + optimized HiPPO + structured matrices**. this note walks from the [LSSL](https://arxiv.org/abs/2110.13985) lead-in, through the diagonalization story, to the [S4](https://arxiv.org/abs/2111.00396) kernel trick and the simplifications that came after (S4D init, LRU). builds directly on [SSM notes](/o/ssm-notes/) and [HiPPO notes](/o/hippo-notes/) - keep the `hippo_matrix()` cell from the latter in reach, it gets reused here. main sources: [annotated S4](https://srush.github.io/annotated-s4/), Albert Gu's [Stanford talk](https://www.youtube.com/watch?v=luCBXCErkCs) and [interview](https://www.youtube.com/watch?v=yceNl9C6Ir0), the [visual guide](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-mamba-and-state).
+S4 in one line: **SSM + optimized HiPPO + structured matrices**. this note walks from the [LSSL](https://arxiv.org/abs/2110.13985) lead-in, through the diagonalization story, to the [S4](https://arxiv.org/abs/2111.00396) kernel trick and the simplifications that came after (S4D init, LRU). builds directly on [SSM notes](/o/ssm-notes/) and [HiPPO notes](/o/hippo-notes/) - keep the `hippo_matrix()` cell from the latter in reach, it gets reused here. main sources: [annotated S4](https://srush.github.io/annotated-s4/), Albert Gu's [Stanford talk](https://www.youtube.com/watch?v=luCBXCErkCs) and [interview](https://www.youtube.com/watch?v=yceNl9C6Ir0), the [visual guide](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-mamba-and-state).
 
 ## before S4: LSSL, one layer with three hats
 
@@ -106,7 +106,7 @@ def forward(self, input):
     ...
 ```
 
-initialize at `log(1/2)`, recover $A$ as $-\exp(\cdot) + i\,\text{imag}$. negative forever, by construction. (the `-A.real` inside the log is my fix - the tutorial pseudocode i transcribed logged the already-negative value, and `torch.log` of a negative is NaN. the reference repo's `log_A_real` holds $\log\lvert{\rm Re}\,A\rvert$.)
+initialize at `log(1/2)`, recover $A$ as $-\exp(\cdot) + i\,\text{imag}$. negative forever, by construction. (the `-A.real` inside the log matters: a naive transcription logs the already-negative value, and `torch.log` of a negative is NaN. the reference repo's `log_A_real` holds $\log\lvert{\rm Re}\,A\rvert$.)
 
 ## the convolution view, or: SSMs are CNNs with an infinite window
 
@@ -132,7 +132,7 @@ regime note: transformers are great for dense discrete data (language); S4 loves
 
 ## everything so far is LTI - and here comes Mamba
 
-to be crisp about the boundary (my vault note had this sentence *backwards*, saying the change was "from Mamba" - no: **Mamba's change is relative to S4**, it just removes linear time invariance):
+to be crisp about the boundary (this sentence is easy to read *backwards*: **Mamba's change is relative to S4** - it just removes linear time invariance):
 
 - S4/S4D: $\bar{A}, \bar{B}, \bar{C}$ fixed for every timestep. static. content-blind.
 - [Mamba](/o/mamba-notes/): $B, C, \Delta$ become *functions of the input* $x_t$. selectivity.
@@ -151,7 +151,7 @@ $$A = \Lambda - PQ^* \qquad \Lambda \text{ diagonal}, \quad P, Q \in \mathbb{C}^
 
 1. don't compute $K$ directly; compute its spectrum via the **[truncated generating function](https://en.wikipedia.org/wiki/Generating_function)** $\tilde{K}(z) = \sum_k \overline{K_k} z^k$ - the powers $\bar{A}^k$ turn into a matrix *inverse* $\left(\tfrac{1}{z} - \bar{A}\right)^{-1}$-shaped object.
 2. the diagonal part of that inverse evaluates as a **[Cauchy kernel](https://en.wikipedia.org/wiki/Cauchy_matrix)**: entries $\tfrac{1}{\omega_j - \zeta_k}$, computable with a handful of FFTs.
-3. the low-rank correction $\left(\Lambda - PQ^*\right)^{-1}$ gets Woodbury'd back to diagonal scale: $\left(\Lambda - PQ^*\right)^{-1} = \Lambda^{-1} + \Lambda^{-1}P\left(I - Q^*\Lambda^{-1}P\right)^{-1}Q^*\Lambda^{-1}$. (my vault note wrote this step with $(\Lambda + PQ^*)$ - sign slip inherited from skimming; the S4 convention is $\Lambda - PQ^*$ throughout.)
+3. the low-rank correction $\left(\Lambda - PQ^*\right)^{-1}$ gets Woodbury'd back to diagonal scale: $\left(\Lambda - PQ^*\right)^{-1} = \Lambda^{-1} + \Lambda^{-1}P\left(I - Q^*\Lambda^{-1}P\right)^{-1}Q^*\Lambda^{-1}$. (sign trap: secondary notes sometimes print this with a plus; the S4 convention is $\Lambda - PQ^*$ throughout.)
 
 after all that math, the implementation is four functions: `K_gen_DPLR` (generating function for DPLR $A$), `conv_from_gen` (gens → filter), `causal_convolution` (run it), `discretize_DPLR` (SSM → discrete RNN form).
 

@@ -5,7 +5,7 @@ description: "two fixed SSMs (shift + diag) wired into an attention-like layer, 
 tags: [ssm, study-notes, paper]
 ---
 
-[Hungry Hungry Hippos](https://arxiv.org/abs/2212.14052) (dao, fu, saab, arora, rudra, ré) is the SSM-family paper that *stops* treating the SSM as one blob and instead rebuilds attention's function out of two specialized SSMs - explicitly because time-invariant SSMs fail at language modeling's nastiest requirement, **associative recall** (my [S4 notes](/o/s4-notes/) and [Mamba notes](/o/mamba-notes/) touch this). so despite how it reads in my vault's first line ("marks a departure from the ssm based model"), H3 is *in* the SSM family - what it departs from is the one-SSM-per-layer design. the implementation sketch below is transcribed from a multi-part annotated-SSM tutorial i worked from (the same series the code cells in the [S4 note](/o/s4-notes/) come from).
+[Hungry Hungry Hippos](https://arxiv.org/abs/2212.14052) (dao, fu, saab, arora, rudra, ré) is the SSM-family paper that *stops* treating the SSM as one blob and instead rebuilds attention's function out of two specialized SSMs - explicitly because time-invariant SSMs fail at language modeling's nastiest requirement, **associative recall** (my [S4 notes](/o/s4-notes/) and [Mamba notes](/o/mamba-notes/) touch this). so despite how the shorthand usually reads ("marks a departure from the ssm based model"), H3 is *in* the SSM family - what it departs from is the one-SSM-per-layer design. the implementation sketch below follows a multi-part annotated-SSM tutorial i worked from (the same series the code cells in the [S4 note](/o/s4-notes/) come from).
 
 ## the two SSMs
 

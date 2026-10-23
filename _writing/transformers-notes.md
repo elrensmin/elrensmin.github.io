@@ -5,7 +5,7 @@ description: "from markov chains to multi-head attention: the mechanics walkthro
 tags: [transformers, attention, study-notes, paper]
 ---
 
-the note where attention finally clicked for me, built bottom-up: language models on paper before any deep learning. the mechanics arc is re-distilled from [e2eml.school's transformers essay](https://e2eml.school/transformers.html), plus [Vaswani et al](https://arxiv.org/abs/1706.03762), the [annotated transformer](https://nlp.seas.harvard.edu/annotated-transformer/), and a [shapes-first pytorch walkthrough](https://hyugen-ai.medium.com/transformers-in-pytorch-from-scratch-for-nlp-beginners-ff3b3d922ef7) (behind cloudflare's bot gate, annoyingly).
+the note where attention finally clicked for me, built bottom-up: language models on paper before any deep learning. the mechanics arc leans on [e2eml.school's transformers essay](https://e2eml.school/transformers.html), plus [Vaswani et al](https://arxiv.org/abs/1706.03762), the [annotated transformer](https://nlp.seas.harvard.edu/annotated-transformer/), and a [shapes-first pytorch walkthrough](https://hyugen-ai.medium.com/transformers-in-pytorch-from-scratch-for-nlp-beginners-ff3b3d922ef7) (behind cloudflare's bot gate, annoyingly).
 
 the anatomy first, so the rest has hooks to hang on: a transformer is a stack of encoders, `t = [enc1, enc2, ...]`; an encoder is one multi-head attention block and one feed-forward block, `enc = [mha, ff]`; the attention block is the star and everything else "just enhances computations". that's the whole inventory.
 
@@ -64,7 +64,7 @@ mask out the unhelpful features ("ran has a dependence on either *program, ran* 
 
 <i>this process of selective masking is the attention called out in the title of the original [paper](https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)</i> - and that framing, down-weighting the irrelevant rows until the relevant ones dominate, is my favorite way to explain attention to someone who's never seen it.
 
-(side correction of my own marginalia: my vault called the KV-cache "a representation of the whole dataset the model is trained on... a database of the transformer state". no - during generation, the cache stores the per-position key and value tensors of the *current context* so each new token doesn't re-run attention over the whole prefix from scratch. it's a memoization of the running sequence, not a database of the training set. the full mechanics still deserve their own note - todo below.)
+a state aside, since the KV-cache is often described as "a representation of the whole dataset the model is trained on" or a database of transformer state - that's wrong: during generation, the cache stores the per-position key and value tensors of the *current context* so each new token doesn't re-run attention over the whole prefix from scratch. the full mechanics still deserve their own note - todo below.
 
 ## the feedforward block
 
@@ -121,7 +121,7 @@ the attention layer returns one vector z per word: "what this word means *contex
 
 ![shapes 3](/images/transformers-notes/pasted-image-20241206111900.png)
 
-(my marginalia said attention "essentially does a cosine sim" between tokens - overstatement i'm keeping corrected: the scores are plain dot products of *learned projections*, no norm division of the two vectors, no cosine geometry - just scaled, softmaxed similarity that the model trains to mean "attend here".) the [softmax](/o/softmax-1/) inside is the same function the kernel notes optimize.
+(despite the "it's basically a cosine sim" shorthand i used to reach for: the scores are plain dot products of *learned projections*, no norm division of the two vectors, no cosine geometry - just scaled, softmaxed similarity the model trains to mean "attend here".) the [softmax](/o/softmax-1/) inside is the same function the kernel notes optimize.
 
 ## multi-head attention
 
@@ -171,7 +171,7 @@ and the flip side: the transformer doesn't filter its context until recall time.
 
 - [bahdanau attention](/o/bahdanau-attention-notes/) - where the score-normalize-weighted-sum core was born, four years earlier
 - [bert](/o/bert-notes/) - the same machinery with the mask flipped (bidirectional vs causal)
-- [rope](/o/RoPE-notes/) - the positional-information half this note never covered (the vault walkthrough above quietly assumes positions exist somewhere)
+- [rope](/o/RoPE-notes/) - the positional-information half this note never covered (the walkthrough above quietly assumes positions exist somewhere)
 - [mlla](/o/mlla-notes/) - the linear-attention reformulation of everything in the multi-head section
 - [information retrieval](/o/information-retrieval-notes/) - the filtering half of the RAG coda
 - [kl divergence](/o/kl-divergence-notes/) - entropy and the softmax-adjacent math the attention scores lean on
@@ -179,14 +179,14 @@ and the flip side: the transformer doesn't filter its context until recall time.
 ## papers & sources
 
 - attention is all you need: <https://arxiv.org/abs/1706.03762>
-- the walkthroughs my vault merged: [e2eml.school/transformers](https://e2eml.school/transformers.html), [annotated transformer](https://nlp.seas.harvard.edu/annotated-transformer/), hyugen-ai's shapes walkthrough (link above), [analytics vidhya 2019 primer](https://www.analyticsvidhya.com/blog/2019/06/understanding-transformers-nlp-state-of-the-art-models/)
+- the walkthroughs merged above: [e2eml.school/transformers](https://e2eml.school/transformers.html), [annotated transformer](https://nlp.seas.harvard.edu/annotated-transformer/), hyugen-ai's shapes walkthrough (link above), [analytics vidhya 2019 primer](https://www.analyticsvidhya.com/blog/2019/06/understanding-transformers-nlp-state-of-the-art-models/)
 - video: the [AIAYN explained playlist](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ), [the krish naik-style full course](https://www.youtube.com/playlist?list=PLKnIA16_RmvYuZauWaPlRTC54KxSNLtNn), [karpathy's build-along](https://www.youtube.com/watch?v=bCz4OMemCcA), [mamba explained (thegradient)](https://thegradient.pub/mamba-explained/)
 - code: [hkproj/pytorch-transformer](https://github.com/hkproj/pytorch-transformer/tree/main)
 
 ## todos
 
-- positional encodings are the conspicuous hole above - the vault never wrote them, and this note inherited the hole; fill alongside [RoPE notes](/o/RoPE-notes/) when redoing them together.
+- positional encodings are the conspicuous hole above - the walkthrough never writes them; fill alongside [RoPE notes](/o/RoPE-notes/) when redoing them together.
 - my KV-cache correction is one paragraph of assertion; write the actual walkthrough (per-token state, why it's $O(n^2)$ attention saved to $O(n)$ per new token) and link it here.
 - derive the $\sqrt{d_k}$ scale properly (the variance argument from §3.2.1) instead of the "keeps magitudes from growing wildly" hand-wave above.
-- re-read the annotated transformer end-to-end - my vault queued it and i've only ever used it as a reference dip.
+- re-read the annotated transformer end-to-end - it's been queued forever and i've only ever used it as a reference dip.
 - the flattened-transformer/MLLA linear-attention line: fold the focused-linear-attention math into [mlla notes](/o/mlla-notes/) and cross-link here, so the "attention as time+channel mixing" section has its reformulation sibling.

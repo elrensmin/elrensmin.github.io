@@ -19,7 +19,7 @@ encoder as an RNN: hidden state $h_t = f(x_t, h_{t-1})$, context from the final 
 
 $$p(y) = \prod_{t=1}^{T} p(y_t \mid y_1, \dots, y_{t-1},\, c) \qquad p(y_t \mid y_1, \dots, y_{t-1},\, c) = g(y_{t-1}, s_t, c)$$
 
-(my vault note had welded these two into a single `=` chain - wrong; the product is the joint, the $g(\cdot)$ form is each conditional.)
+(my earlier notes welded these two into a single `=` chain - wrong; the product is the joint, the $g(\cdot)$ form is each conditional.)
 
 with: $h$ encoder hidden states, $c$ the context vector from them, $g$ a nonlinear (potentially multilayered) function producing the word probability, $s_t$ the decoder's RNN hidden state.
 
@@ -35,7 +35,7 @@ the context is a weighted average over the encoder's annotations:
 
 $$c_i = \sum_{j=1}^{T_x} \alpha_{ij}\, h_j \qquad \alpha_{ij} = \frac{\exp(e_{ij})}{\sum_{k=1}^{T_x}\exp(e_{ik})} \qquad e_{ij} = a(s_{i-1}, h_j)$$
 
-- $\alpha_{ij}$ is a [softmax](/o/softmax-1/) over alignment scores - a probability distribution over source positions for target position $i$. (the weights multiply annotation $h_j$; my vault wrote $h_{ij}$ once, which doesn't exist.)
+- $\alpha_{ij}$ is a [softmax](/o/softmax-1/) over alignment scores - a probability distribution over source positions for target position $i$. (the weights multiply annotation $h_j$; my earlier notes wrote $h_{ij}$ once, which doesn't exist.)
 - $e_{ij} = a(s_{i-1}, h_j)$ is the **alignment model**: a *learned* score for how well the inputs around position $j$ match the output at position $i$, jointly trained with everything else. the paper's parametrization is the additive form
 
 $$e_{ij} = v_a^\top \tanh\!\big( W_a s_{i-1} + U_a h_j \big)$$
@@ -64,6 +64,6 @@ their concatenation. the forward half knows the prefix, the backward half knows 
 
 ## todos
 
-- the paper's GRU implementation details ($f$, $g$, reset/update gates) never made it into my vault note - add the GRU cell equations so the note stands alone.
+- the paper's GRU implementation details ($f$, $g$, reset/update gates) never made it into these notes - add the GRU cell equations so the note stands alone.
 - pull the BLEU results (RNNsearch-50 en-fr vs RNNencdec, the long-sentence plot) - the "length robustness" claim deserves its numbers.
 - connect forward properly: additive → dot-product → scaled → multi-head, and where q/k/v naming appears ([Rush's annotated transformer](https://nlp.seas.harvard.edu/annotated-transformer/) is queued for that).

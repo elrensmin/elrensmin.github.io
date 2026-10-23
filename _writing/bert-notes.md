@@ -7,9 +7,9 @@ tags: [nlp, study-notes, paper]
 
 [Devlin et al](https://arxiv.org/abs/1810.04805): pretraining that fuses context from *both directions at the same time*. the argument it opens with (still worth internalizing): standard language models are unidirectional, which restricts what architectures you can even choose during pretraining. GPT's left-to-right attention is sub-optimal for sentence-level tasks and actively harmful for token-level tasks like question answering, where you crucially need context from both sides.
 
-the fix that came to be called **Masked LM**: instead of predicting the *next* word, randomly mask words in the sentence and predict them from the full surrounding context - left and right *simultaneously*. the older "combine a left-to-right and a right-to-left model" approaches (ELMo's two LSTMs) were missing this same-time part - two half-blind models that don't talk to each other, doing sub-optimal work. (pedantic point from my vault that i still like: "non-directional" is actually more accurate than "bidirectional".)
+the fix that came to be called **Masked LM**: instead of predicting the *next* word, randomly mask words in the sentence and predict them from the full surrounding context - left and right *simultaneously*. the older "combine a left-to-right and a right-to-left model" approaches (ELMo's two LSTMs) were missing this same-time part - two half-blind models that don't talk to each other, doing sub-optimal work. (pedantic point that i still like: "non-directional" is actually more accurate than "bidirectional".)
 
-a note on the word *novel* that my vault pasted from a blog: MLM as a technique is the Cloze task ([Taylor 1953](https://www.tandfonline.com/doi/abs/10.1080/00437956.1953.11679589)); what BERT made novel is running it as *the scaled pretraining objective* on a huge corpus. credit where due.
+one note on the word *novel*: MLM as a technique is the Cloze task ([Taylor 1953](https://www.tandfonline.com/doi/abs/10.1080/00437956.1953.11679589)); what BERT made novel is running it as *the scaled pretraining objective* on a huge corpus. credit where due.
 
 ## pre-training task 1: masked lm
 

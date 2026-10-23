@@ -23,11 +23,11 @@ the proximity trick behind every "nearby" tab:
 
 bisect the planet. maintain a bounding box for latitude (-90, 90) and longitude (-180, 180). pick the target's midpoint; whichever half it falls in, record **1** and narrow the box to that half, else record **0**. alternate between longitude and latitude with every bit (longitude first), reading binary digits MSB-first (16, 8, 4, 2, 1). every **5 bits** → one base32 character → one grid cell. shorter string = fewer bits = bigger cells = lower precision.
 
-the base32 alphabet is `0123456789bcdefghjkmnpqrstuvwxyz` - digits 0-9 plus 22 lowercase letters, with **a, i, l, o excluded** to cut transcription errors (my vault wrote "excluding vowels" and got it wrong: i/l/o yes, but also a; and e/u are kept. the code snippet at the bottom of my vault note had the alphabet right and the prose wrong).
+the base32 alphabet is `0123456789bcdefghjkmnpqrstuvwxyz` - digits 0-9 plus 22 lowercase letters, with **a, i, l, o excluded** to cut transcription errors (correction of the folklore i'd written down earlier: it's not "excluding vowels" - i/l/o yes, but also a, while e and u stay).
 
 ## the worked example, recomputed
 
-my vault's example ("latitude 37.7749° N, longitude 122.4194° W → geohash `w15df6577r2tsllft4`") was wrong twice over: it treated west longitude as positive, and the interleaved bit string was fabricated. here is the correct walkthrough, computed with the algorithm above.
+the example that floats around ("latitude 37.7749° N, longitude 122.4194° W → geohash `w15df6577r2tsllft4`") is wrong twice over: it treats west longitude as positive, and its interleaved bit string doesn't decode to anything. here is the correct walkthrough, computed with the algorithm above.
 
 location: latitude 37.7749, longitude **-122.4194** (west is negative!).
 
@@ -60,7 +60,7 @@ computed cell dimensions (km, lon side scaled by cos(latitude), shown at 37.77°
 | 3 | 7 / 8 | ~250 × 78 km |
 | 4 | 10 / 10 | ~31 × 20 km |
 | 5 | 12 / 13 | ~7.7 × 2.4 km |
-| 6 | 15 / 15 | ~970 m × 610 m (≈0.6 km² - my vault's "0.61 square kilometers", kept) |
+| 6 | 15 / 15 | ~970 m × 610 m (≈0.6 km²) |
 | 7 | 17 / 18 | ~240 × 76 m |
 | 8 | 20 / 20 | ~30 × 19 m |
 
@@ -68,7 +68,7 @@ note the pattern: 5 bits per char alternate lon/lat starting with lon, so odd pr
 
 ## implementation
 
-my vault's python was broken in four ways at once (encode used 5 longitude bits *then* 5 latitude bits per character instead of alternating; `decode` was indented outside the class; `self.__base32` referenced a name-mangled attribute that didn't exist; the alphabet constant lived at module bottom in a way that wouldn't import). this is the corrected version, verified against the worked example above:
+an older draft i had lying around was broken in four ways at once (encode used 5 longitude bits *then* 5 latitude bits per character instead of alternating; `decode` was indented outside the class; `self.__base32` referenced a name-mangled attribute that didn't exist; the alphabet constant lived at module bottom in a way that wouldn't import). this is the corrected version, verified against the worked example above:
 
 ```python
 class GeoHash:

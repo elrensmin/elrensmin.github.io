@@ -26,15 +26,15 @@ each convnet layer is just a 3-D array $h \times w \times d$, and "receptive fie
 
 ![convnet layer formalism](/images/fcn-notes/pasted-image-20241202152451.png)
 
-training details worth keeping (the $10^{-3}$/$10^{-4}$/**$5\times10^{-5}$** learning rates for FCN-AlexNet/VGG16/GoogLeNet - my vault note had `$5^{-5}$` here, a PDF-rendering artifact; same story with weight decay $5\times10^{-4}$ or $2\times10^{-4}$): SGD with momentum 0.9, gradients accumulated over 20 images, doubled lr for biases, class scoring layer **zero-initialized** (random init gave nothing), dropout where the original net had it.
+training details worth keeping (the $10^{-3}$/$10^{-4}$/**$5\times10^{-5}$** learning rates for FCN-AlexNet/VGG16/GoogLeNet - the paper's PDF text layer mangles the last one into `$5^{-5}$`, and the weight decay $5\times10^{-4}$ or $2\times10^{-4}$ gets the same treatment): SGD with momentum 0.9, gradients accumulated over 20 images, doubled lr for biases, class scoring layer **zero-initialized** (random init gave nothing), dropout where the original net had it.
 
 ## upsampling = transposed convolution
 
 bilinear interpolation computes each output from the nearest four inputs by a position-dependent linear map - fine, but fixed. the reframing that unlocks learning: **upsampling with factor $f$ = convolution with a fractional input stride $1/f$**, so as long as $f$ is integral you can implement it as a *transposed* convolution with output stride $f$.
 
-the honest mental model (my vault note's "filters slide over the input instead" was the confusing folk version): a transposed conv is the ordinary convolution whose *backward pass* is the operation you want - the forward of transposed-conv is the backward of conv. trivially implemented by swapping the stride/padding roles, and - the key point - **not required to stay bilinear**: the filter is learnable, in-network, trained by backprop from the pixelwise loss. a stack of deconv layers + activations can even learn *non-linear* upsampling.
+the honest mental model (the "filters slide over the input instead" folklore is the confusing version): a transposed conv is the ordinary convolution whose *backward pass* is the operation you want - the forward of transposed-conv is the backward of conv. trivially implemented by swapping the stride/padding roles, and - the key point - **not required to stay bilinear**: the filter is learnable, in-network, trained by backprop from the pixelwise loss. a stack of deconv layers + activations can even learn *non-linear* upsampling.
 
-my vault also conflated zero-padding with upsampling ("padding maintains spatial dimensions") - no: padding preserves/controls *size* during convolution; the resolution *increase* comes from the transposed stride. two separate knobs.
+a conflation worth flagging, since summaries repeat it: zero-padding does not upsample ("padding maintains spatial dimensions") - no: padding preserves/controls *size* during convolution; the resolution *increase* comes from the transposed stride. two separate knobs.
 
 ## skip architectures - the actual trick
 
@@ -70,5 +70,5 @@ walkthrough for the standard recipe: take VGG16 up through pool5 and its FC stac
 
 ## todos
 
-- add the actual PASCAL VOC mIoU numbers (FCN-32s vs 16s vs 8s vs prior SOTA) - my vault kept method text but no results table.
+- add the actual PASCAL VOC mIoU numbers (FCN-32s vs 16s vs 8s vs prior SOTA) - these notes kept method text but no results table.
 - transposed conv arithmetic (output size formula from kernel/stride/padding) deserves its own worked example - my earlier padding confusion started there.

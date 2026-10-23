@@ -1,11 +1,11 @@
 ---
 title: Information Retrieval notes
 date: 2025-11-14
-description: "inverted index, tf-idf, and how BM25 fixes term saturation and document length - my re-distillation of my own repo"
+description: "inverted index, tf-idf, and how BM25 fixes term saturation and document length"
 tags: [information-retrieval, nlp, study-notes]
 ---
 
-re-distilled from my own [information-retrieval](https://github.com/kuutsav/information-retrieval) readme (the vault note was a thin paste of it), plus the [kmwllc BM25 walkthrough](https://kmwllc.com/index.php/2020/03/20/understanding-tf-idf-and-bm-25/).
+built from my own [information-retrieval](https://github.com/kuutsav/information-retrieval) readme, plus the [kmwllc BM25 walkthrough](https://kmwllc.com/index.php/2020/03/20/understanding-tf-idf-and-bm-25/).
 
 IR in its most basic form answers: *how relevant is a given query for a document?* the catch is scale - not one document but millions or billions, so the real question is how to find the relevant handful efficiently.
 
@@ -42,15 +42,15 @@ everything in this section treats terms as discrete symbols and documents as tok
 
 $$TFIDF(q, d) = \sum_{t\;\in\;T_d \cap T_q} \log(1 + tf_{t,d}) \cdot \log\frac{\lvert D \rvert}{df_t}$$
 
-- **term frequency**: raw counts overshoot; dampen with `log(1 + tf(t,d))` (or use relative frequency tf/dl - the medium-post definition my vault quoted: *TF = repetitions of the word in the document / words in the document*).
+- **term frequency**: raw counts overshoot; dampen with `log(1 + tf(t,d))` (or use relative frequency tf/dl - the medium-post form: *TF = repetitions of the word in the document / words in the document*).
 - **inverse document frequency**: the term's "informativeness": $\lvert D \rvert$ documents total, the term appears in `df_t` of them, so $\log(\lvert D \rvert / df_t)$ is large exactly for terms that rarefy the document set.
 
 why log in the IDF? two honest layers:
 
 1. the practical one: compresses a huge ratio range into a sane scale, and a term appearing in *all* documents ($df = \lvert D \rvert$) gets weight 0 rather than a tiny nonzero.
-2. the real one: IDF isn't an ad-hoc scaling, it's the derivative of the probabilistic retrieval model - the Robertson-Spärck Jones weight, which estimates the discrimination value of a term and comes out as a log of the odds ratio approximately equal to $\log(\lvert D \rvert / df_t)$ for rare terms. my vault's "log prevents the numerator from blowing up" is the pop version; the RSJ derivation is the thing to actually cite.
+2. the real one: IDF isn't an ad-hoc scaling, it's the derivative of the probabilistic retrieval model - the Robertson-Spärck Jones weight, which estimates the discrimination value of a term and comes out as a log of the odds ratio approximately equal to $\log(\lvert D \rvert / df_t)$ for rare terms. the "log prevents the numerator from blowing up" explanation is the pop version; the RSJ derivation is the thing to actually cite.
 
-also: computing tf-idf as a full document×vocabulary matrix is how you'd think about it mathematically, but storage is the wall. 1 M documents × ~1000 terms each with a 100k vocabulary: the matrix is 10¹¹ cells with only ~10⁹ nonzero (each document touches 1000 of its 100,000 slots) - **~99% zeros**, not the ~90% my vault note wrote from an arithmetic slip (1,000,000 × 90,000 / 1,000,000 × 100,000 conveniently ignored that each row only has ~1000 nonzeros). store per-posting statistics in the *inverted index* instead, and only the nonzero cells exist.
+also: computing tf-idf as a full document×vocabulary matrix is how you'd think about it mathematically, but storage is the wall. 1 M documents × ~1000 terms each with a 100k vocabulary: the matrix is 10¹¹ cells with only ~10⁹ nonzero (each document touches 1000 of its 100,000 slots) - **~99% zeros** (the ~90% you'll see in places comes from an arithmetic slip: comparing the nonzero count against 90% of the matrix's columns ignores that each row only has ~1000 nonzeros). store per-posting statistics in the *inverted index* instead, and only the nonzero cells exist.
 
 ### BM25
 
@@ -78,17 +78,17 @@ $$tf \,\cdot\; \big(1 - b + b \cdot \tfrac{dl}{adl}\big)$$
 
 ![b interpolation curve](/images/information-retrieval-notes/pasted-image-20241127111952.png)
 
-**the assembled score** (full BM25, including the IDF term my vault only kept as a screenshot):
+**the assembled score** (full BM25, IDF term included):
 
 $$\text{score}(q, d) = \sum_{t \in T_q} \underbrace{\log\!\Big(\frac{N - df_t + 0.5}{df_t + 0.5} + 1\Big)}_{\text{IDF (RSJ-style, smoothed)}} \cdot \underbrace{\frac{tf(t,d)\,(k_1 + 1)}{tf(t,d) + k_1\,(1 - b + b\,\frac{dl}{adl})}}_{\text{saturating, length-normalized TF}}$$
 
-the (k₁+1) numerator is a scale factor so the term peaks near k₁+1 instead of near 1. the hyperparameters my vault recorded: `1.2 < k_1 < 2`, `0.5 < b < 0.8` as typical ranges - k₁ controls term-frequency saturation, b controls document-length normalization. the +0.5 smoothing in IDF keeps rare-term weights finite; the exact form varies by implementation (Lucene's is the one above).
+the (k₁+1) numerator is a scale factor so the term peaks near k₁+1 instead of near 1. the usual hyperparameter ranges: `1.2 < k_1 < 2`, `0.5 < b < 0.8` - k₁ controls term-frequency saturation, b controls document-length normalization. the +0.5 smoothing in IDF keeps rare-term weights finite; the exact form varies by implementation (Lucene's is the one above).
 
-the IDF "arrived at to give deterministic results" line from the vault - stated properly: it's the Robertson-Spärck Jones probabilistic weight, and i've left the derivation out here too.
+the "IDF arrived at to give deterministic results" phrasing, stated properly: it's the Robertson-Spärck Jones probabilistic weight; i've left the derivation out here too.
 
 ## word2vec (the dense-representation bridgehead)
 
-the vault file's next section was titled "finetuning BERT for IR / semantic search" but contained only word2vec - so that's the honest content, and the BERT part is a todo. the connection to everything above: replace the discrete-symbol assumption with dense vectors learned from context.
+word2vec is the bridgehead toward semantic search - the connection to everything above is a swap: replace the discrete-symbol assumption with dense vectors learned from context (the BERT-for-IR half is still a todo below).
 
 word2vec iterates over a corpus with a sliding window: at each step take a center word and its context words, softmax over the whole vocabulary, cross-entropy loss on the context words, backprop into the embeddings. two flavors: **CBOW** predicts the center from the context, **skip-gram** predicts the context from the center.
 
@@ -111,6 +111,6 @@ full notes live in [my word2vec note](/o/word2vec-notes/) - what matters for IR 
 
 ## todos
 
-- actually add the BERT-for-IR section the vault promised: bi-encoder vs cross-encoder retrieval, why cross-encoders are accurate-but-un-indexable, and where dense retrieval beat BM25 and where it didn't.
+- add the BERT-for-IR section: bi-encoder vs cross-encoder retrieval, why cross-encoders are accurate-but-un-indexable, and where dense retrieval beat BM25 and where it didn't.
 - Robertson-Spärck Jones derivation for the IDF term - one day, properly, with the assumptions listed.
 - hybrid sparse+dense retrieval (BM25 + ANN in the same ranker) - the production default worth a section.

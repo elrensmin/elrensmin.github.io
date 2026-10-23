@@ -54,7 +54,7 @@ the lesson i keep: task/model/data designed *together* beat any single clever ar
 ## papers & sources
 
 - SAM: <https://arxiv.org/abs/2304.02643> - project: <https://segment-anything.com>
-- intro walkthrough my vault quoted: [V7 Labs blog](https://www.v7labs.com/blog/segment-anything-model-sam)
+- intro walkthrough: [V7 Labs blog](https://www.v7labs.com/blog/segment-anything-model-sam)
 
 ## todos
 

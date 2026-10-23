@@ -7,7 +7,7 @@ tags: [cv, study-notes, paper]
 
 [Viola & Jones, CVPR 2001](https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf) (+ the [IJCV 2004 journal version](https://www.sciencedirect.com/science/article/pii/S1077314203001759)): painfully slow to train, real-time to run. before deep neural nets, this was *the* face detector, and its three tricks - integral images, boosting, cascades - are still worth knowing cold.
 
-own-voice confession from my vault: i didn't get AdaBoost until [Krish Naik's video](https://www.youtube.com/watch?v=NLRO1-jp5F8) walked it.
+confession: i didn't get AdaBoost until [Krish Naik's video](https://www.youtube.com/watch?v=NLRO1-jp5F8) walked it.
 
 ## why haar-like features
 
@@ -17,7 +17,7 @@ the intuition: to find which region is lighter/darker, sum pixel values in both 
 
 - **edge features** (two rectangles side by side) - fire on edges;
 - **line features** (a stripe inside a surrounding pair) - fire on line/bar structures;
-- **four-rectangle features** (two pairs of opposite rectangles) - compare *diagonally opposite* region pairs against each other, the closest thing to diagonal structure sensitivity in the original set. (the truly rotated-$45°$ features people associate with OpenCV come from the later [Lienhart extension](https://link.springer.com/chapter/10.1007/978-3-540-24670-1_15), not the 2001 paper - and my vault's claim that "four-sided features find diagonal features" needed exactly this untangling.)
+- **four-rectangle features** (two pairs of opposite rectangles) - compare *diagonally opposite* region pairs against each other, the closest thing to diagonal structure sensitivity in the original set. (the truly rotated-$45°$ features people associate with OpenCV come from the later [Lienhart extension](https://link.springer.com/chapter/10.1007/978-3-540-24670-1_15), not the 2001 paper - and the "four-sided features find diagonal features" shorthand you'll meet in summaries needs exactly this untangling.)
 - a known-good example: the eye-region-vs-nose-bridge contrast feature gives a strong response on the nose bridge. lots of such features together = a face signature.
 
 ## the integral image (the enabling trick)
@@ -57,7 +57,7 @@ the challenge inverted: there are tens of thousands of possible features per win
 - each round, adaboost **greedily picks the single weak classifier with the lowest weighted error**, adds it to the set with importance weight $\alpha_t = \frac12 \log(1/\epsilon_t)$, then **reweights the examples**: misclassified ones get *more* weight, so the next round hunts what the current set can't do yet.
 - the final strong classifier is the weighted vote: $\text{sign}\big(\sum_t \alpha_t h_t(x) - b\big)$.
 
-my vault's "sort models by error rate, drop the useless ones" was the wrong mental model - there's no global sort-and-drop; it's greedy per-round selection where the *reweighting* is the actual engine. the "useless features dropped" intuition survives only as "features never selected".
+the "sort models by error rate, drop the useless ones" mental model is wrong - there's no global sort-and-drop; it's greedy per-round selection where the *reweighting* is the actual engine. the "useless features dropped" intuition survives only as "features never selected".
 
 ## the cascade - speed comes from structure
 
@@ -76,13 +76,13 @@ tuned with explicit stage targets (e.g. "catch 99.9% of faces with ≤50% false 
 - **cascade**: early stages kill the non-face windows instantly; survivors pass through progressively pickier stages.
 - **decision**: any window passing all stages is a detection; overlapping detections across nearby windows/scales get merged into final boxes (the plain greedy merging that the paper hand-waves and every real implementation has to own).
 
-resource notes from my vault worth keeping: haar/LBP are good at fine-scale texture → faces; [HOG](https://lear.inrialpes.fr/people/triggs/pubs/Dalal-CVPR05.pdf) fits coarse-shaped objects → pedestrians, cars. and sentdex has a hands-on [cascade walkthrough](https://www.youtube.com/watch?v=88HdqNDQsEk).
+resource notes worth keeping: haar/LBP are good at fine-scale texture → faces; [HOG](https://lear.inrialpes.fr/people/triggs/pubs/Dalal-CVPR05.pdf) fits coarse-shaped objects → pedestrians, cars. and sentdex has a hands-on [cascade walkthrough](https://www.youtube.com/watch?v=88HdqNDQsEk).
 
 ## papers & sources
 
 - rapid object detection (CVPR'01): <https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/viola-cvpr-01.pdf>
 - robust real-time face detection (IJCV'04): <https://www.sciencedirect.com/science/article/pii/S1077314203001759>
-- blog walkthroughs (aaron ward's facial-detection post and a haar-feature primer were where most of my vault's prose came from - links long since lost; go via the papers above)
+- blog walkthroughs (an aaron ward facial-detection post and a haar-feature primer shaped these notes - links long since lost; go via the papers above)
 
 ## todos
 
