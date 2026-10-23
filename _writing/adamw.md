@@ -368,3 +368,14 @@ develop a better sense of optimizing kernels first, and then return to this. mak
 ---
 
 (in-progress)
+
+## breadcrumbs
+
+- [softmax part 1](/o/softmax-1/) and [part 2](/o/softmax-2/) - the same kernel-optimization arc on the softmax side
+- [ragged kernels on tpu](/o/pallas-ragged-kernels/) - the same arc on different hardware, different constraints
+- [ml-basics notes](/o/ml-basics-notes/) - where the optimizer sits in the basics stack
+
+## todos
+
+- return to the kernel study exactly as deferred in the note: a couple of days in llm.c dev/, build kernel intuition first, then come back to my own adamw attempt.
+- when measuring, add a fused-vs-unfused pass-count table so the O-complexity claim above converts into actual numbers.

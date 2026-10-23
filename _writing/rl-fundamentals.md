@@ -493,3 +493,16 @@ resources:
  - [Gao, Schulman & Hilton (2022), *Scaling Laws for Reward Model Overoptimization* - the proxy-vs-intent gap, measured](https://arxiv.org/abs/2210.10760)
  - [Schulman et al. (2016), *High-Dimensional Continuous Control Using Generalized Advantage Estimation* (GAE)](https://arxiv.org/abs/1506.02438)
  - the policy-gradient half of these notes: [RL notes](/o/RL-notes/)
+
+## breadcrumbs
+
+- [rl notes](/o/RL-notes/) - the policy-gradient half of the curriculum (this note is the value/mdp half)
+- [ppo phase 1 experiments](/o/PPO-phase1/) - the experimental twin of this theory
+- [reward models](/o/reward-models/) - where learned rewards break the reward hypothesis
+- [kl divergence notes](/o/kl-divergence-notes/) - the KL terms that will show up in every RLHF objective later
+
+## todos
+
+- frozen-lake TD control worked example - the Watkins & Dayan source in the list above is still unexercised.
+- potential-based reward shaping: numeric toy-grid demo of $F = \gamma\Phi(s') - \Phi(s)$ leaving the optimal policy unchanged.
+- write the weather-prediction TD framing (from Sutton & Barto) as its own small section; it deserves better than a sources-line mention.

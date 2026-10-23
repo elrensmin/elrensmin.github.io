@@ -47,3 +47,14 @@ Shuffling: Linear vs. Feistel
 evidently Feistel gives a better data mix and more stable training. 🤷
 
 
+
+## breadcrumbs
+
+- [ml-basics notes](/o/ml-basics-notes/) - the foundations these heuristics are shortcuts over
+- [ragged kernels on tpu](/o/pallas-ragged-kernels/) - the scaling-law-adjacent engineering side of the same training stack
+
+## todos
+
+- expand the rapid-cooldown diagnostic into its own section: cadence, what you measure at each cooldown, what it costs.
+- the Feistel-vs-linear shuffling claim ("better mixing properties") deserves the actual permutation math or a simulation that shows the phase-shift fix.
+- build up a pretraining-ops checklist from the marin reports - the format of this note, grown one row per retro.

@@ -134,3 +134,15 @@ here's what i finally got. every measure here is one of two templates:
 - **expected *difference* in information content**: `Σ P(x) (I_Q(x) - I_P(x))`. KL divergence and mutual information live here. you're averaging the *gap* between two surprisals.
 
 that's the spine. surprisal is the atom. everything else is either an average of surprisals or an average of differences between surprisals. once you see it that way the menagerie stops being six separate formulas and becomes two patterns with variations.
+
+## breadcrumbs
+
+- [ddpm eq-by-equation (2006.11239)](/o/2006-11239/) - the KL gap in the ELBO bound is this note, applied
+- [diffusion-notes](/o/diffusion-notes/) - family map of where that bound sits
+- [ml-basics notes](/o/ml-basics-notes/) - the sibling basics note
+
+## todos
+
+- numeric worked example of mutual information as KL: I(P,Q) computed as KL of the joint vs the product of marginals on a 2x2 table.
+- the KL ≥ 0 proof from Jensen's inequality - the ddpm note leans on it, this note should own it.
+- cross-entropy relation H(p,q) = H(p) + KL(p\|\|q), once numerically so the two-template framing above connects to the two formulas everyone memorizes.

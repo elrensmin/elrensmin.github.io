@@ -42,19 +42,9 @@ hide_title: true
 </div>
 
 <script>
-(function () {
-  var tabs = document.querySelectorAll('.tabs .tab');
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      tabs.forEach(function (t) {
-        t.classList.toggle('active', t === tab);
-        t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
-        var panel = document.getElementById('tab-' + t.getAttribute('data-tab'));
-        if (panel) panel.hidden = (t !== tab);
-      });
-    });
-  });
+{% include tabs-state.js %}
 
+(function () {
   var q = document.getElementById('writes-search');
   if (!q) return;
   q.addEventListener('input', function () {

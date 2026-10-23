@@ -22,3 +22,13 @@ No. That is unacceptable.
 The recommendations were sound. The plan was not. AI is a rocket engine for me. But I, me, my mind, needs to know the right direction. Would've been nice if I found a good mentor. But until then I need to lower my learning rate to prevent getting stuck in the local minima ever again.
 
 Truth must be data and diagnostics from now. It's not been too long for me that I can't go back. My productivity will drop. But that's ok. Endless lines of code don't mean shit if the end result is incorrect.
+
+## breadcrumbs
+
+- [ragged kernels on tpu](/o/pallas-ragged-kernels/) - the scaling-law work with Vlad that this note reflects on
+- [rl-fundamentals](/o/rl-fundamentals/) and [rl notes](/o/RL-notes/) - the one-focus curriculum this note commits to
+
+## todos
+
+- set a check-in: revisit in a month - did lowering the learning rate keep me out of local minima?
+- the no-AI-for-solutions rule needs a concrete exception list, or it'll be violated by accident on a deadline.

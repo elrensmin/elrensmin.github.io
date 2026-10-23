@@ -162,3 +162,14 @@ What we see (reproduce with `uv run python metrics.py uwq3xkru 43z896f2 o7b9o09h
 - **The smallest network is nearly as good as the best.** hu32_hl1 (1315 params) hits 116.7, within ~10% of the baseline with a fraction of the parameters. This confirms the experiment's hypothesis: CartPole saturates with a tiny network.
 - **kl_max and grad_norm grow with size** (0.028→0.176, 0.3→0.7) but don't buy score - just more churn. Bigger nets move the policy further per update without learning better.
 - **Lesson:** on a task this simple, capacity is wasted. Use the smallest net that solves the task; save the big networks for Pendulum / the LLM phase where capacity will actually matter.
+
+## breadcrumbs
+
+- [rl-fundamentals](/o/rl-fundamentals/) - the advantage/GAE theory this experiment series implements
+- [rl notes](/o/RL-notes/) - the policy-gradient half; the clip objective originates there
+- [orm/prm validation runs](/o/orm-prm-validation/) - the reward-model side of the same arc
+
+## todos
+
+- next phases per exp6's own conclusion: Pendulum and then the LLM phase, where network capacity actually matters.
+- the exp6 observation that kl_max/grad_norm grow with size without buying score deserves one ablation with the KL coefficient varied - cheap and would close the loop.

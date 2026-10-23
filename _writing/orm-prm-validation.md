@@ -72,3 +72,15 @@ run of the two and a good baseline for further tuning.
 
 
 I'm not able to make my wandb logs public.. will fix this and upload from next time.
+
+## breadcrumbs
+
+- [reward models](/o/reward-models/) - the ORM/PRM concepts this run validates, label shapes included
+- [ppo phase 1 experiments](/o/PPO-phase1/) - the training-log side of the same rlhf arc
+- [rl notes](/o/RL-notes/) - the policy-gradient machinery behind RLHF training runs
+
+## todos
+
+- publish the wandb logs (the note's own closing line).
+- write the ORM-vs-value-head distinction into the reward-models note with a concrete worked example - i've flagged twice now that i rewrote that section on trust, not on understanding.
+- PRM: evaluate step-level margins on held-out problems and best-of-N behavior, per the follow-ups above, then link results here.

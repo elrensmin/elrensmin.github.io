@@ -363,3 +363,15 @@ Still plenty left: beat Triton for real, maybe poke **CuteDSL**, benchmark again
 - [SzymonOzog/FastSoftmax](https://github.com/SzymonOzog/FastSoftmax?tab=readme-ov-file)
 - [Maharshi's blog](https://maharshi.bearblog.dev/optimizing-softmax-cuda/)
 - [How-to-write-a-fast-Softmax-CUDA-kernel](https://github.com/facebookincubator/AITemplate/wiki/How-to-write-a-fast-Softmax-CUDA-kernel%3F)
+
+## breadcrumbs
+
+- [softmax part 2](/o/softmax-2/) - the next layer of spills
+- [adamw kernel exercise](/o/adamw/) and [ragged kernels on tpu](/o/pallas-ragged-kernels/) - sibling chapters of the kernel-optimization arc
+- [pr1: BERT in luminal](/o/pr1-luminal-bert/) - debugging kernels through a real integration
+- concept-level counterparts: [word2vec](/o/word2vec-notes/), [bert](/o/bert-notes/) and [KL divergence](/o/kl-divergence-notes/) - where softmax earns its keep and what it costs
+
+## todos
+
+- the stated remaining list, verbatim from the closing: beat Triton for real, poke CuteDSL, benchmark against Liger.
+- add an ncu-repro table per optimization stage so the "what ncu tells us" section becomes reproducible.

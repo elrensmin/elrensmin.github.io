@@ -288,3 +288,15 @@ This is necessary because Pallas on TPU requires uniform block shapes. You can't
 # Code
 
 All code can be found at [github](https://github.com/elrensmin/jax-mini-t9r)
+
+## breadcrumbs
+
+- [adamw kernel exercise](/o/adamw/) - GPU-side counterpart of the same optimization arc
+- [softmax part 1](/o/softmax-1/) and [part 2](/o/softmax-2/) - kernel-fusion craft on the attention side
+- [pr1: BERT in luminal](/o/pr1-luminal-bert/) - kernel/diagnostic debugging on a different stack
+
+## todos
+
+- quantify the ragged-to-uniform padding overhead (lesson 3 admits it's "unavoidable without custom DMA" but never says how much it costs).
+- write the accumulator-initialization + reduction-semantics gotcha (lesson 2's trap) as its own section with a minimal reproducer before the memory fades.
+- VMEM budgeting rule: validate the `3 * D * F * dtype_bytes` estimate against a real fused build's compiler stats.

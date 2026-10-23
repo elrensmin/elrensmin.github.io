@@ -257,18 +257,20 @@
   padding: 1rem 0;
 }
 
-/* Breadcrumbs */
-.breadcrumbs {
+/* Back button in post header */
+.back-btn {
+  display: inline-block;
   font-size: 0.85rem;
   color: var(--muted);
-  margin-bottom: 0.5rem;
-}
-.breadcrumbs a {
-  color: var(--muted);
   text-decoration: none;
+  margin-bottom: 0.75rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--muted);
+  border-radius: 999px;
 }
-.breadcrumbs a:hover {
+.back-btn:hover {
   color: var(--accent);
+  border-color: var(--accent);
   text-decoration: none;
 }
 

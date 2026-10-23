@@ -209,3 +209,14 @@ it works. paris is number one. the model is correct.
 [pr](https://github.com/luminal-ai/luminal/pull/392)
 
 Let's hope it gets merged. 
+
+## breadcrumbs
+
+- [bert notes](/o/bert-notes/) - the model whose weights this PR wires up
+- [adamw kernel exercise](/o/adamw/) - same llm.c/kernel-study spirit, different framework
+- [softmax part 1](/o/softmax-1/) - the CUDA-arc's other chapters
+
+## todos
+
+- check whether the [PR](https://github.com/luminal-ai/luminal/pull/392) got merged, and record the review notes here if reviewers push back.
+- build the huggingface naming-variant table (weight/bias vs gamma/beta) for every model family the framework touches - this bit me once and will bite again.

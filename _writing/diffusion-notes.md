@@ -121,3 +121,15 @@ things i haven't nailed down, so future me knows where to dig:
 - what the continuous-time analogue of "zero terminal SNR" actually means.
 
 
+
+## breadcrumbs
+
+- [ddpm eq-by-equation (2006.11239)](/o/2006-11239/)
+- [improved ddpm (2102.09672)](/o/2102-09672/)
+- [noise schedules, cfg & samplers (2305.08891)](/o/2305-08891/)
+- [kl divergence notes](/o/kl-divergence-notes/) - the ELBO gap-is-KL step used by both bound write-ups
+
+## todos
+
+- the [still fuzzy](#still-fuzzy) list is the canonical backlog for this cluster; fold items into the paper notes as they resolve rather than growing it here.
+- add distilled / consistency samplers as their own breadcrumb row once i read one properly.

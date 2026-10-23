@@ -25,3 +25,15 @@ not all bad though. high dim can help with linear separability, which is why ker
 
 source:
 - [the math behind the curse of dimensionality](https://towardsdatascience.com/the-math-behind-the-curse-of-dimensionality-cf8780307d74/)
+
+## breadcrumbs
+
+- [rl-fundamentals](/o/rl-fundamentals/) - the RL half of the basics
+- [kl divergence notes](/o/kl-divergence-notes/) - the info-theory half
+- [matrix calculus you need for deep learning](/o/matrix-calculus-notes/) - the math plumbing for everything above
+
+## todos
+
+- numeric demo for the curse-of-dimensionality claim: sample a hypercube at n and 2n dims, tabulate the largest-distance/typical-distance ratio against the ~O(√n) prediction.
+- PCA warm-up exercise: cut features until distances mean something again, on the same sample as above.
+- the "exponential amount of data to fill the space" statement deserves its one-line derivation instead of just being asserted.

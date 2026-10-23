@@ -603,3 +603,14 @@ cutedsl, that would make more sense.
 
 anyways, thanks for sticking with me if anyone made it this far. I'm still very new to writing blogs so there might be
 a lot of extra jibber jabber but these are worklogs and my stream of consciousness, so it's what it is.
+
+## breadcrumbs
+
+- [softmax part 1](/o/softmax-1/) - part one, with the naive baseline and coalescing
+- [adamw kernel exercise](/o/adamw/) - the optimizer-kernel sibling
+- [rope notes](/o/RoPE-notes/) - the other elementwise-only kernel trick
+
+## todos
+
+- switch benchmarking to CMakeLists-driven timing, per the CCCL discovery in the closing notes - remember to actually do this from the next write-up on.
+- answer the open question i left myself: does the CCCL team bother with Triton kernels at all, and is CuteDSL the better universal benchmark target?

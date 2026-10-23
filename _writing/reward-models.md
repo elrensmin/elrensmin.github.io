@@ -299,3 +299,15 @@ and `LMJudgeVerifier` (`ground_truth_utils.py:697`) is the repo's actual LLM-as-
 **where worse / why not used as a reward:** on RM benchmarks they **tend to be behind trained RMs**. LLM-as-a-judge has position/length biases and is expensive at RL scale (you'd call it per-step). it's a *proxy of a proxy* and shows it.
 
 anyway. i still don't fully trust myself on the ORM vs value distinction, and i've rewritten that section twice. but the label-shape thing - pair vs broadcast vs per-step - that one i'm confident about, and it's the thing i'll actually reach for next time i'm staring at a dataset and wondering what model to train.
+
+## breadcrumbs
+
+- [orm/prm validation runs](/o/orm-prm-validation/) - these concepts, run on gsm8k and prm800k
+- [rl-fundamentals](/o/rl-fundamentals/) - the proxy-vs-intent gap (reward overoptimization) enters here
+- [rl notes](/o/RL-notes/) - what happens downstream once a reward scalar exists
+
+## todos
+
+- nail the ORM vs value-head distinction i keep rewriting - one worked example with the same sequence scored by both, no hand-waving.
+- add DPO/direct alignment placement: why you can skip the RM entirely, and what you lose.
+- the label-shape taxonomy (pair vs broadcast vs per-step) is the confident part - extend it with one real dataset example per shape next time i'm staring at data.

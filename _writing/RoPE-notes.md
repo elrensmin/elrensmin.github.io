@@ -106,3 +106,15 @@ $$[x'_0,\, x'_1] = [x_0,\, x_1] \odot \cos\alpha \;+\; [-x_1,\, x_0] \odot \sin\
 
 all elementwise muls against the precomputed $\cos$ and $\sin$ tensors. no matmul, no gather. the rotation is just a swap-negate plus two elementwise products. done.
 
+
+## breadcrumbs
+
+- [bert notes](/o/bert-notes/) - the positional-embedding contrast (learned absolute vs this rotational scheme)
+- [adamw kernel exercise](/o/adamw/) - same fast-kernel arc
+- [softmax part 1](/o/softmax-1/) - elementwise-coalescing craft that this note's fast path leans on
+
+## todos
+
+- second half: position scaling extensions (NTK/YaRN-style) - the note stops at plain RoPE.
+- verify the pair-allocation scheme at odd hidden dims (the leftover dim-1 pairing edge case) against the paper.
+- the elementwise fast path deserves a fused RoPE+attention kernel write-up, matching the softmax arc.

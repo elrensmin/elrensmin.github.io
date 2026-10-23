@@ -563,6 +563,8 @@ hide_title: true
       </li>
       <li class="w-item">
         <a class="w-link" href="https://www.youtube.com/watch?v=laaBLUxJUMY" target="_blank" rel="noopener">How AI Solves the Impossible Search Problem</a>
+        <span class="w-domain">youtube.com</span>
+      </li>
       <li class="w-item">
         <a class="w-link" href="https://varunneal.github.io/essays/diffusion" target="_blank" rel="noopener">Diffusion will be everywhere</a>
         <span class="w-domain">varunneal.github.io</span>
@@ -591,8 +593,6 @@ hide_title: true
         <a class="w-link" href="https://www.youtube.com/watch?v=vSczTbgc8Rc" target="_blank" rel="noopener">SVD Visualized  Visual Kernel</a>
         <span class="w-domain">youtube.com</span>
       </li>
-        <span class="w-domain">youtube.com</span>
-      </li>
 </ul>
 </div>
 
@@ -609,17 +609,5 @@ hide_title: true
 </div>
 
 <script>
-(function () {
-  var tabs = document.querySelectorAll('.tabs .tab');
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      tabs.forEach(function (t) {
-        t.classList.toggle('active', t === tab);
-        t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
-        var panel = document.getElementById('tab-' + t.getAttribute('data-tab'));
-        if (panel) panel.hidden = (t !== tab);
-      });
-    });
-  });
-})();
+{% include tabs-state.js %}
 </script>

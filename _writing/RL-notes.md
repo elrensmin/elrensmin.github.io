@@ -348,3 +348,16 @@ resources:
  - Shao et al. (2024), *DeepSeekMath* - GRPO; https://arxiv.org/abs/2402.03300
  - Liu et al. (2025), *Understanding R1-Zero-Like Training: A Critical Perspective* - Dr. GRPO; https://arxiv.org/abs/2503.20783
  - Zheng et al. (2025), *Group Sequence Policy Optimization* (GSPO); https://arxiv.org/abs/2507.18071
+
+## breadcrumbs
+
+- [rl-fundamentals](/o/rl-fundamentals/) - the fundamentals half (mdp, returns, values) this note builds on
+- [ppo phase 1 experiments](/o/PPO-phase1/) - PPO taken from equations to cartpole runs
+- [orm/prm validation runs](/o/orm-prm-validation/) - reward modeling, the input half of post-training
+- [reward models](/o/reward-models/) - the reward scalar these gradients lean on
+
+## todos
+
+- one worked example each for GRPO, Dr. GRPO and GSPO - they're all in the sources, none exercised yet.
+- TRPO $\to$ PPO surrogate relationship: one diagram + one paragraph on what the clip buys and costs versus the trust region.
+- eligibility traces are cited (Precup et al) but not written - decide whether they belong here or in a separate off-policy-evaluation note.

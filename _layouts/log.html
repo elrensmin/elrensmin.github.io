@@ -8,9 +8,7 @@
       <div class="log-wrapper">
         <article class="log">
           <header class="log-header">
-            <nav class="breadcrumbs">
-              <a href="{{ '/' | relative_url }}">home</a> / <a href="{{ '/o/' | relative_url }}">o</a> / {{ page.title }}
-            </nav>
+            <a class="back-btn" href="{{ '/o/' | relative_url }}" aria-label="Back to the writes menu">&#8593; back</a>
             <h1 class="log-title">{{ page.title }}</h1>
             <div class="log-meta">
               <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %d, %Y" }}</time>
