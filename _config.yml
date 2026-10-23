@@ -1,4 +1,4 @@
-title: Dhruv M
+title: DhruvaM
 email: keenignition@gmail.com
 description: >-
   Internet taught. World models are awesome.
@@ -15,7 +15,7 @@ plugins:
 collections:
   writing:
     output: true
-    permalink: /writing/:title/
+    permalink: /o/:title/
 
 defaults:
   - scope:

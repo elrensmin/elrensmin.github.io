@@ -15,8 +15,9 @@
 
       <div id="site-menu" class="site-menu">
         <nav class="site-nav" aria-label="Main">
-          <a href="{{ '/writing/' | relative_url }}"{% if page.url contains '/writing/' %} aria-current="page"{% endif %}>writes</a>
-          <a href="{{ '/reading/' | relative_url }}"{% if page.url contains '/reading/' %} aria-current="page"{% endif %}>reads</a>
+          <a href="{{ '/i/' | relative_url }}" aria-label="input: reads" title="input - reads"{% if page.url contains '/i/' %} aria-current="page"{% endif %}>I</a>
+          <span class="nav-sep" aria-hidden="true">/</span>
+          <a href="{{ '/o/' | relative_url }}" aria-label="output: writes" title="output - writes"{% if page.url contains '/o/' %} aria-current="page"{% endif %}>O</a>
         </nav>
 
         <div class="site-actions">

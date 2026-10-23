@@ -65,11 +65,18 @@
   grid-column: 2;
   justify-self: center;
   display: flex;
-  gap: 1.5rem;
+  align-items: baseline;
+  gap: 0.7rem;
+}
+.nav-sep {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--border-subtle);
+  user-select: none;
 }
 .site-nav a {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   color: var(--muted);
   text-decoration: none;
   padding-bottom: 0.12rem;
@@ -132,12 +139,13 @@
   }
   .site-nav {
     grid-column: auto;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 0.55rem;
+    justify-content: center;
+    gap: 0.7rem;
   }
   .site-nav a {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
   }
   .site-actions {
     grid-column: auto;
@@ -888,6 +896,9 @@
 }
 .w-link:hover {
   color: var(--accent);
+}
+.w-plain {
+  color: var(--text);
 }
 .w-domain {
   flex: 0 0 auto;

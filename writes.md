@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Writes
-permalink: /writing/
+permalink: /o/
 hide_title: true
 ---
 

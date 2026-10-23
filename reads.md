@@ -1,13 +1,14 @@
 ---
 layout: page
 title: Reads
-permalink: /reading/
+permalink: /i/
 hide_title: true
 ---
 
 <div class="tabs" role="tablist">
   <button class="tab active" type="button" data-tab="books" role="tab" aria-selected="true">books</button>
   <button class="tab" type="button" data-tab="blogs" role="tab" aria-selected="false">blogs</button>
+  <button class="tab" type="button" data-tab="podcasts" role="tab" aria-selected="false">podcasts</button>
 </div>
 
 <div id="tab-books" class="tab-panel">
@@ -290,6 +291,10 @@ hide_title: true
   <span class="book-author">Daniel Kahneman</span>
 </li>
 <li class="book">
+  <span class="book-title">Thinking in Bets</span>
+  <span class="book-author">Annie Duke</span>
+</li>
+<li class="book">
   <span class="book-title">To Kill a Mockingbird</span>
   <span class="book-author">Harper Lee</span>
 </li>
@@ -558,8 +563,48 @@ hide_title: true
       </li>
       <li class="w-item">
         <a class="w-link" href="https://www.youtube.com/watch?v=laaBLUxJUMY" target="_blank" rel="noopener">How AI Solves the Impossible Search Problem</a>
+      <li class="w-item">
+        <a class="w-link" href="https://varunneal.github.io/essays/diffusion" target="_blank" rel="noopener">Diffusion will be everywhere</a>
+        <span class="w-domain">varunneal.github.io</span>
+      </li>
+      <li class="w-item">
+        <a class="w-link" href="https://open.substack.com/pub/notboring/p/world-models" target="_blank" rel="noopener">World Models: Computing the Uncomputable</a>
+        <span class="w-domain">notboring.co</span>
+      </li>
+      <li class="w-item">
+        <a class="w-link" href="https://open.substack.com/pub/notboring/p/robot-steps" target="_blank" rel="noopener">Many Small Steps for Robots, One Giant Leap for Mankind</a>
+        <span class="w-domain">notboring.co</span>
+      </li>
+      <li class="w-item">
+        <a class="w-link" href="https://www.youtube.com/watch?v=7Gtxd-ew4lk" target="_blank" rel="noopener">Visualize Different Matrices (part 1) by Visual Kernel</a>
         <span class="w-domain">youtube.com</span>
       </li>
+      <li class="w-item">
+        <a class="w-link" href="https://www.youtube.com/watch?v=wciU07gPqUE" target="_blank" rel="noopener">Visualize Different Matrices (part 2) by Visual Kernel</a>
+        <span class="w-domain">youtube.com</span>
+      </li>
+      <li class="w-item">
+        <a class="w-link" href="https://www.youtube.com/watch?v=mhy-ZKSARxI" target="_blank" rel="noopener">Visualize Spectral Decomposition by Visual Kernel</a>
+        <span class="w-domain">youtube.com</span>
+      </li>
+      <li class="w-item">
+        <a class="w-link" href="https://www.youtube.com/watch?v=vSczTbgc8Rc" target="_blank" rel="noopener">SVD Visualized  Visual Kernel</a>
+        <span class="w-domain">youtube.com</span>
+      </li>
+        <span class="w-domain">youtube.com</span>
+      </li>
+</ul>
+</div>
+
+<div id="tab-podcasts" class="tab-panel" hidden>
+<ul class="w-list">
+  <li class="w-item"><span class="w-plain">Hardcore History</span></li>
+  <li class="w-item"><span class="w-plain">From First Principles</span></li>
+  <li class="w-item"><span class="w-plain">Acquired</span></li>
+  <li class="w-item"><span class="w-plain">Ask a Spaceman</span></li>
+  <li class="w-item"><span class="w-plain">Latent Space</span></li>
+  <li class="w-item"><span class="w-plain">Founders</span></li>
+  <li class="w-item"><span class="w-plain">No Priors</span></li>
 </ul>
 </div>
 

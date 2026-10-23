@@ -6,12 +6,8 @@ layout: home
 
 <div class="home-about" markdown="1">
 
-Here's some things I like: <br/>
-fusion, autonomous drones, autonomous cars, autonomous bots, autonomous anything I guess, rockets, scifi novels and bubble tea.
+My goal is to help bots understand the physical world and self-replicate.
 
-Here's some things I hate: <br/>
-not being able to own any of the above.
-
-i love talking tech. [send me a message!](mailto:{{ site.email }})
+I love dreaming tech. [send me a message!](mailto:{{ site.email }})
 
 </div>

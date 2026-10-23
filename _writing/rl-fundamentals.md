@@ -5,7 +5,7 @@ description: MDPs, Bellman equations, DP/MC/TD, Q-learning, reward design
 tags: [RL, study-notes]
 ---
 
-i split the fundamentals half out of my [RL notes](/writing/RL-notes/) and folded my mdp writeups into it too. everything here is the modeling language - the MDP tuple, $G_t$, $V$, $Q$, the Bellman equations - plus how you actually learn those quantities when the environment is a black box (TD error, DP/MC/TD, Q-learning), where the training data comes from, and what makes a reward function good or catastrophic. the policy-gradient machinery (gradient trick, RLOO, PPO, GRPO) stays in the other note.
+i split the fundamentals half out of my [RL notes](/o/RL-notes/) and folded my mdp writeups into it too. everything here is the modeling language - the MDP tuple, $G_t$, $V$, $Q$, the Bellman equations - plus how you actually learn those quantities when the environment is a black box (TD error, DP/MC/TD, Q-learning), where the training data comes from, and what makes a reward function good or catastrophic. the policy-gradient machinery (gradient trick, RLOO, PPO, GRPO) stays in the other note.
 
 ## the whole picture, before the math
 
@@ -492,4 +492,4 @@ resources:
  - [OpenAI, *Faulty Reward Functions in the Wild*](https://openai.com/index/faulty-reward-functions/)
  - [Gao, Schulman & Hilton (2022), *Scaling Laws for Reward Model Overoptimization* - the proxy-vs-intent gap, measured](https://arxiv.org/abs/2210.10760)
  - [Schulman et al. (2016), *High-Dimensional Continuous Control Using Generalized Advantage Estimation* (GAE)](https://arxiv.org/abs/1506.02438)
- - the policy-gradient half of these notes: [RL notes](/writing/RL-notes/)
+ - the policy-gradient half of these notes: [RL notes](/o/RL-notes/)

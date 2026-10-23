@@ -8,9 +8,9 @@ tags: [diffusion, study-notes]
 I wanted a single place to conoslidate all the papers im reading about diffusion, so here it is.
 
 read until now:
-- [Denoising Diffusion Probabilistic Models (DDPM)](/writing/2006-11239/)
-- [Improved Denoising Diffusion Probabilistic Models (iDDPM)](/writing/2102-09672/)
-- [Common Diffusion Noise Schedules and Sample Steps are Flawed](/writing/2305-08891/)
+- [Denoising Diffusion Probabilistic Models (DDPM)](/o/2006-11239/)
+- [Improved Denoising Diffusion Probabilistic Models (iDDPM)](/o/2102-09672/)
+- [Common Diffusion Noise Schedules and Sample Steps are Flawed](/o/2305-08891/)
 
 ## idea
 
@@ -28,7 +28,7 @@ $$
 
 call the signal coefficient $a\_t = \sqrt{\bar{\alpha}\_t}$ and the noise coefficient $\sigma\_t = \sqrt{1-\bar{\alpha}\_t}$, so $x\_t = a\_t x\_0 + \sigma\_t \epsilon$. at $t=1$ the image is barely speckled. by $t=T$ the signal is essentially gone and $x\_T$ is pure Gaussian noise, which is the whole point, because that's a distribution you can sample from for free.
 
-The reverse process is also a Gaussian chain, except this one is learned. Our bet is that one denoising step is *easy enough to learn* even though noise → image in a single shot is hopeless. The forward process being fixed is also what makes the variational bound tractable: everything in it is a KL between Gaussians. the derivation is in [DDPM, the mathematical foundation](/writing/2006-11239/).
+The reverse process is also a Gaussian chain, except this one is learned. Our bet is that one denoising step is *easy enough to learn* even though noise → image in a single shot is hopeless. The forward process being fixed is also what makes the variational bound tractable: everything in it is a KL between Gaussians. the derivation is in [DDPM, the mathematical foundation](/o/2006-11239/).
 
 ## two lenses
 
@@ -42,23 +42,23 @@ $$
 
 so the score is just the noise (up to a scalar). 
 
-That means an $\epsilon$-predicting network is a score network, and the $\epsilon$-MSE loss is denoising score matching in disguise. Sampling then looks like Langevin dynamics run at a ladder of noise levels (annealed Langevin) with the temperature schedule baked into the forward process. [DDPM, the score-function lens](/writing/2006-11239/) has the full walkthrough.
+That means an $\epsilon$-predicting network is a score network, and the $\epsilon$-MSE loss is denoising score matching in disguise. Sampling then looks like Langevin dynamics run at a ladder of noise levels (annealed Langevin) with the temperature schedule baked into the forward process. [DDPM, the score-function lens](/o/2006-11239/) has the full walkthrough.
 
 ## the target family: $\epsilon$, $x\_0$, $v$
 
 once you accept that you're learning *something* about the clean data, the question is what exactly to predict. the obvious options are the noise $\epsilon$ or the clean image $x\_0$. they're related by the forward equation, so they aren't fundamentally different tasks, but they are different optimization problems: $x\_0$-prediction has huge gradients at high noise, and $\epsilon$-prediction gets trivial at low noise.
 
-the cleaner choice is $v = a\_t \epsilon - \sigma\_t x\_0$, which is a rotation of the $(\epsilon, x\_0)$ pair and keeps the target at a roughly constant scale across all $t$. it also stays finite at the last step, which $\epsilon$-prediction doesn't. the [noise schedules note](/writing/2305-08891/) has the v-target deep dive, including why it's literally the velocity of the probability-flow ODE.
+the cleaner choice is $v = a\_t \epsilon - \sigma\_t x\_0$, which is a rotation of the $(\epsilon, x\_0)$ pair and keeps the target at a roughly constant scale across all $t$. it also stays finite at the last step, which $\epsilon$-prediction doesn't. the [noise schedules note](/o/2305-08891/) has the v-target deep dive, including why it's literally the velocity of the probability-flow ODE.
 
 ## the schedule is part of the model
 
 the noise schedule you train with and the schedule you sample with have to agree at the endpoints. Stable Diffusion's schedule never quite reaches zero signal-to-noise at $t=T$, so the model learns to respect a little leaked low-frequency signal that simply isn't there at inference, where you start from pure Gaussian noise. the result is dead-mids / limited-brightness problem.
 
-Fix is to rescale the schedule so the terminal SNR is actually zero, train with $v$-prediction so the last step is learnable, and start sampling from $t=T$. The SNR equations are in the [noise schedules note](/writing/2305-08891/).
+Fix is to rescale the schedule so the terminal SNR is actually zero, train with $v$-prediction so the last step is learnable, and start sampling from $t=T$. The SNR equations are in the [noise schedules note](/o/2305-08891/).
 
 ## what iDDPM actually adds (the operational bits)
 
-DDPM proves the idea works; iDDPM is the paper that makes it *behave*, and most of the practical instinct i use when thinking about a diffusion setup comes from here. full detail is in the [iDDPM note](/writing/2102-09672/), but the parts worth carrying around are these.
+DDPM proves the idea works; iDDPM is the paper that makes it *behave*, and most of the practical instinct i use when thinking about a diffusion setup comes from here. full detail is in the [iDDPM note](/o/2102-09672/), but the parts worth carrying around are these.
 
 **the variance is a knob, so learn it.** DDPM pins the reverse variance to one of two known bounds ($\beta\_t$ or $\tilde{\beta}\_t$) and only learns the mean. but the earliest timesteps carry almost all of the likelihood, so pinning the variance there is exactly where it costs you. instead, let the network interpolate between the two bounds **in log space**:
 
@@ -92,7 +92,7 @@ sampling is the reverse process discretized, which in the continuous-time view i
 - **classifier-free guidance.** you extrapolate away from the unconditional prediction to push the prompt. at low terminal SNR this blows up the scale and over-exposes the image, so you rescale the guided output back to the conditional's standard deviation and blend.
 - **the sampler's algebra.** the $\epsilon$-form updates divide by $a\_t$, which is zero at the terminal step. the $x\_0$-form updates don't.
 
-all three are in the [noise schedules note](/writing/2305-08891/) with the equations.
+all three are in the [noise schedules note](/o/2305-08891/) with the equations.
 
 ## the map
 
@@ -100,17 +100,17 @@ where to find the actual math, so i stop re-deriving it:
 
 | idea | one line | math lives in |
 |---|---|---|
-| forward process | closed form lets you skip to any $t$ | [DDPM, math foundation](/writing/2006-11239/) |
-| reverse process + bound | learned Gaussian chain; the bound is all Gaussian KLs | [DDPM, math foundation](/writing/2006-11239/) |
-| why $\epsilon$ | score $\propto \epsilon$, so $\epsilon$-MSE is score matching | [DDPM, score-function lens](/writing/2006-11239/) |
-| learned variance | interpolate $\log \Sigma$ between $\beta\_t$ and $\tilde{\beta}\_t$ | [iDDPM](/writing/2102-09672/) |
-| cosine schedule | spend the noise budget evenly across $t$ | [iDDPM](/writing/2102-09672/) |
-| importance sampling | sample $t$ where the VLB term is large | [iDDPM](/writing/2102-09672/) |
-| fast sampling | skip timesteps; learned variance rescales itself | [iDDPM](/writing/2102-09672/) |
-| targets ($\epsilon$, $x\_0$, $v$) | $v$ is the stable target at the terminal step | [noise schedules, v-target](/writing/2305-08891/) |
-| schedule / terminal SNR | non-zero terminal SNR is the train/inference mismatch | [noise schedules, SNR](/writing/2305-08891/) |
-| guidance | CFG plus the rescale that stops over-exposure | [noise schedules, CFG](/writing/2305-08891/) |
-| sampler corrections | $x\_0$-form updates avoid dividing by $a\_t$ | [noise schedules, samplers](/writing/2305-08891/) |
+| forward process | closed form lets you skip to any $t$ | [DDPM, math foundation](/o/2006-11239/) |
+| reverse process + bound | learned Gaussian chain; the bound is all Gaussian KLs | [DDPM, math foundation](/o/2006-11239/) |
+| why $\epsilon$ | score $\propto \epsilon$, so $\epsilon$-MSE is score matching | [DDPM, score-function lens](/o/2006-11239/) |
+| learned variance | interpolate $\log \Sigma$ between $\beta\_t$ and $\tilde{\beta}\_t$ | [iDDPM](/o/2102-09672/) |
+| cosine schedule | spend the noise budget evenly across $t$ | [iDDPM](/o/2102-09672/) |
+| importance sampling | sample $t$ where the VLB term is large | [iDDPM](/o/2102-09672/) |
+| fast sampling | skip timesteps; learned variance rescales itself | [iDDPM](/o/2102-09672/) |
+| targets ($\epsilon$, $x\_0$, $v$) | $v$ is the stable target at the terminal step | [noise schedules, v-target](/o/2305-08891/) |
+| schedule / terminal SNR | non-zero terminal SNR is the train/inference mismatch | [noise schedules, SNR](/o/2305-08891/) |
+| guidance | CFG plus the rescale that stops over-exposure | [noise schedules, CFG](/o/2305-08891/) |
+| sampler corrections | $x\_0$-form updates avoid dividing by $a\_t$ | [noise schedules, samplers](/o/2305-08891/) |
 
 ## still fuzzy
 
